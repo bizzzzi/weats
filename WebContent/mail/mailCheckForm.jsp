@@ -21,6 +21,11 @@
 <% }
 	session.removeAttribute("mesg");
 %>
+
+
+
+
+
 <b>입력하신 이메일로 메일을 전송했습니다.</b><br/>
 	이메일:	<input type="text" name="user_email" value="<%=user_email%>"><br>
 </body>

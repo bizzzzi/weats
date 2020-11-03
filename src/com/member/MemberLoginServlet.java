@@ -24,11 +24,15 @@ public class MemberLoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String user_email =  request.getParameter("user_email");
 		String pw  = request.getParameter("user_pw");
-		
+		System.out.println("loginServlet : "+pw);
 		MemberService service = new MemberService();
 		String salt = service.getSaltMember(user_email);
 		System.out.println(salt);
 		String user_pw = SHA256.getEncrypt(pw, salt);
+		
+		System.out.println("LoginServlet pw : "+ pw);
+		System.out.println("LoginServlet salt : "+ salt);
+		System.out.println("LoginServlet user_pw : "+ user_pw);
 		
 		MemberDTO dto = new MemberDTO();
 	
@@ -42,11 +46,10 @@ public class MemberLoginServlet extends HttpServlet {
 		
 		if(dto!=null) {
 			session.setAttribute("mesg", "로그인 성공");
-			response.sendRedirect("main.jsp");
 		} else {
 			session.setAttribute("mesg", "로그인 실패");
-			response.sendRedirect("login.jsp");
 		}
+		response.sendRedirect("main.jsp");
 		
 	}
 
