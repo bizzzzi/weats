@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="LeportsMapper">
+
+	<resultMap type="LeportsDTO" id="leports2">
+		<result column="leports_id" property="leports_id"></result>
+		<result column="leports_title" property="leports_title"></result>
+		<result column="leports_main_img" property="leports_main_img"></result>
+		<result column="leports_loc" property="leports_loc"></result>
+	</resultMap>
+	
+	<resultMap type="LeportsItemDTO" id="leportsItem">
+		<result column="leports_summary" property="leports_summary"></result>
+		<result column="leports_price" property="leports_price"></result>
+	</resultMap>
+
+	<resultMap type="LeportsThumbnailDTO" id="thumbnailDTO">
+		<collection property="leports2" resultMap="leports2"></collection>
+		<collection property="leportsItem" resultMap="leportsItem"></collection>
+	</resultMap>
+
+	<select id="leportsList" parameterType="hashmap"
+		resultType="LeportsThumbnailDTO">
+		select l.leports_id, l.leports_title, l.leports_main_img, l.leports_loc,
+		litem.leports_summary, litem.leports_price
+		from leports l 
+		join leports_item litem
+		on l.leports_id = litem.leports_id
+		<choose>
+			<when test="type != null and type != 'all'">
+				where leports_type = #{type}
+			</when>
+			<when test="loc != null and loc != 'all'">
+				where leports_loc = #{loc}
+			</when>
+
+		</choose>
+	</select>
+
+
+	<resultMap type="PartnerDTO" id="partner">
+		<result column="partner_comname" property="partner_comname"></result>
+		<result column="partner_comaddress"
+			property="partner_comaddress"></result>
+	</resultMap>
+
+	<resultMap type="LeportsDTO" id="leports">
+		<result column="leports_id" property="leports_id"></result>
+		<result column="leports_name" property="leports_name"></result>
+		<result column="leports_regdate" property="leports_regdate"></result>
+	</resultMap>
+
+	<resultMap type="LeportsDetailDTO" id="detail">
+		<collection property="partner" resultMap="partner"></collection>
+		<collection property="leports" resultMap="leports"></collection>
+	</resultMap>
+
+	<select id="leportsDetailSelect" parameterType="String"
+		resultType="LeportsDetailDTO">
+		select p.partner_comname, p.partner_comaddress,
+		l.leports_name, l.leports_id, to_char(l.leports_regdate, 'yy/mm/dd')
+		leports_regdate
+		from leports l
+		join partner p
+		on l.partner_id =
+		p.partner_id
+		where l.leports_id = #{leports_id}
+	</select>
+</mapper>
