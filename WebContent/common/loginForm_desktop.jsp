@@ -5,7 +5,7 @@
 <div class="modal hidden">
 	<div class="modalOverlay"></div>
 	<div id="loginForm">
-		<form action="LoginServlet" method="POST">
+		<form action="MemberLoginServlet" method="POST">
 			<div class="title">로그인</div>
 			<div class="closeBtn">❌</div>
 			<hr>
@@ -15,7 +15,7 @@
 						placeholder="이메일 주소" />
 				</div>
 				<div class="signRow">
-					<input type="password" name="user_passwd" id="userPasswd"
+					<input type="password" name="user_pw" id="userPasswd"
 						placeholder="비밀번호" />
 				</div>
 				<div>
