@@ -25,8 +25,10 @@ public class MemberDAO {
 
 	public MemberDTO memberLogin(SqlSession session, HashMap<String, String> map) {
 		// TODO Auto-generated method stub
-		
-		return session.selectOne("memberLogin", map);
+		System.out.println("MemberDAO"+map);
+		MemberDTO dto = session.selectOne("memberLogin", map);
+		System.out.println("MemberDAO"+dto);
+		return dto;
 	}
 
 }
