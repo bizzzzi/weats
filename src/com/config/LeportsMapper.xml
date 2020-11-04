@@ -30,13 +30,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on l.leports_id = litem.leports_id
 		<choose>
 			<when test="type != null and type != 'all'">
-				where leports_type = #{type}
+				where leports_type = #{type}  order by l.leports_id
 			</when>
 			<when test="loc != null and loc != 'all'">
-				where leports_loc = #{loc}
+				where leports_loc = #{loc}  order by l.leports_id
 			</when>
-
+			<otherwise>
+			order by l.leports_id
+			</otherwise>
 		</choose>
+		
 	</select>
 
 
