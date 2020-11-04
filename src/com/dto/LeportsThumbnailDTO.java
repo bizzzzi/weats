@@ -6,15 +6,14 @@ public class LeportsThumbnailDTO {
 	private String leports_main_img;
 	private String leports_loc;
 	private String leports_summary;
-	private String leports_price;
+	private int leports_price;
 	
 	public LeportsThumbnailDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 	public LeportsThumbnailDTO(String leports_id, String leports_title, String leports_main_img, String leports_loc,
-			String leports_summary, String leports_price) {
+			String leports_summary, int leports_price) {
 		super();
 		this.leports_id = leports_id;
 		this.leports_title = leports_title;
@@ -23,17 +22,14 @@ public class LeportsThumbnailDTO {
 		this.leports_summary = leports_summary;
 		this.leports_price = leports_price;
 	}
-	
 
 	public String getLeports_id() {
 		return leports_id;
 	}
 
-
 	public void setLeports_id(String leports_id) {
 		this.leports_id = leports_id;
 	}
-
 
 	public String getLeports_title() {
 		return leports_title;
@@ -67,21 +63,22 @@ public class LeportsThumbnailDTO {
 		this.leports_summary = leports_summary;
 	}
 
-	public String getLeports_price() {
+	public int getLeports_price() {
 		return leports_price;
 	}
 
-	public void setLeports_price(String leports_price) {
+	public void setLeports_price(int leports_price) {
 		this.leports_price = leports_price;
 	}
 
-	
 	@Override
 	public String toString() {
 		return "LeportsThumbnailDTO [leports_id=" + leports_id + ", leports_title=" + leports_title
 				+ ", leports_main_img=" + leports_main_img + ", leports_loc=" + leports_loc + ", leports_summary="
 				+ leports_summary + ", leports_price=" + leports_price + "]";
 	}
+
+	
 	
 	
 
