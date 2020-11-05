@@ -56,7 +56,7 @@ public class LeportsListServlet extends HttpServlet {
 		
 		
 		request.setAttribute("leportsList", list1); //중복 제거한 리스트를 request.setAttribute();
-		RequestDispatcher dis = request.getRequestDispatcher("/leports/leportsList.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("/MainLeports.jsp");
 		dis.forward(request, response);
 	}
 
