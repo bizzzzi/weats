@@ -60,6 +60,7 @@ if (category != null) {
 		String leports_summary = dto.getLeports_summary();
 		int leports_price = dto.getLeports_price();
 	%>
+	<div class="leports_item">
 	<a href="LeportsDetailServlet?leports_id=L22">
 		<div>
 			<img src="<%=leports_main_img%>">
@@ -74,7 +75,7 @@ if (category != null) {
 			</ul>
 		</div>
 	</a>
-
+</div>
 	<%
 		}
 	%>

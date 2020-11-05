@@ -16,6 +16,7 @@
 </head>
 <body>
 	<div id="desktop">
+		<jsp:include page="common/header_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
