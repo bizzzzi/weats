@@ -1,6 +1,7 @@
 package com.leports;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -21,15 +22,12 @@ import com.service.LeportsService;
 public class LeportsDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String leports_id = request.getParameter("leports_id");
-		
 		LeportsService service = new LeportsService();
-		LeportsDetailDTO dto = service.leportsDetail(leports_id);
+		List<LeportsDetailDTO> list = service.leportsDetail(leports_id);
+		request.setAttribute("leportsDetail", list);
 		
-		request.setAttribute("leportsDetail", dto);
-		
-		RequestDispatcher dis = request.getRequestDispatcher("leportsDetail.jsp");
+		RequestDispatcher dis = request.getRequestDispatcher("/MainLeportsDetail.jsp");
 		dis.forward(request, response);
-		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
