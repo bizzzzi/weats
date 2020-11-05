@@ -43,9 +43,9 @@
 						<li>1명 <b><%=dto.getLeports_price() %></b></li>
 					</ul>
 					<div>
-						<button class="js_upBtn"><img src="#">마이너스 버튼</button>
-						<input class="js_pCount"type="text" name="personnelConut" value="1" readonly> 
-						<button class="js_dwBtn"><img src="#">플러스 버튼</button>
+						<button class="js_dwBtn" onclick="down();"><img src="#">마이너스 버튼</button>
+						<input id="js_pCount" type="text" name="personnelConut" value="1" readonly>
+						<button class="js_upBtn" onclick="up();"><img src="#">플러스 버튼</button>
 					</div>
 				</div>
 				<% } %>
