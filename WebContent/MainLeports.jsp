@@ -16,7 +16,6 @@
 </head>
 <body>
 	<div id="desktop">
-		LeportsDetailServlet?leports_id=L22
 		<jsp:include page="common/loginForm_desktop.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/signUpForm_desktop.jsp" flush="true"></jsp:include>
 	</div>
