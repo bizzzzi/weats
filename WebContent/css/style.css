@@ -481,8 +481,7 @@ video {
 #Resale_list .trade_nav>ul {
 	display: flex;
 	justify-content: center;
-=======
-/* 레포츠 리스트 */
+}/* 레포츠 리스트 */
 
 #leports_list .leports_category_selector_wrap {
 	margin: 0 10%;

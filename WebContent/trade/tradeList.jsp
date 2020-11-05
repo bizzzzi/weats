@@ -25,16 +25,14 @@ List<TradeDTO> list = (List<TradeDTO>) request.getAttribute("list");
 			for(TradeDTO x:list){
 		%>
 		<ul class="trade_list">
-				<li class="trade_main_img" style="background: #eee;"><a
-					href="#"> <!-- <img src="fff.png"> -->
-						<span class="img_src"><%=x.getTrade_main_img()%></span>
-				</a></li>
+				<li class="trade_main_img" style="background: #eee;"><a href="#"> <!-- <img src="fff.png"> -->
+						<span class="img_src"><%=x.getTrade_main_img()%></span></a>
+				</li>
 				<li><a href="#"><span class="trade_title"><%=x.getTrade_title()%></span></a></li>
 				<li><a href="#"><span class="trade_price"><%=x.getTrade_price()%></span></a></li>
 		</ul>
 		<%
 			}
 		%>
-	</div>
 	</div>
 </div>
