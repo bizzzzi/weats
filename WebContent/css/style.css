@@ -485,5 +485,4 @@ video {
 #Resale_list .trade_nav > ul > li{padding:10px;}
 
 .trade_nav .option_btn{display:flex; justify-content:center;}
-.trade_nav .option_btn a{padding:10px; background:blue;}
-
+.trade_nav .option_btn a{padding:10px; background:gray;}
