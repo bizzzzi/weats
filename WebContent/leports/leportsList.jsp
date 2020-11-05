@@ -61,7 +61,7 @@
 				String leports_summary = dto.getLeports_summary();
 				int leports_price = dto.getLeports_price();
 		%>
-	<a href="LeportsDetailServlet?leports_id=L22">
+	<a href="#">
 		<div>
 			<img src="<%=leports_main_img%>">
 		</div>

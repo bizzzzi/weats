@@ -16,20 +16,51 @@ public class LeportsService {
 		// TODO Auto-generated constructor stub
 		dao = new LeportsDAO();
 	}
-	
-	public List<LeportsDetailDTO> leportsDetail(String leports_id) {
+	public List<LeportsDTO> leportsListByType(String type) {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
-		List<LeportsDetailDTO> list = null;
+		List<LeportsDTO> list = null;
 		try {
-			list = dao.leportsDetail(session, leports_id);
+			list = dao.leportsListByType(session, type);
 		} finally {
-			// TODO: handle finally clause
 			session.close();
 		}
 		return list;
 	}
-	
+	public List<LeportsDTO> leportsListByLoc(String loc) {
+		// TODO Auto-generated method stub
+		SqlSession session = MySqlSessionFactory.getSession();
+		List<LeportsDTO> list = null;
+		try {
+			list = dao.leportsListByLoc(session, loc);
+		} finally {
+			session.close();
+		}
+		return list;
+	}
+	public LeportsDetailDTO leportsDetail(String leports_id) {
+		// TODO Auto-generated method stub
+		SqlSession session = MySqlSessionFactory.getSession();
+		LeportsDetailDTO dto = null;
+		try {
+			dto = dao.leportsDetail(session, leports_id);
+		} finally {
+			// TODO: handle finally clause
+			session.close();
+		}
+		return dto;
+	}
+	public List<LeportsDTO> leportsListAll() {
+		// TODO Auto-generated method stub
+		SqlSession session = MySqlSessionFactory.getSession();
+		List<LeportsDTO> list = null;
+		try {
+			list = dao.leportsListAll(session);
+		} finally {
+			session.close();
+		}
+		return list;
+	}
 	public List<LeportsThumbnailDTO> leportsList(Map<String, String> map) {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
