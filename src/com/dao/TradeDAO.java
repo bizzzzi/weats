@@ -15,4 +15,8 @@ public class TradeDAO {
 		List<TradeDTO> list=session.selectList("selectTrade",trade_type);
 		return list;
 	}
+	public int tradeWrite(SqlSession session,TradeDTO dto) {
+		int num = session.insert("tradeWrite",dto);
+		return num;
+	}
 }

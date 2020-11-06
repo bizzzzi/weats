@@ -5,7 +5,7 @@
 <!-- div class="Resale_list" -->
 
 <%
-List<TradeDTO> list = (List<TradeDTO>) request.getAttribute("list");
+	List<TradeDTO> list = (List<TradeDTO>) request.getAttribute("list");
 %>
 
 <div class="trade_nav">
@@ -14,13 +14,12 @@ List<TradeDTO> list = (List<TradeDTO>) request.getAttribute("list");
 		<li><a href="TradeListServlet?category=대여">대여</a></li>
 	</ul>
 	<div class="option_btn">
-		<a href="#">내가 등록한 제품</a> <a href="#">판매/대여 등록</a>
+		<a href="#">내가 등록한 제품</a> <a href="TradeFormServlet">판매/대여 등록</a>
 	</div>
 </div>
 
 <div class="products">
 	<div class="productsList">
-	
 		<%
 			for(TradeDTO x:list){
 		%>

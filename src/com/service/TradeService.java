@@ -22,4 +22,20 @@ public class TradeService {
 			session.close();
 		}return list;
 	}
+
+	public int tradeWrite(TradeDTO dto) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int num = 0;
+		try {
+			num = dao.tradeWrite(session, dto);
+			if(num != 0) {
+				session.commit();
+			}
+		} catch (Exception e) {
+			session.rollback();
+		} finally {
+			session.close();
+		}
+		return num;
+	}
 }
