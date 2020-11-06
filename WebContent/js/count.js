@@ -1,16 +1,16 @@
-const test = document.getElementById('js_pCount');
-let count = 1;
+const pCount = document.getElementById('js_pCount');
 
-function up() {
-	if (Number(test.value) > 0) {
-		count += 1;
-		test.value = count;
+function pCountFn(x, number) {
+	let pCountValue = Number(pCount.value);
+//	+버튼 클릭시
+	if(pCount.value < number){
+		pCountValue += x;
 	}
+//	-버튼 클릭시
+	if(pCount.value > number) {
+		pCountValue += x;
+	}
+	
+	pCount.value = pCountValue;
 };
 
-function down() {
-	if (Number(test.value) > 1) {
-		count -= 1;
-		test.value = count;
-	}
-};
