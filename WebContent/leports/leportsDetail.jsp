@@ -13,16 +13,25 @@
 	List<LeportsDetailDTO> lList = (List) request.getAttribute("leportsDetail");
 	//상세 페이지에 공통으로 들어가는 부분 
 	LeportsDetailDTO lDTO = lList.get(0); 
+	String leports_title = lDTO.getLeports_title();
+	String main_img = lDTO.getLeports_main_img();
+	String sub_img1 = lDTO.getLeports_sub_img1();
+	String sub_img2 = lDTO.getLeports_sub_img2();
+	String sub_img3 = lDTO.getLeports_sub_img3();
+	String sub_img4 = lDTO.getLeports_sub_img4();
+	String content = lDTO.getLeports_content();
+	String regidate = lDTO.getLeports_regidate();
+	
 %>
 	<div>
 		<div>
-			<b><%=lDTO.getLeports_title() %></b>
+			<b><%=leports_title %></b>
 			<div>
-				<img src="<%=lDTO.getLeports_main_img()%>">메인 사진
+				<img src="<%=main_img%>">메인 사진
 			</div>
 			<div>
-				<img src="<%=lDTO.getLeports_sub_img1()%>">서브 1 <img src="<%=lDTO.getLeports_sub_img2()%>">서브 2 
-				<img src="<%=lDTO.getLeports_sub_img3()%>">서브 3 <img src="<%=lDTO.getLeports_sub_img4()%>">서브 4
+				<img src="<%=sub_img1%>">서브 1 <img src="<%=sub_img2%>">서브 2 
+				<img src="<%=sub_img3%>">서브 3 <img src="<%=sub_img4%>">서브 4
 			</div>
 			<div>
 				<b>달력 자리</b>
@@ -33,19 +42,22 @@
 				<%
 					for(int i=0; i<lList.size(); i++) {
 						LeportsDetailDTO dto = lList.get(i);
-						
+						String max_capacity = dto.getLeports_max_capacity();
+						String item_title = dto.getLeports_item_title();
+						String summary = dto.getLeports_summary();
+						String price = dto.getLeports_price();
 				%>
 				<div>
 					<ul>
-						<li>예약 가능 인원 : <%=dto.getLeports_max_capacity() %></li>
-						<li>아이템 이름 : <%=dto.getLeports_item_title() %></li>
-						<li>아이템 설명 : <%=dto.getLeports_summary() %></li>
-						<li>1명 <b><%=dto.getLeports_price() %></b></li>
+						<li>예약 가능 인원 : <%=max_capacity %></li>
+						<li>아이템 이름 : <%=item_title %></li>
+						<li>아이템 설명 : <%=summary %></li>
+						<li>1명 <b><%=price %></b></li>
 					</ul>
 					<div>
-						<button class="js_dwBtn" onclick="pCountFn(-1, 1);"><img src="#">마이너스 버튼</button>
-						<input id="js_pCount" type="text" name="personnelConut" value="1" readonly>
-						<button class="js_upBtn" onclick="pCountFn(1, <%=dto.getLeports_max_capacity() %>);"><img src="#">플러스 버튼</button>
+						<button class="js_dwBtn" onclick="pCountFn(<%=i%>,-1, 1);"><img src="#">마이너스 버튼</button>
+						<input id="js_pCount<%=i%>" type="text" name="personnelConut" value="1" readonly>
+						<button class="js_upBtn" onclick="pCountFn(<%=i%>,1, <%=max_capacity %>);"><img src="#">플러스 버튼</button>
 					</div>
 				</div>
 				<% } %>
@@ -55,7 +67,7 @@
 				<div>
 					<div>아이템 이름</div>
 					<div>
-						<div>인원 수 X 가격</div>
+						<div>인원 수  X 가격</div>
 						<div>합계</div>
 					</div>
 				</div>
@@ -65,7 +77,7 @@
 			<div>
 				<button>결제하기 버튼</button>
 			</div>
-			<div>상품 상세 설명(사진 가능) : <%=lDTO.getLeports_content() %></div>
+			<div>상품 상세 설명(사진 가능) : <%=content %></div>
 			<div>
 				<b>후기</b>
 				<div>
@@ -75,7 +87,7 @@
 				</div>
 			</div>
 		</div>
-		레포츠 등록 일자 : <%=lDTO.getLeports_regidate() %>
+		레포츠 등록 일자 : <%=regidate %>
 		<div>
 			<button>티켓 선택</button>
 			<div>총 금액</div>
