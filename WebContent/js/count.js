@@ -1,6 +1,6 @@
-const pCount = document.getElementById('js_pCount');
 
-function pCountFn(x, number) {
+function pCountFn(i,x, number) {
+	const pCount = document.getElementById(`js_pCount${i}`);
 	let pCountValue = Number(pCount.value);
 //	+버튼 클릭시
 	if(pCount.value < number){
