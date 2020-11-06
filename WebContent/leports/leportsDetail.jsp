@@ -3,12 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <%
 	List<LeportsDetailDTO> lList = (List) request.getAttribute("leportsDetail");
 	//상세 페이지에 공통으로 들어가는 부분 
@@ -54,10 +48,13 @@
 						<li>아이템 설명 : <%=summary %></li>
 						<li>1명 <b><%=price %></b></li>
 					</ul>
-					<div>
-						<button class="js_dwBtn" onclick="pCountFn(<%=i%>,-1, 1);"><img src="#">마이너스 버튼</button>
-						<input id="js_pCount<%=i%>" type="text" name="personnelConut" value="1" readonly>
-						<button class="js_upBtn" onclick="pCountFn(<%=i%>,1, <%=max_capacity %>);"><img src="#">플러스 버튼</button>
+					<div class="list_item">
+						<input class="js_itemName" type="text" value="<%=item_title%>" style="display:none">
+						<input class="js_maxPerson" type="text" value="<%=max_capacity%>" style="display:none">
+						<input class="js_itemPrice" type="text" value="<%=price%>" style="display:none">
+						<button class="js_dwBtn"><img src="#">마이너스 버튼</button>
+						<input class="js_pCount" type="text" name="personnelConut" value="0" readonly>
+						<button class="js_upBtn"><img src="#">플러스 버튼</button>
 					</div>
 				</div>
 				<% } %>
@@ -93,5 +90,3 @@
 			<div>총 금액</div>
 		</div>
 	</div>
-</body>
-</html>
