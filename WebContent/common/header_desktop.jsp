@@ -1,3 +1,4 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,6 +24,36 @@
 	</ul>
 	<div class="login">
 		<a class="ico" href="#"><i class="fas fa-user-circle"></i></a>
+<%
+	MemberDTO dto = (MemberDTO)session.getAttribute("login");
+   
+   if(dto != null){
+    String username = dto.getUser_name();
+    int partner_verify = dto.getPartner_verify();
+    if(partner_verify == 0){
+%>
+		안녕하세요.<%= username %>님.
+		<div class="nav">
+			<ul>
+				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
+				<li><a href="#">파트너등록</a></li>
+				<li class="logoutOpenBtn"><a href="#">로그아웃</a></li>
+			</ul>
+		</div>
+<%
+    }else{
+%>
+		안녕하세요.<%= username %>파트너님.
+		<div class="nav">
+			<ul>
+				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
+				<li class="productRegisterOpenBtn"><a href="#">상품등록</a></li>
+				<li class="logoutOpenBtn"><a href="#">로그아웃</a></li>
+			</ul>
+		</div>
+<%
+}}else{
+%>
 		<div class="nav">
 			<ul>
 				<li class="loginOpenBtn"><a href="#">로그인</a></li>
@@ -30,6 +61,9 @@
 				<li><a href="#">파트너 등록하기</a></li>
 			</ul>
 		</div>
+<%
+} //end if~else
+%>
 	</div>
 </div>
 
