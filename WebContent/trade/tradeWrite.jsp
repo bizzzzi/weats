@@ -3,7 +3,6 @@
     pageEncoding="UTF-8"%>
     <%
     	MemberDTO dto=(MemberDTO)session.getAttribute("login");
-    	System.out.print("게시판 등록: "+dto.getUser_id());
     	String user_id="";
     	if(dto!=null){
     		user_id=dto.getUser_id();

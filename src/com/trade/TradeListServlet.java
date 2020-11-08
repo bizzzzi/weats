@@ -20,19 +20,18 @@ import com.service.TradeService;
 @WebServlet("/TradeListServlet")
 public class TradeListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String trade_type=(String)request.getParameter("category");
+		String category=(String)request.getParameter("category");
 		TradeService service=new TradeService();
 		List<TradeDTO> list=null;
-		System.out.println(trade_type);
-		if(trade_type==null) {
+		if(category==null) {
 			list=service.selectTrade("판매");
 		}else {
-			list=service.selectTrade(trade_type);
+			list=service.selectTrade(category);
 		}
 		
-		String trade_self=(String)request.getParameter("self");
-		if(trade_self!=null) {
-			list=service.selectSelf(trade_self);
+		String user_id=(String)request.getParameter("user_id");
+		if(user_id!=null) {
+			list=service.selectSelf(user_id);
 		}
 
 		request.setAttribute("list", list);

@@ -22,7 +22,7 @@
 		<li><a href="TradeListServlet?category=대여">대여</a></li>
 	</ul>
 	<div class="option_btn">
-		<a href="TradeListServlet?self=<%=user_id%>">내가 등록한 제품</a> <a
+		<a href="TradeListServlet?category=self&user_id=<%=user_id%>">내가 등록한 제품</a> <a
 			href="TradeFormServlet">판매/대여 등록</a>
 	</div>
 </div>
@@ -31,7 +31,6 @@
 	<div class="productsList">
 		<%
 			for(TradeDTO x:list){
-				System.out.print("tradelist"+x.getTrade_id());
 		%>
 		<ul class="trade_list">
 			<a href="TradeDetailServlet?trade_id=<%=x.getTrade_id()%>">

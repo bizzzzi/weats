@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.TradeCommentsDTO;
 import com.dto.TradeDTO;
 import com.service.TradeService;
 
@@ -23,11 +24,10 @@ public class TradeDetailServlet extends HttpServlet {
 		String trade_id=(String)request.getParameter("trade_id");
 		TradeService service=new TradeService();
 		
-		System.out.println(trade_id);
 		TradeDTO dto=service.selectItem(trade_id);
-		
+		List<TradeCommentsDTO> list=service.CommentList(trade_id);
 		request.setAttribute("dto", dto);
-		System.out.println("detailServlet"+dto);
+		request.setAttribute("list", list);
 		RequestDispatcher dis=request.getRequestDispatcher("MainTradeDetail.jsp");
 		dis.forward(request, response);
 	}

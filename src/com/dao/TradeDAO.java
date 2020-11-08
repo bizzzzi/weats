@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import com.dto.TradeCommentsDTO;
 import com.dto.TradeDTO;
 
 public class TradeDAO {
@@ -26,5 +27,13 @@ public class TradeDAO {
 	public TradeDTO selectItem(SqlSession session,String trade_id){
 		TradeDTO dto=session.selectOne("selectItem",trade_id);
 		return dto;
+	}
+	public int CommentWrite(SqlSession session,TradeCommentsDTO dto) {
+		int num=session.insert("CommentWrite",dto);
+		return num;
+	}
+	public List<TradeCommentsDTO> CommentList(SqlSession session,String trade_id) {
+		List<TradeCommentsDTO> list=session.selectList("CommentList",trade_id);
+		return list;
 	}
 }

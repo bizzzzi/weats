@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	<select id="selectSelf" parameterType="String"
 		resultType="TradeDTO">
-		select trade_main_img,trade_title,trade_price from trade
+		select trade_main_img,trade_title,trade_price, trade_id  from trade
 		where user_id=#{user_id}
 	</select>
 	<insert id="tradeWrite" parameterType="TradeDTO">
@@ -20,4 +20,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectItem" parameterType="String" resultType="TradeDTO">
 		select * from trade where trade_id=#{trade_id}
 	</select> 
+	<insert id="CommentWrite" parameterType="TradeCommentsDTO">
+		insert into trade_comments values('TC'||trade_comment_seq.nextval,#{trade_id},#{user_id},#{trade_comment},sysdate)
+	</insert>
+	<select id="CommentList" parameterType="String" resultType="TradeCommentsDTO">
+		select * from trade_comments where trade_id=#{trade_id}
+	</select>
 </mapper>

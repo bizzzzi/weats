@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="com.dto.TradeCommentsDTO"%>
+<%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dto.TradeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -67,7 +70,11 @@
 </style> -->
 <%
 	TradeDTO dto=(TradeDTO)request.getAttribute("dto");
-	System.out.print("tradeDetail"+dto);
+	MemberDTO memberDTO=(MemberDTO)session.getAttribute("login");
+	String user_id="";
+	if(memberDTO!=null){
+		user_id=memberDTO.getUser_id();
+	}
 %>
     <section>
         <!-- 상품상세정보 -->
@@ -99,15 +106,22 @@
         </div>  
 
         <!-- 댓글 -->
-        <form id="WriteCommentForm">
-            <textarea name="trade_comment" cols="100" rows="5"></textarea>
-            <a href="#" onclick="writeCmt()">댓글 등록</a>
+        <form action="TradeCommentWrite" method="POST">
+        	<input type="hidden" name="trade_id" value="<%=dto.getTrade_id() %>"/>
+        	<input type="hidden" name="user_id"	value="<%=user_id%>"/>
+            <textarea name="trade_comment" rows="5" cols="100"></textarea>
+            <input type="submit" value="댓글 달기"/>
         </form>
-        <div class="trade_comment_list">
+         <div class="trade_comment_list">
+        <%
+		List<TradeCommentsDTO> list=(List<TradeCommentsDTO>)request.getAttribute("list");    
+        for(TradeCommentsDTO x:list){
+        %>
 	        <div class="comment_cont">
-	        	<strong>user_id</strong>
-	        	<span>trade_comment</span>
-	        	<p>comment_regidate</p>
+	        	<strong style="color:red"><%=x.getUser_id() %></strong>
+	        	<span><%=x.getTrade_comment() %></span>
+	        	<p><%=x.getComment_regidate() %></p>
         	</div>
-        </div> 
+        <%} %>
+         </div> 
     </section>
