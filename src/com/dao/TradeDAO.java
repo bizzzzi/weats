@@ -19,4 +19,12 @@ public class TradeDAO {
 		int num = session.insert("tradeWrite",dto);
 		return num;
 	}
+	public List<TradeDTO> selectSelf(SqlSession session,String user_id) {
+		List<TradeDTO> list=session.selectList("selectSelf",user_id);
+		return list;
+	}
+	public TradeDTO selectItem(SqlSession session,String trade_id){
+		TradeDTO dto=session.selectOne("selectItem",trade_id);
+		return dto;
+	}
 }

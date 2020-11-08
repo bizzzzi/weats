@@ -17,27 +17,18 @@ import com.service.TradeService;
 /**
  * Servlet implementation class TradeListServlet
  */
-@WebServlet("/TradeListServlet")
-public class TradeListServlet extends HttpServlet {
+@WebServlet("/TradeDetailServlet")
+public class TradeDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String trade_type=(String)request.getParameter("category");
+		String trade_id=(String)request.getParameter("trade_id");
 		TradeService service=new TradeService();
-		List<TradeDTO> list=null;
-		System.out.println(trade_type);
-		if(trade_type==null) {
-			list=service.selectTrade("판매");
-		}else {
-			list=service.selectTrade(trade_type);
-		}
 		
-		String trade_self=(String)request.getParameter("self");
-		if(trade_self!=null) {
-			list=service.selectSelf(trade_self);
-		}
-
-		request.setAttribute("list", list);
-
-		RequestDispatcher dis=request.getRequestDispatcher("MainTrade.jsp");
+		System.out.println(trade_id);
+		TradeDTO dto=service.selectItem(trade_id);
+		
+		request.setAttribute("dto", dto);
+		System.out.println("detailServlet"+dto);
+		RequestDispatcher dis=request.getRequestDispatcher("MainTradeDetail.jsp");
 		dis.forward(request, response);
 	}
 

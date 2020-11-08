@@ -38,4 +38,22 @@ public class TradeService {
 		}
 		return num;
 	}
+	public List<TradeDTO> selectSelf(String user_id) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		List<TradeDTO> list=null;
+		try {
+			list=dao.selectSelf(session, user_id);
+		}finally {
+			session.close();
+		}return list;
+	}
+	public TradeDTO selectItem(String trade_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		TradeDTO dto=null;
+		try {
+			dto=dao.selectItem(session, trade_id);
+		}finally {
+			session.close();
+		}return dto;
+	}
 }

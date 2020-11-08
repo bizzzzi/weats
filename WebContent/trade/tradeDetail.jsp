@@ -1,10 +1,7 @@
+<%@page import="com.dto.TradeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <!-- 
 <style type="text/css">
     *{
         padding: 0;margin: 0;
@@ -67,50 +64,50 @@
 
     }
 
-</style>
-</head>
-
-
-<body>
-	
-
+</style> -->
+<%
+	TradeDTO dto=(TradeDTO)request.getAttribute("dto");
+	System.out.print("tradeDetail"+dto);
+%>
     <section>
         <!-- 상품상세정보 -->
         <div class="products_info">
             <div class="imgframe">
                 <ul class="trade_img">
-                    <li><img class="trade_main_img" src="fff.png"></li>
-                    <li><img class="trade_sub_img1" src="fff.png"></li>
-                    <li><img class="trade_sub_img2" src="fff.png"></li>
-                    <li><img class="trade_sub_img3" src="fff.png"></li>
-                    <li><img class="trade_sub_img4" src="fff.png"></li>
+                    <li><img class="trade_main_img" src="fff.png"><%=dto.getTrade_main_img() %></li>
+                    <li><img class="trade_sub_img1" src="fff.png"><%=dto.getTrade_sub_img1() %></li>
+                    <li><img class="trade_sub_img2" src="fff.png"><%=dto.getTrade_sub_img2() %></li>
+                    <li><img class="trade_sub_img3" src="fff.png"><%=dto.getTrade_sub_img3() %></li>
+                    <li><img class="trade_sub_img4" src="fff.png"><%=dto.getTrade_sub_img4() %></li>
                 </ul>
             </div>
             <div class="text_info">
                 <ul>
-                    <li>trade_regidate</li>
-                    <li>title</li>
-                    <li>price</li>
-                    <li>phone</li>
-                    <li>username</li>
+                    <li><%=dto.getTrade_regidate() %></li>
+                    <li><%=dto.getTrade_title() %></li>
+                    <li><%=dto.getTrade_price() %></li>
+                    <li><%=dto.getTrade_phone() %></li>
+                    <li><%=dto.getTrade_user_name() %></li>
                 </ul>
             </div>
         </div>
         <div class="contentsdiv">
             <h2>상품설명</h2><br>
-            <p class="trade_contents">Lorem ipsum dolor, sit amet consectetur adipisic
-                ing elit. Consectetur optio ad unde alias eaque quaerat, lib
-                ero ratione minus officiis hic laboriosam repellat, quidem cum solut
-                a eveniet. Laudantium tempora quae maiores.
+            <p class="trade_contents">
+            <%=dto.getTrade_contents() %>
             </p>
         </div>  
 
         <!-- 댓글 -->
-        <div class="comment">
+        <form id="WriteCommentForm">
             <textarea name="trade_comment" cols="100" rows="5"></textarea>
-            <input type="button" value="댓글입력">  
-        </div>
-        <div class="trade_comment_list"></div> 
+            <a href="#" onclick="writeCmt()">댓글 등록</a>
+        </form>
+        <div class="trade_comment_list">
+	        <div class="comment_cont">
+	        	<strong>user_id</strong>
+	        	<span>trade_comment</span>
+	        	<p>comment_regidate</p>
+        	</div>
+        </div> 
     </section>
-</body>
-</html>
