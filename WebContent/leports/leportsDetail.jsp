@@ -61,15 +61,20 @@
 				<!-- 여기 까지 -->
 				
 				<!-- 상품 선택 안했을 땐 없어야되고 선택하면 상품 복수로 선택한 만큼 나와야하는데 어떻게 해야할 지 모르겠음 -->
-				<div>
-					<div>아이템 이름</div>
-					<div>
-						<div>인원 수  X 가격</div>
-						<div>합계</div>
-					</div>
+				<div class="select_item_list">
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
 				</div>
 				<!-- 여기 까지 -->
-				<div>총 금액</div>
+				<div class="js_total_amount"></div>
 			</div>
 			<div>
 				<button>결제하기 버튼</button>
