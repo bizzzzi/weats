@@ -273,8 +273,9 @@ li {
 	top: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+	border-radius: 15px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
 }
 
 #mailCheckFormWrap {
@@ -298,18 +299,19 @@ li {
 }
 
 #mailCheckFormWrap #mailCheckForm button {
-  all: unset;
-  cursor: pointer;
-  background-color: white;
-  padding: 5px 0px;
-  width: 80px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  border: 2px solid rgba(0, 0, 0, 0.2);
-  color: rgba(0, 0, 0, 0.7);
-  text-transform: uppercase;
-  font-weight: 800;
-  font-size: 12px;
+	all: unset;
+	cursor: pointer;
+	background-color: white;
+	padding: 5px 0px;
+	width: 80px;
+	border-radius: 5px;
+	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px
+		rgba(0, 0, 0, 0.08);
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	color: rgba(0, 0, 0, 0.7);
+	text-transform: uppercase;
+	font-weight: 800;
+	font-size: 12px;
 }
 
 /* 반응형(모바일) */
@@ -427,7 +429,6 @@ video {
 }
 
 /* 슬라이더 */
-
 #recommend_contents .recommend_leports_slider {
 	height: 500px;
 	padding: 32px;
@@ -438,12 +439,11 @@ video {
 	height: 100%;
 }
 
-#recommend_contents .recommend_leports_slider .swiper-container .swiper-wrapper .swiper-slide {
+#recommend_contents .recommend_leports_slider .swiper-container .swiper-wrapper .swiper-slide
+	{
 	text-align: center;
 	font-size: 18px;
 	background: grey;
-	
-	
 	/* Center slide text vertically */
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -460,13 +460,11 @@ video {
 	border-radius: 50%;
 }
 
-
 .swiper-button-prev:after, .swiper-button-next:after {
 	color: black;
-} 
+}
 
 /* 슬라이더 끝 */
-
 #recommend_contents .inside1 {
 	background-color: #E1E2E1;
 	text-align: center;
@@ -479,7 +477,11 @@ video {
 	padding: 100px 0;
 }
 
-/* 레포츠 리스트 */
+/* Resale 중고거래 - 혜빈*/
+#Resale_list .trade_nav>ul {
+	display: flex;
+	justify-content: center;
+}/* 레포츠 리스트 */
 
 #leports_list .leports_category_selector_wrap {
 	margin: 0 10%;
@@ -527,4 +529,27 @@ video {
 	margin: 10px;
 }
 
+#Resale_list .trade_nav>ul>li {
+	padding: 10px;
+}
 
+.trade_nav .option_btn {
+	display: flex;
+	justify-content: center;
+}
+
+.trade_nav .option_btn a {
+	padding: 10px;
+	background: gray;
+}
+
+.productsList {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.trade_list {
+	width: 25%;
+	padding: 30px;
+}
