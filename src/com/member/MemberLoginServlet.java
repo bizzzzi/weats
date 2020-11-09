@@ -46,6 +46,7 @@ public class MemberLoginServlet extends HttpServlet {
 		
 		if(dto!=null) {
 			session.setAttribute("mesg", "로그인 성공");
+			session.setAttribute("login", dto);
 		} else {
 			session.setAttribute("mesg", "로그인 실패");
 		}
