@@ -61,7 +61,7 @@ if (category != null) {
 		int leports_price = dto.getLeports_price();
 	%>
 	<div class="leports_item">
-	<a href="LeportsDetailServlet?leports_id=L22">
+	<a href="LeportsDetailServlet?leports_id=<%=leports_id%>">
 		<div>
 			<img src="<%=leports_main_img%>">
 		</div>

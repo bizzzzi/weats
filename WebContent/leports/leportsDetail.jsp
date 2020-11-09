@@ -3,12 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <%
 	List<LeportsDetailDTO> lList = (List) request.getAttribute("leportsDetail");
 	//상세 페이지에 공통으로 들어가는 부분 
@@ -54,25 +48,33 @@
 						<li>아이템 설명 : <%=summary %></li>
 						<li>1명 <b><%=price %></b></li>
 					</ul>
-					<div>
-						<button class="js_dwBtn" onclick="pCountFn(<%=i%>,-1, 1);"><img src="#">마이너스 버튼</button>
-						<input id="js_pCount<%=i%>" type="text" name="personnelConut" value="1" readonly>
-						<button class="js_upBtn" onclick="pCountFn(<%=i%>,1, <%=max_capacity %>);"><img src="#">플러스 버튼</button>
+					<div class="list_item">
+						<input class="js_itemName" type="text" value="<%=item_title%>" style="display:none">
+						<input class="js_maxPerson" type="text" value="<%=max_capacity%>" style="display:none">
+						<input class="js_itemPrice" type="text" value="<%=price%>" style="display:none">
+						<button class="js_dwBtn"><img src="#">마이너스 버튼</button>
+						<input class="js_pCount" type="text" name="personnelConut" value="0" readonly>
+						<button class="js_upBtn"><img src="#">플러스 버튼</button>
 					</div>
 				</div>
 				<% } %>
 				<!-- 여기 까지 -->
 				
 				<!-- 상품 선택 안했을 땐 없어야되고 선택하면 상품 복수로 선택한 만큼 나와야하는데 어떻게 해야할 지 모르겠음 -->
-				<div>
-					<div>아이템 이름</div>
-					<div>
-						<div>인원 수  X 가격</div>
-						<div>합계</div>
-					</div>
+				<div class="select_item_list">
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
+					<div class="js_selectItem"></div>
 				</div>
 				<!-- 여기 까지 -->
-				<div>총 금액</div>
+				<div class="js_total_amount"></div>
 			</div>
 			<div>
 				<button>결제하기 버튼</button>
@@ -93,5 +95,3 @@
 			<div>총 금액</div>
 		</div>
 	</div>
-</body>
-</html>
