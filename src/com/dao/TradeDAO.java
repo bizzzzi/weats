@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.dto.TradeCommentsDTO;
 import com.dto.TradeDTO;
 
 public class TradeDAO {
