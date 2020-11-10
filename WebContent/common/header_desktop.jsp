@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <div class="header">
 	<div class="logo">
-		<h2><a href="MainServlet">Acorn</a></h2>
+		<h2><a href="main.jsp">Acorn</a></h2>
 	</div>
 	<ul class="nav">
 		<li><a href="RecommendServlet">추천</a></li>

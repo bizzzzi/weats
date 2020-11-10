@@ -13,8 +13,9 @@ public class MemberService {
 		// TODO Auto-generated constructor stub
 		dao = new MemberDAO();
 	}
+	
+	//회원가입
 	public int memberAdd(MemberDTO dto) {
-		
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
 		int n = 0;
@@ -34,6 +35,7 @@ public class MemberService {
 		return n;
 	}
 	
+	//이메일 인증 검증
 	public void user_verifyUpdate(String user_email) {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
@@ -52,6 +54,8 @@ public class MemberService {
 			session.close();
 		}
 	}
+	
+	//회원의 salt키 추출
 	public String getSaltMember(String user_email) {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
@@ -65,6 +69,8 @@ public class MemberService {
 		}
 		return salt;
 	}
+	
+	//로그인 
 	public MemberDTO memberLogin(HashMap<String, String> map) {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
