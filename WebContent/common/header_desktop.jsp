@@ -58,7 +58,7 @@
 			<ul>
 				<li class="loginOpenBtn"><a href="#">로그인</a></li>
 				<li class="signUpOpenBtn"><a href="#">회원가입</a></li>
-				<li><a href="#">파트너 등록하기</a></li>
+				<li><a href="partner/partnerForm.jsp">파트너 등록하기</a></li>
 			</ul>
 		</div>
 <%
