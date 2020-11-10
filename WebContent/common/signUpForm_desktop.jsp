@@ -10,19 +10,19 @@
 				<div class="closeBtn2">❌</div>
 				<hr>
 				<div class="signRow">
-					<input type="email" name="useremail" class="userEmail"
+					<input type="email" name="user_email" class="userEmail"
 						placeholder="이메일 주소(아이디)" />
 				</div>
 				<div class="signRow">
-					<input type="text" name="username" class="userName"
+					<input type="text" name="user_name" class="userName"
 						placeholder="이름(예:홍길동)" />
 				</div>
 				<div class="signRow">
-					<input type="password" name="userpasswd" class="userPasswd"
+					<input type="password" name="user_pw" class="userPasswd"
 						placeholder="비밀번호(영문, 숫자, 특수문자 기호)" />
 				</div>
-				<div class="signRow">
-					<input type="password" name="userpasswd2" class="userPasswd2"
+				<div class="signRow"> 
+					<input type="password" name="user_pw2" class="userPasswd2"
 						placeholder="비밀번호를 한번 더 입력해주세요." />
 				</div>
 				<div id="pwCheck"></div>

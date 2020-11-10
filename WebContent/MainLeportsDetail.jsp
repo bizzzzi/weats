@@ -8,14 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
-
-<% String mesg = (String) session.getAttribute("mesg");
-	if(mesg != null) {
-%>
-<script> alert("<%=mesg%>")</script>
-<% } 
-	session.removeAttribute("mesg");
-%>
+<style type="text/css">
+	a {
+		color: black; /* 임시값 나중에 Css 공통수정 */
+	}
+</style>
 </head>
 <body>
 
@@ -28,13 +25,15 @@
 		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="main_contents">
-		<video autoplay="autoplay" loop="loop" muted="muted">
-			<source src="./video/main.mp4" type="video/mp4">
-		</video>
+	<div id="leports_Detail_Nav">
+		<jsp:include page="leports/leportsDetailNav.jsp" flush="true"></jsp:include>
+	</div>
+	<div id="leports_Detail">
+		<jsp:include page="leports/leportsDetail.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
+<script type="text/javascript" src="js/count.js"></script>
 </body>
 </html>
