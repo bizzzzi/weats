@@ -14,8 +14,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAlias type="com.dto.LeportsDetailDTO" alias="LeportsDetailDTO"/>
     <typeAlias type="com.dto.LeportsThumbnailDTO" alias="LeportsThumbnailDTO"/>
     <typeAlias type="com.dto.ReservationReviewDTO" alias="ReservationReviewDTO"/>
-    
-    
+    <typeAlias type="com.dto.TradeDTO" alias="TradeDTO"/>
+
    </typeAliases>
    
 	<environments default="development">
@@ -32,6 +32,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="com/config/MemberMapper.xml" />
 		<mapper resource="com/config/LeportsMapper.xml" />
+		<mapper resource="com/config/TradeMapper.xml" />
 	</mappers>
 </configuration>
 
