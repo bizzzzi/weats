@@ -13,72 +13,76 @@ drop sequence reservation_seq;
 
 --member insert
 create sequence member_seq minvalue 1 start with 1 increment by 1;
-insert into member values('M'||member_seq.nextval,'±èÇıºó','acornjava@gmail.com','javaacorn','dafkje;jkfaef',1,1);
-insert into member values('M'||member_seq.nextval,'±èÇıºó','acornjava@gmail.com','javaacorn','dafkje;jkfaef',1,1);
-insert into member values('M'||member_seq.nextval,'±èÇıºó','acornjava@gmail.com','javaacorn','dafkje;jkfaef',1,1);
+insert into member values('M'||member_seq.nextval,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','acornjava@gmail.com','javaacorn','dafkje;jkfaef',1,1);
+insert into member values('M'||member_seq.nextval,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','acornjava@gmail.com','javaacorn','dafkje;jkfaef',1,1);
+insert into member values('M'||member_seq.nextval,'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','acornjava@gmail.com','javaacorn','dafkje;jkfaef',1,1);
 --partner insert
 create sequence partner_seq minvalue 1 start with 1 increment by 1;
-insert into partner values('P'||partner_seq.nextval,'M2','¼­ÇÁÇÏ¿ì½º','240-175','°­¿øµµ ¾ç¾ç±º ¼­ÇÁÇÏ¿ì½º','1Ãş','01099720803','123554645-78945321','license_docs');
-insert into partner values('P'||partner_seq.nextval,'M4','¼­ÇÁÇÏ¿ì½º','240-175','°­¿øµµ ¾ç¾ç±º ¼­ÇÁÇÏ¿ì½º','1Ãş','01099720803','123554645-78945321','license_docs');
-insert into partner values('P'||partner_seq.nextval,'M3','¼­ÇÁÇÏ¿ì½º','240-175','°­¿øµµ ¾ç¾ç±º ¼­ÇÁÇÏ¿ì½º','1Ãş','01099720803','123554645-78945321','license_docs');
+insert into partner values('P'||partner_seq.nextval,'M2','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½º','240-175','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ç±º ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½º','1ï¿½ï¿½','01099720803','123554645-78945321','license_docs');
+insert into partner values('P'||partner_seq.nextval,'M4','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½º','240-175','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ç±º ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½º','1ï¿½ï¿½','01099720803','123554645-78945321','license_docs');
+insert into partner values('P'||partner_seq.nextval,'M3','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½º','240-175','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ç±º ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½º','1ï¿½ï¿½','01099720803','123554645-78945321','license_docs');
 --leport insert
 create sequence leports_seq minvalue 1 start with 1 increment by 1;
-insert into leports values('L'||leports_seq.nextval,'P2','¾ç¾çÀ¸·Î ¿©Çà¿Â ±è¿¡ ¿ì¸®µµ µé·Á¤»','Ç×°ø','°­¿øµµ',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','¾È³çÇÏ¼¼¿ä, ÀúÈñ´Â ÀÌ¹ø¿¡ ¿ÀÇÂÇÑ ¾ç¾ç ¼­ÇÁÇÏ¿ì½ºÀÔ´Ï´Ù. ');
-insert into leports values('L'||leports_seq.nextval,'P4','¾ç¾çÀ¸·Î ¿©Çà¿Â ±è¿¡ ¿ì¸®µµ µé·Á¤»','¼ö»ó','°æ±âµµ',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','¾È³çÇÏ¼¼¿ä, ÀúÈñ´Â ÀÌ¹ø¿¡ ¿ÀÇÂÇÑ ¾ç¾ç ¼­ÇÁÇÏ¿ì½ºÀÔ´Ï´Ù. ');
-insert into leports values('L'||leports_seq.nextval,'P6','¾ç¾çÀ¸·Î ¿©Çà¿Â ±è¿¡ ¿ì¸®µµ µé·Á¤»','Áö»ó','¼­¿ï',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','¾È³çÇÏ¼¼¿ä, ÀúÈñ´Â ÀÌ¹ø¿¡ ¿ÀÇÂÇÑ ¾ç¾ç ¼­ÇÁÇÏ¿ì½ºÀÔ´Ï´Ù. ');
-insert into leports values('L'||leports_seq.nextval,'P2','¾ç¾çÀ¸·Î ¿©Çà¿Â ±è¿¡ ¿ì¸®µµ µé·Á¤»','½Ç³»','ÀÎÃµ',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','¾È³çÇÏ¼¼¿ä, ÀúÈñ´Â ÀÌ¹ø¿¡ ¿ÀÇÂÇÑ ¾ç¾ç ¼­ÇÁÇÏ¿ì½ºÀÔ´Ï´Ù. ');
-insert into leports values('L'||leports_seq.nextval,'P4','¾ç¾çÀ¸·Î ¿©Çà¿Â ±è¿¡ ¿ì¸®µµ µé·Á¤»','±âÅ¸','ºÎ»ê',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','¾È³çÇÏ¼¼¿ä, ÀúÈñ´Â ÀÌ¹ø¿¡ ¿ÀÇÂÇÑ ¾ç¾ç ¼­ÇÁÇÏ¿ì½ºÀÔ´Ï´Ù. ');
-insert into leports values('L'||leports_seq.nextval,'P4','¾ç¾çÀ¸·Î ¿©Çà¿Â ±è¿¡ ¿ì¸®µµ µé·Á¤»','Áö»ó','°æ±â',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','¾È³çÇÏ¼¼¿ä, ÀúÈñ´Â ÀÌ¹ø¿¡ ¿ÀÇÂÇÑ ¾ç¾ç ¼­ÇÁÇÏ¿ì½ºÀÔ´Ï´Ù. ');
+insert into leports values('L'||leports_seq.nextval,'P2','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿¡ ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½×°ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½Ô´Ï´ï¿½. ');
+insert into leports values('L'||leports_seq.nextval,'P4','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿¡ ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½âµµ',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½Ô´Ï´ï¿½. ');
+insert into leports values('L'||leports_seq.nextval,'P6','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿¡ ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½Ô´Ï´ï¿½. ');
+insert into leports values('L'||leports_seq.nextval,'P2','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿¡ ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½Ç³ï¿½','ï¿½ï¿½Ãµ',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½Ô´Ï´ï¿½. ');
+insert into leports values('L'||leports_seq.nextval,'P4','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿¡ ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½Å¸','ï¿½Î»ï¿½',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½Ô´Ï´ï¿½. ');
+insert into leports values('L'||leports_seq.nextval,'P4','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿¡ ï¿½ì¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½',sysdate,'mainimg','subimg','subimg2','subimg3','subimg4','ï¿½È³ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½Ô´Ï´ï¿½. ');
 --leport item insert
-insert into leports_item values('L22','¼­ÇÎ °­½À(2½Ã°£)','ÁÖÁß 9½Ã~¿ÀÈÄ 2½Ã ¸Å Á¤°¢¸¶´Ù °­½À',50000,10);
-insert into leports_item values('L23','¼­ÇÎ °­½À(2½Ã°£)','ÁÖÁß 9½Ã~¿ÀÈÄ 2½Ã ¸Å Á¤°¢¸¶´Ù °­½À',50000,10);
-insert into leports_item values('L24','¼­ÇÎ °­½À(2½Ã°£)','ÁÖÁß 9½Ã~¿ÀÈÄ 2½Ã ¸Å Á¤°¢¸¶´Ù °­½À',50000,10);
-insert into leports_item values('L22','¼­ÇÎ °­½À(2½Ã°£)','ÁÖÁß 9½Ã~¿ÀÈÄ 2½Ã ¸Å Á¤°¢¸¶´Ù °­½À',50000,10);
-insert into leports_item values('L24','¼­ÇÎ °­½À(2½Ã°£)','ÁÖÁß 9½Ã~¿ÀÈÄ 2½Ã ¸Å Á¤°¢¸¶´Ù °­½À',50000,10);
-insert into leports_item values('L23','¼­ÇÎ °­½À(2½Ã°£)','ÁÖÁß 9½Ã~¿ÀÈÄ 2½Ã ¸Å Á¤°¢¸¶´Ù °­½À',50000,10);
-insert into leports_item values('L24','¼­ÇÎ °­½À(2½Ã°£)','ÁÖÁß 9½Ã~¿ÀÈÄ 2½Ã ¸Å Á¤°¢¸¶´Ù °­½À',50000,10);
+insert into leports_item values('L22','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(2ï¿½Ã°ï¿½)','ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',50000,10);
+insert into leports_item values('L23','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(2ï¿½Ã°ï¿½)','ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',50000,10);
+insert into leports_item values('L24','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(2ï¿½Ã°ï¿½)','ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',50000,10);
+insert into leports_item values('L22','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(2ï¿½Ã°ï¿½)','ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',50000,10);
+insert into leports_item values('L24','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(2ï¿½Ã°ï¿½)','ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',50000,10);
+insert into leports_item values('L23','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(2ï¿½Ã°ï¿½)','ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',50000,10);
+insert into leports_item values('L24','ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(2ï¿½Ã°ï¿½)','ï¿½ï¿½ï¿½ï¿½ 9ï¿½ï¿½~ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½',50000,10);
 --reservation insert
 create sequence reservation_seq minvalue 1 start with 1 increment by 1;
-insert into reservation values('RS'||reservation_seq.nextval,'M2','L22','±èÇıºóÄ£±¸','01012345748','10','½Å¿ëÄ«µå','2017/15/11',sysdate,80000);
-insert into reservation values('RS'||reservation_seq.nextval,'M3','L23','±èÇıºóÄ£±¸','01012345748','10','½Å¿ëÄ«µå','2017/15/11',sysdate,80000);
-insert into reservation values('RS'||reservation_seq.nextval,'M3','L24','±èÇıºóÄ£±¸','01012345748','10','½Å¿ëÄ«µå','2017/15/11',sysdate,80000);
-insert into reservation values('RS'||reservation_seq.nextval,'M2','L23','±èÇıºóÄ£±¸','01012345748','10','½Å¿ëÄ«µå','2017/15/11',sysdate,80000);
-insert into reservation values('RS'||reservation_seq.nextval,'M4','L23','±èÇıºóÄ£±¸','01012345748','10','½Å¿ëÄ«µå','2017/15/11',sysdate,80000);
-insert into reservation values('RS'||reservation_seq.nextval,'M4','L22','±èÇıºóÄ£±¸','01012345748','10','½Å¿ëÄ«µå','2017/15/11',sysdate,80000);
-insert into reservation values('RS'||reservation_seq.nextval,'M4','L22','±èÇıºóÄ£±¸','01012345748','10','½Å¿ëÄ«µå','2017/15/11',sysdate,80000);
+insert into reservation values('RS'||reservation_seq.nextval,'M2','L22','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½','01012345748','10','ï¿½Å¿ï¿½Ä«ï¿½ï¿½','2017/15/11',sysdate,80000);
+insert into reservation values('RS'||reservation_seq.nextval,'M3','L23','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½','01012345748','10','ï¿½Å¿ï¿½Ä«ï¿½ï¿½','2017/15/11',sysdate,80000);
+insert into reservation values('RS'||reservation_seq.nextval,'M3','L24','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½','01012345748','10','ï¿½Å¿ï¿½Ä«ï¿½ï¿½','2017/15/11',sysdate,80000);
+insert into reservation values('RS'||reservation_seq.nextval,'M2','L23','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½','01012345748','10','ï¿½Å¿ï¿½Ä«ï¿½ï¿½','2017/15/11',sysdate,80000);
+insert into reservation values('RS'||reservation_seq.nextval,'M4','L23','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½','01012345748','10','ï¿½Å¿ï¿½Ä«ï¿½ï¿½','2017/15/11',sysdate,80000);
+insert into reservation values('RS'||reservation_seq.nextval,'M4','L22','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½','01012345748','10','ï¿½Å¿ï¿½Ä«ï¿½ï¿½','2017/15/11',sysdate,80000);
+insert into reservation values('RS'||reservation_seq.nextval,'M4','L22','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½','01012345748','10','ï¿½Å¿ï¿½Ä«ï¿½ï¿½','2017/15/11',sysdate,80000);
 --reservation_review insert
 create sequence rs_review_seq minvalue 1 start with 1 increment by 1;
-insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS3','M2','»ı°¢º¸´Ù º°·ÎÀÓ, »ç¶÷ÀÌ ³Ê¹« ¸¹¾Æ¿ä',sysdate);
-insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS4','M2','»ı°¢º¸´Ù º°·ÎÀÓ, »ç¶÷ÀÌ ³Ê¹« ¸¹¾Æ¿ä',sysdate);
-insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L23','RS5','M3','»ı°¢º¸´Ù º°·ÎÀÓ, »ç¶÷ÀÌ ³Ê¹« ¸¹¾Æ¿ä',sysdate);
-insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS6','M3','»ı°¢º¸´Ù º°·ÎÀÓ, »ç¶÷ÀÌ ³Ê¹« ¸¹¾Æ¿ä',sysdate);
-insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS7','M4','»ı°¢º¸´Ù º°·ÎÀÓ, »ç¶÷ÀÌ ³Ê¹« ¸¹¾Æ¿ä',sysdate);
+insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS3','M2','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½',sysdate);
+insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS4','M2','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½',sysdate);
+insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L23','RS5','M3','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½',sysdate);
+insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS6','M3','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½',sysdate);
+insert into reservation_review values('RS_R'||rs_review_seq.nextval,'L22','RS7','M4','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½Æ¿ï¿½',sysdate);
 --trade insert
 create sequence trade_seq minvalue 1 start with 1 increment by 1;
-insert into trade values('T'||trade_seq.nextval,'M2','mainimg','subimg1','subimg2','subimg3','subimg4','ÇÑ¹ø »ç¿ëÇÑ ¾ÆÄí¾Æ ½´Áî ÆÈ¾Æ¿ä','±ŞÇÏ°Ô ¿©Çà°¡´À¶ó ½Å¹ßÀ» µÎ°í¿Ô´ø ¿©Çà¿¡¼­ µü ÇÑ¹ø »ç¿ëÇß½À´Ï´Ù.','ÆÇ¸Å','°­³²','Ä«Ä«¿ÀID: acorn','±èÇıºó','20000',sysdate,1);
-insert into trade values('T'||trade_seq.nextval,'M3','mainimg','subimg1','subimg2','subimg3','subimg4','ÇÑ¹ø »ç¿ëÇÑ ¾ÆÄí¾Æ ½´Áî ÆÈ¾Æ¿ä','±ŞÇÏ°Ô ¿©Çà°¡´À¶ó ½Å¹ßÀ» µÎ°í¿Ô´ø ¿©Çà¿¡¼­ µü ÇÑ¹ø »ç¿ëÇß½À´Ï´Ù.','ÆÇ¸Å','°­³²','Ä«Ä«¿ÀID: acorn','±èÇıºó','20000',sysdate,1);
-insert into trade values('T'||trade_seq.nextval,'M4','mainimg','subimg1','subimg2','subimg3','subimg4','ÇÑ¹ø »ç¿ëÇÑ ¾ÆÄí¾Æ ½´Áî ÆÈ¾Æ¿ä','±ŞÇÏ°Ô ¿©Çà°¡´À¶ó ½Å¹ßÀ» µÎ°í¿Ô´ø ¿©Çà¿¡¼­ µü ÇÑ¹ø »ç¿ëÇß½À´Ï´Ù.','ÆÇ¸Å','°­³²','Ä«Ä«¿ÀID: acorn','±èÇıºó','20000',sysdate,1);
-insert into trade values('T'||trade_seq.nextval,'M2','mainimg','subimg1','subimg2','subimg3','subimg4','ÇÑ¹ø »ç¿ëÇÑ ¾ÆÄí¾Æ ½´Áî ÆÈ¾Æ¿ä','±ŞÇÏ°Ô ¿©Çà°¡´À¶ó ½Å¹ßÀ» µÎ°í¿Ô´ø ¿©Çà¿¡¼­ µü ÇÑ¹ø »ç¿ëÇß½À´Ï´Ù.','ÆÇ¸Å','°­³²','Ä«Ä«¿ÀID: acorn','±èÇıºó','20000',sysdate,1);
-insert into trade values('T'||trade_seq.nextval,'M2','mainimg','subimg1','subimg2','subimg3','subimg4','ÇÑ¹ø »ç¿ëÇÑ ¾ÆÄí¾Æ ½´Áî ÆÈ¾Æ¿ä','±ŞÇÏ°Ô ¿©Çà°¡´À¶ó ½Å¹ßÀ» µÎ°í¿Ô´ø ¿©Çà¿¡¼­ µü ÇÑ¹ø »ç¿ëÇß½À´Ï´Ù.','ÆÇ¸Å','°­³²','Ä«Ä«¿ÀID: acorn','±èÇıºó','20000',sysdate,1);
+insert into trade values('T'||trade_seq.nextval,'M2','mainimg','subimg1','subimg2','subimg3','subimg4','ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¾Æ¿ï¿½','ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½à°¡ï¿½ï¿½ï¿½ï¿½ ï¿½Å¹ï¿½ï¿½ï¿½ ï¿½Î°ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.','ï¿½Ç¸ï¿½','ï¿½ï¿½ï¿½ï¿½','Ä«Ä«ï¿½ï¿½ID: acorn','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','20000',sysdate,1);
+insert into trade values('T'||trade_seq.nextval,'M3','mainimg','subimg1','subimg2','subimg3','subimg4','ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¾Æ¿ï¿½','ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½à°¡ï¿½ï¿½ï¿½ï¿½ ï¿½Å¹ï¿½ï¿½ï¿½ ï¿½Î°ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.','ï¿½Ç¸ï¿½','ï¿½ï¿½ï¿½ï¿½','Ä«Ä«ï¿½ï¿½ID: acorn','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','20000',sysdate,1);
+insert into trade values('T'||trade_seq.nextval,'M4','mainimg','subimg1','subimg2','subimg3','subimg4','ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¾Æ¿ï¿½','ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½à°¡ï¿½ï¿½ï¿½ï¿½ ï¿½Å¹ï¿½ï¿½ï¿½ ï¿½Î°ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.','ï¿½Ç¸ï¿½','ï¿½ï¿½ï¿½ï¿½','Ä«Ä«ï¿½ï¿½ID: acorn','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','20000',sysdate,1);
+insert into trade values('T'||trade_seq.nextval,'M2','mainimg','subimg1','subimg2','subimg3','subimg4','ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¾Æ¿ï¿½','ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½à°¡ï¿½ï¿½ï¿½ï¿½ ï¿½Å¹ï¿½ï¿½ï¿½ ï¿½Î°ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.','ï¿½Ç¸ï¿½','ï¿½ï¿½ï¿½ï¿½','Ä«Ä«ï¿½ï¿½ID: acorn','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','20000',sysdate,1);
+insert into trade values('T'||trade_seq.nextval,'M2','mainimg','subimg1','subimg2','subimg3','subimg4','ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¾Æ¿ï¿½','ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½à°¡ï¿½ï¿½ï¿½ï¿½ ï¿½Å¹ï¿½ï¿½ï¿½ ï¿½Î°ï¿½Ô´ï¿½ ï¿½ï¿½ï¿½à¿¡ï¿½ï¿½ ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.','ï¿½Ç¸ï¿½','ï¿½ï¿½ï¿½ï¿½','Ä«Ä«ï¿½ï¿½ID: acorn','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½','20000',sysdate,1);
 --trade_comments insert
 create sequence trade_comment_seq minvalue 1 start with 1 increment by 1;
-insert into trade_comments values('TC'||trade_comment_seq.nextval,'T2','M2','ÀÌ ºĞ »ç±â²ÛÀÓ',sysdate);
-insert into trade_comments values('TC'||trade_comment_seq.nextval,'T3','M3','ÀÌ ºĞ »ç±â²ÛÀÓ',sysdate);
-insert into trade_comments values('TC'||trade_comment_seq.nextval,'T4','M2','ÀÌ ºĞ »ç±â²ÛÀÓ',sysdate);
-insert into trade_comments values('TC'||trade_comment_seq.nextval,'T3','M4','ÀÌ ºĞ »ç±â²ÛÀÓ',sysdate);
-insert into trade_comments values('TC'||trade_comment_seq.nextval,'T3','M2','ÀÌ ºĞ »ç±â²ÛÀÓ',sysdate);
+insert into trade_comments values('TC'||trade_comment_seq.nextval,'T2','M2','ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate);
+insert into trade_comments values('TC'||trade_comment_seq.nextval,'T3','M3','ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate);
+insert into trade_comments values('TC'||trade_comment_seq.nextval,'T4','M2','ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate);
+insert into trade_comments values('TC'||trade_comment_seq.nextval,'T3','M4','ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate);
+insert into trade_comments values('TC'||trade_comment_seq.nextval,'T3','M2','ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',sysdate);
+--trade_recomments insert
+create sequence trade_recomment_seq minvalue 1 start with 1 increment by 1;
+insert into trade_recomments values('REC'||trade_recomment_seq.nextval, 'TC2','M5','ê³ ê°ë‹˜, ì£„ì†¡í•©ë‹ˆë‹¤.ì„œí”„í•˜ìš°ìŠ¤ê°€ ë§í–ˆìŠµë‹ˆë‹¤.',1,sysdate);
 --customer_question insert
 create sequence question_seq minvalue 1 start with 1 increment by 1;
-insert into customer_question values('Q'||question_seq.nextval, 'M3','°áÁ¦´Â µÆ´Âµ¥ ÀÌ¸ŞÀÏÀÌ ¾È¿Í¿ä','°áÁ¦','°áÁ¦ÇÏ¸é ÀÌ¸ŞÀÏÀÌ ¹ß¼ÛµÈ´ÙÇß´Âµ¥ ¾ÆÁ÷µµ ¸ø¹Ş¾Ò½À´Ï´Ù. °áÁ¦ Á¦´ë·Î µÈ °Í ¸Â³ª¿ä?',null,'01099720803',sysdate);
-insert into customer_question values('Q'||question_seq.nextval, 'M2','°áÁ¦´Â µÆ´Âµ¥ ÀÌ¸ŞÀÏÀÌ ¾È¿Í¿ä','°áÁ¦','°áÁ¦ÇÏ¸é ÀÌ¸ŞÀÏÀÌ ¹ß¼ÛµÈ´ÙÇß´Âµ¥ ¾ÆÁ÷µµ ¸ø¹Ş¾Ò½À´Ï´Ù. °áÁ¦ Á¦´ë·Î µÈ °Í ¸Â³ª¿ä?',null,'01099720803',sysdate);
-insert into customer_question values('Q'||question_seq.nextval, 'M4','°áÁ¦´Â µÆ´Âµ¥ ÀÌ¸ŞÀÏÀÌ ¾È¿Í¿ä','°áÁ¦','°áÁ¦ÇÏ¸é ÀÌ¸ŞÀÏÀÌ ¹ß¼ÛµÈ´ÙÇß´Âµ¥ ¾ÆÁ÷µµ ¸ø¹Ş¾Ò½À´Ï´Ù. °áÁ¦ Á¦´ë·Î µÈ °Í ¸Â³ª¿ä?',null,'01099720803',sysdate);
-insert into customer_question values('Q'||question_seq.nextval, 'M4','°áÁ¦´Â µÆ´Âµ¥ ÀÌ¸ŞÀÏÀÌ ¾È¿Í¿ä','°áÁ¦','°áÁ¦ÇÏ¸é ÀÌ¸ŞÀÏÀÌ ¹ß¼ÛµÈ´ÙÇß´Âµ¥ ¾ÆÁ÷µµ ¸ø¹Ş¾Ò½À´Ï´Ù. °áÁ¦ Á¦´ë·Î µÈ °Í ¸Â³ª¿ä?',null,'01099720803',sysdate);
-insert into customer_question values('Q'||question_seq.nextval, 'M4','°áÁ¦´Â µÆ´Âµ¥ ÀÌ¸ŞÀÏÀÌ ¾È¿Í¿ä','°áÁ¦','°áÁ¦ÇÏ¸é ÀÌ¸ŞÀÏÀÌ ¹ß¼ÛµÈ´ÙÇß´Âµ¥ ¾ÆÁ÷µµ ¸ø¹Ş¾Ò½À´Ï´Ù. °áÁ¦ Á¦´ë·Î µÈ °Í ¸Â³ª¿ä?',null,'01099720803',sysdate);
+insert into customer_question values('Q'||question_seq.nextval, 'M3','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Âµï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿Í¿ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ÛµÈ´ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ş¾Ò½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Â³ï¿½ï¿½ï¿½?',null,'01099720803',sysdate);
+insert into customer_question values('Q'||question_seq.nextval, 'M2','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Âµï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿Í¿ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ÛµÈ´ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ş¾Ò½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Â³ï¿½ï¿½ï¿½?',null,'01099720803',sysdate);
+insert into customer_question values('Q'||question_seq.nextval, 'M4','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Âµï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿Í¿ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ÛµÈ´ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ş¾Ò½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Â³ï¿½ï¿½ï¿½?',null,'01099720803',sysdate);
+insert into customer_question values('Q'||question_seq.nextval, 'M4','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Âµï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿Í¿ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ÛµÈ´ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ş¾Ò½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Â³ï¿½ï¿½ï¿½?',null,'01099720803',sysdate);
+insert into customer_question values('Q'||question_seq.nextval, 'M4','ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ´Âµï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È¿Í¿ï¿½','ï¿½ï¿½ï¿½ï¿½','ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß¼ÛµÈ´ï¿½ï¿½ß´Âµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ş¾Ò½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Â³ï¿½ï¿½ï¿½?',null,'01099720803',sysdate);
 --customer_answer insert
 create sequence answer_seq minvalue 1 start with 1 increment by 1;
-insert into customer_answer values('A'||answer_seq.nextval, 'Q10','°í°´´Ô, ÁË¼ÛÇÕ´Ï´Ù.    ¼­ÇÁÇÏ¿ì½º°¡ ¸ÁÇß½À´Ï´Ù.',sysdate);
-insert into customer_answer values('A'||answer_seq.nextval, 'Q11','°í°´´Ô, ÁË¼ÛÇÕ´Ï´Ù.    ¼­ÇÁÇÏ¿ì½º°¡ ¸ÁÇß½À´Ï´Ù.',sysdate);
-insert into customer_answer values('A'||answer_seq.nextval, 'Q12','°í°´´Ô, ÁË¼ÛÇÕ´Ï´Ù.    ¼­ÇÁÇÏ¿ì½º°¡ ¸ÁÇß½À´Ï´Ù.',sysdate);
-insert into customer_answer values('A'||answer_seq.nextval, 'Q13','°í°´´Ô, ÁË¼ÛÇÕ´Ï´Ù.    ¼­ÇÁÇÏ¿ì½º°¡ ¸ÁÇß½À´Ï´Ù.',sysdate);
-insert into customer_answer values('A'||answer_seq.nextval, 'Q14','°í°´´Ô, ÁË¼ÛÇÕ´Ï´Ù.    ¼­ÇÁÇÏ¿ì½º°¡ ¸ÁÇß½À´Ï´Ù.',sysdate);
+insert into customer_answer values('A'||answer_seq.nextval, 'Q10','ï¿½ï¿½ï¿½ï¿½, ï¿½Ë¼ï¿½ï¿½Õ´Ï´ï¿½.    ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.',sysdate);
+insert into customer_answer values('A'||answer_seq.nextval, 'Q11','ï¿½ï¿½ï¿½ï¿½, ï¿½Ë¼ï¿½ï¿½Õ´Ï´ï¿½.    ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.',sysdate);
+insert into customer_answer values('A'||answer_seq.nextval, 'Q12','ï¿½ï¿½ï¿½ï¿½, ï¿½Ë¼ï¿½ï¿½Õ´Ï´ï¿½.    ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.',sysdate);
+insert into customer_answer values('A'||answer_seq.nextval, 'Q13','ï¿½ï¿½ï¿½ï¿½, ï¿½Ë¼ï¿½ï¿½Õ´Ï´ï¿½.    ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.',sysdate);
+insert into customer_answer values('A'||answer_seq.nextval, 'Q14','ï¿½ï¿½ï¿½ï¿½, ï¿½Ë¼ï¿½ï¿½Õ´Ï´ï¿½.    ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ì½ºï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.',sysdate);
+
 commit;

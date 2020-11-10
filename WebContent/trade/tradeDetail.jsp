@@ -76,7 +76,7 @@
 		user_id=memberDTO.getUser_id();
 	}
 %>
-    <section>
+    <section style="margin:0 auto;">
         <!-- 상품상세정보 -->
         <div class="products_info">
             <div class="imgframe">
@@ -107,6 +107,7 @@
 
         <!-- 댓글 -->
         <form action="TradeCommentWrite" method="POST">
+        	<strong>Comments</strong><br>
         	<input type="hidden" name="trade_id" value="<%=dto.getTrade_id() %>"/>
         	<input type="hidden" name="user_id"	value="<%=user_id%>"/>
             <textarea name="trade_comment" rows="5" cols="100"></textarea>
@@ -116,11 +117,19 @@
         <%
 		List<TradeCommentsDTO> list=(List<TradeCommentsDTO>)request.getAttribute("list");    
         for(TradeCommentsDTO x:list){
+        	System.out.print("tradeDetail"+"\t"+x);
         %>
-	        <div class="comment_cont">
-	        	<strong style="color:red"><%=x.getUser_id() %></strong>
+	        <div class="comment_cont"  style="border-bottom:3px solid #eee">
+	        	<strong style="color:red"><%=x.getUser_id() %></strong><br>
 	        	<span><%=x.getTrade_comment() %></span>
 	        	<p><%=x.getComment_regidate() %></p>
+	        	<button class="re_comment_btn">댓글달기</button>
+	        	<div class="recomment_cont">
+	        		<input type="hidden" name="trade_comment_id" value="<%=x.getTrade_comment_id() %>"/> 
+	        		<input type="hidden" name="re_user_id" value="<%=x.getUser_id() %>"/>
+	        		<textarea name="trade_recomment" rows="5" cols="100"></textarea>
+	        		<button class="re_comment_submit">답글2</button>
+	        	</div>
         	</div>
         <%} %>
          </div> 

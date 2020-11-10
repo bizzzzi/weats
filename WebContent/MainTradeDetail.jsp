@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
 <style type="text/css">
 	a {
 		color: black; /* 임시값 나중에 Css 공통수정 */
@@ -28,8 +29,10 @@
 	<div id="Resale_list">
 		<jsp:include page="trade/tradeDetail.jsp" flush="true"></jsp:include>
 	</div>
+
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
+<script type="text/javascript" src="js/trade_recomments.js"></script>
 </body>
 </html>

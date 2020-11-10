@@ -24,6 +24,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into trade_comments values('TC'||trade_comment_seq.nextval,#{trade_id},#{user_id},#{trade_comment},sysdate)
 	</insert>
 	<select id="CommentList" parameterType="String" resultType="TradeCommentsDTO">
-		select * from trade_comments where trade_id=#{trade_id}
+		select * from trade_comments where trade_id=#{trade_id} order by comment_regidate desc
 	</select>
+	<insert id="RecommentWrite" parameterType="TradeReCommentsDTO">
+		insert into trade_recomments values('REC'||trade_recomment_seq.nextval, #{trade_comment_id},#{user_id},#{trade_comment},1,sysdate)
+	</insert>
 </mapper>
