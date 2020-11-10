@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <%
 	PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-	
+	//String partner_id=(String)session.getAttribute("partner_id");
 
 		String partner_id=pdto.getPartner_id();
 		String c_name=pdto.getC_name();
@@ -33,7 +33,7 @@
 
   <div class="partner_mypage_form">
     <form method="post">
-	    <input type="hidden" name="partner_id" value="<%=partner_id%>">
+	    <input type="text" name="partner_id" value="<%=partner_id%>">
 	    <input type="hidden" name="user_id" value="<%=user_id%>">
       <div class="box">
         <div class="title">상호 이름</div>
@@ -88,12 +88,12 @@
         </div>
       </div>
       <div class="Btn">
-        <button class="submitBtn" type="submit" formaction="PartnerMypageUpdate">정보 수정</button>
+        <button class="submitBtn" type="submit" formaction="../PartnerMypageUpdate">정보 수정</button>
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
         <button class="cancleBtn" type="reset">취소</button>
       </div>
       <div>
-        <button class="withdrawBtn" type="submit" formaction="PartnerDeleteServelt">파트너 탈퇴</button>
+        <button class="withdrawBtn" type="submit" formaction="../PartnerDeleteServelt">파트너 탈퇴</button>
         <!-- 비밀번호 인증 후 파트너 탈퇴 -->
       </div>
     </form>

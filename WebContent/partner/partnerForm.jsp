@@ -54,14 +54,14 @@
         </div>
       </div>
       <div class="box">
-        <div class="title">사업자 등록번호*</div>
+        <div class="title">사업자 번호*</div>
         <div class="sub_box">
           <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
             placeholder="하이픈(-)은 빼고 입력해주세요.">
         </div>
       </div>
       <div class="box">
-        <div class="title">서류 제출*</div>
+        <div class="title">사업자 등록증*</div>
         <div class="sub_box">
           <div class="guide_img">
             <img src="profile.png" alt="서류 제출 가이드 사진">
@@ -70,8 +70,8 @@
             <!-- file형태와 image만 업로드하도록 설정 -->
           </div>
           <div class="comment">
-            사업자 등록증 사진을 업로드해주세요.<br>
-            이미지 규격은 '*'을 권장합니다.
+            <small>사업자 등록증 사진을 업로드해주세요.</small><br>
+            <small>이미지 규격은 '*'을 권장합니다.</small>
           </div>
         </div>
       </div>
