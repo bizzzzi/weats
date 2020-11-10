@@ -27,7 +27,9 @@ public class LeportsDetailServlet extends HttpServlet {
 		List<LeportsDetailDTO> list = service.leportsDetail(leports_id);
 		request.setAttribute("leportsDetail", list);
 		
-		List<LeportsReviewDTO> reviewList = service.reviewAll("leports_id");
+		List<LeportsReviewDTO> reviewList = service.reviewAll(leports_id);
+		request.setAttribute("leportsReview", reviewList);
+		System.out.println(reviewList);
 		
 		RequestDispatcher dis = request.getRequestDispatcher("/MainLeportsDetail.jsp");
 		dis.forward(request, response);

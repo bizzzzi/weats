@@ -72,8 +72,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where l.leports_id = #{leports_id}
 	</select>
 	
-	<select id="reviewAll" parameterType="String" resultType="String">
-		select user_id from reservation_review where leports_id = #{leports_id}
+	<select id="reviewAll" parameterType="string" resultType="LeportsReviewDTO">
+		select review_id, leports_id, reservation_id, user_id, user_name, review_comments, to_char(review_regidate, 'yyyy-mm-dd') review_regidate
+		from reservation_review where leports_id = #{leports_id}
 	</select>
 
 </mapper>
