@@ -19,7 +19,7 @@ for (let i = 0; i < dwBtn.length; i++) {
 }
 
 let down = (i, x) => {
-	if (pCount[i].value >= 1) {
+	if (Number(pCount[i].value) > 1) {
 		pCount[i].value -= x;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   	<div>${itemName[i].value}</div>
@@ -31,16 +31,18 @@ let down = (i, x) => {
 		selectItemPrice = document.querySelectorAll('.select_item_price');
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price;
-	} else {
+	} else if (Number(pCount[i].value) === 1){
+		pCount[i].value -= x;
+		price -= Number(itemPrice[i].value);
+		totalAmount.innerText = price;
         selectItem[i].innerHTML = "";
-        totalAmount.innerText = "";
 	}
 	
 };
 
 let up = (i, x) => {
 	let pCountValue = Number(pCount[i].value);
-	if (pCount[i].value < Number(maxPerson[i].value)) {
+	if (Number(pCount[i].value) < Number(maxPerson[i].value)) {
 		pCountValue += x;
 		pCount[i].value = pCountValue;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
