@@ -70,12 +70,9 @@ for(let i = 0; i < reviewList.length; i++) {
 	}
 };
 
-// 버튼 클릭시 나머지 리뷰 출력
+// 버튼 클릭시 리뷰 출력 및 닫기
 
-	reviewListBtn.addEventListener('click', () => viewReview());
-
-
-
+reviewListBtn.addEventListener('click', () => viewReview());
 
 let viewReview = () => {
 	if(Number(reviewListBtn.value) === 0) {
