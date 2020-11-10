@@ -4,7 +4,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="PartnerMapper">
 	
-
+	<!-- user_id select -->
+	<select id="selectUserid" resultType="String" parameterType="String">
+		select user_id from member where user_email = #{user_email}
+	</select>
+	
 
 	<!-- 파트너 등록 -->
 	<insert id="partnerInsert" parameterType="PartnerDTO">
@@ -14,31 +18,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{c_phone},#{partner_license_num},#{partner_license_docs})
 	</insert>
 	
-	<!-- 파트너 등록 확인 -->
-	<update id="partner_verifyUpdate" parameterType="String">
-		update member set partner_verify = 1 
-		where user_id = #{user_id}
-	</update>
-	
 	<!-- 파트너 마이페이지 -->
 	<select id="partnerMypageSelect" resultType="PartnerDTO" parameterType="String"> 
 		select partner_id,user_id,c_name,c_postnum,c_address,c_detail_address,
 		c_phone,partner_license_num,partner_license_docs
 		from partner
-		where user_id = #{user_id}
+		where partner_id = #{partner_id}
 	</select>
 	
-	<!-- 파트너 마이페이지 수정 -->
+	<!-- 마이페이지 수정 -->
 	<update id="partnerUpdate" parameterType="PartnerDTO">
-		update partner set 
-		c_name = #{c_name},
-		c_phone = #{c_phone},
-		c_postnum = #{c_postnum},
-		c_address = #{c_address},
-		c_detail_address = #{c_detail_address},
-		partner_license_num = #{partner_license_num},
-		partner_license_docs = #{partner_license_docs}
-		where partner_id = #{partner_id}
+		update partner set c_name=#{c_name},c_phone=#{c_phone},c_postnum=#{c_postnum},
+		c_address=#{c_address},c_detail_address=#{c_detail_address},
+		partner_license_num=#{partner_license_num},partner_license_docs=#{partner_license_docs}
+		where partner_id=#{partner_id}
 	</update>
 	
 	<!-- 파트너 탈퇴 -->

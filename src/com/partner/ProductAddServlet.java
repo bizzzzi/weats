@@ -1,8 +1,6 @@
 package com.partner;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,16 +33,17 @@ public class ProductAddServlet extends HttpServlet {
 			String leports_loc=request.getParameter("leports_loc");
 			String leports_type=request.getParameter("leports_type");
 			String leports_price=request.getParameter("leports_price");
-			String leports_max_capacity=request.getParameter("leports_max_capacity");		
+			String leports_max_capacity=request.getParameter("leports_max_capacity");
+			
 			String leports_regidate=request.getParameter("leports_regidate");
 			String user_id=request.getParameter("user_id");
 			String partner_id=request.getParameter("partner_id");
 			 
-			LeportsDTO ldto=new LeportsDTO(user_id,partner_id,leports_title,leports_type,
+			LeportsDTO ldto=new LeportsDTO(user_id,"P2",leports_title,leports_type,
 					leports_loc,leports_regidate,leports_main_img,leports_sub_img1,
 					leports_sub_img2,leports_sub_img3,leports_sub_img4,leports_content);
 			
-			LeportsItemDTO idto=new LeportsItemDTO(partner_id,"itemtitle",leports_summary,
+			LeportsItemDTO idto=new LeportsItemDTO("L2","itemtitle",leports_summary,
 					leports_price,leports_max_capacity);
 			
 			
@@ -59,8 +58,7 @@ public class ProductAddServlet extends HttpServlet {
 			session.setAttribute("leports", ldto);
 			session.setAttribute("leports_item", idto);
 			
-			RequestDispatcher dis=request.getRequestDispatcher("partnermain.jsp");
-			dis.forward(request, response);
+			response.sendRedirect("main.jsp");
 		}
 
 	
