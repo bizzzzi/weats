@@ -8,12 +8,15 @@ import com.dto.PartnerDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerDAO {
-
-
+	//user_id select
+	public String selectUserid(SqlSession session,String user_email) {
+		String userid=session.selectOne("selectUserid",user_email);
+		return userid;
+	}
 	
 	//마이페이지
-	public PartnerDTO partnerMypageSelect(SqlSession session,String user_id) {
-		PartnerDTO dto=session.selectOne("partnerMypageSelect",user_id);
+	public PartnerDTO partnerMypageSelect(SqlSession session,String partner_id) {
+		PartnerDTO dto=session.selectOne("partnerMypageSelect",partner_id);
 		return dto;
 	}
 	//마이페이지 수정
@@ -31,11 +34,6 @@ public class PartnerDAO {
 	public int partnerInsert(SqlSession session,PartnerDTO dto) {
 		int n=session.insert("partnerInsert",dto);
 		return n;
-	}
-	
-	//파트너 확인
-	public int partner_verifyUpdate(SqlSession session, String user_id) {
-		return session.update("partner_verifyUpdate", user_id);
 	}
 	
 	//래포츠 등록

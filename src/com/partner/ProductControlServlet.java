@@ -21,9 +21,6 @@ public class ProductControlServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			HttpSession session=request.getSession();
-			
-			String leports_id=request.getParameter("leports_id");
-			System.out.println(leports_id);
 		
 			PartnerService pservice=new PartnerService();
 			LeportsDTO ldto=pservice.reservationControl("L9");
