@@ -11,26 +11,14 @@ import com.dto.ReservationDTO;
 
 public class PartnerService {
 	
-	//user_id select
-	public String selectUserid(String user_email) {
-		SqlSession session=MySqlSessionFactory.getSession();
-		String user_id="";
-		try {
-			PartnerDAO dao=new PartnerDAO();
-			user_id=dao.selectUserid(session, user_email);
-		}finally {
-			session.close();
-		}
-		return user_id;
-	}
 	
 	//마이페이지
-	public PartnerDTO partnerMypageSelect(String partner_id) {
+	public PartnerDTO partnerMypageSelect(String user_id) {
 		SqlSession session=MySqlSessionFactory.getSession();
 		PartnerDTO dto=null;
 		try {
 			PartnerDAO dao=new PartnerDAO();
-			dto=dao.partnerMypageSelect(session,partner_id);
+			dto=dao.partnerMypageSelect(session,user_id);
 		}finally {
 			session.close();
 		}
@@ -75,6 +63,22 @@ public class PartnerService {
 			session.close();
 		}
 		return n;
+	}
+	//파트너 등록 확인
+	public void partner_verifyUpdate(String user_id) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n = dao.partner_verifyUpdate(session, user_id);
+			if(n != 0) {
+				session.commit();				
+			} else {
+				session.rollback();
+			}	
+		} finally {
+			session.close();
+		}
 	}
 	
 	//레포츠 등록
