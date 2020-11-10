@@ -1,3 +1,4 @@
+<%@page import="com.dto.LeportsReviewDTO"%>
 <%@page import="java.util.List"%>
 <%@page import="com.dto.LeportsDetailDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -49,11 +50,6 @@
 						<li>1명 <b><%=price %></b></li>
 					</ul>
 
-					<div>
-						<button class="js_dwBtn" onclick="pCountFn(<%=i%>,-1, 0);"><img src="#">마이너스 버튼</button>
-						<input id="js_pCount<%=i%>" type="text" name="personnelConut" value="1" readonly>
-						<button class="js_upBtn" onclick="pCountFn(<%=i%>,1, <%=max_capacity %>);"><img src="#">플러스 버튼</button>
-
 					<div class="list_item">
 						<input class="js_itemName" type="text" value="<%=item_title%>" style="display:none">
 						<input class="js_maxPerson" type="text" value="<%=max_capacity%>" style="display:none">
@@ -89,11 +85,25 @@
 			<div>상품 상세 설명(사진 가능) : <%=content %></div>
 			<div>
 				<b>후기</b>
-				<div>
-                    <div>후기 내용띠</div>
+				<% List<LeportsReviewDTO> rList = (List) request.getAttribute("leportsReview");
+				   
+				   for(int i=0; i<rList.size();i++) {
+					   LeportsReviewDTO rDTO = rList.get(i);
+					   String user_name = rDTO.getUser_name();
+					   String review_comments = rDTO.getReview_comments();
+					   String review_regidate = rDTO.getReview_regidate();
+					   
+				%>	
+				
+                    <div style='border:1px solid black; width:300px'>
+                    	<div><%=user_name %></div>
+                    	<div><%=review_comments %></div>
+                    	<div><%=review_regidate %></div>
+                    </div>
+				<%    
+				   }
+				%>
                     <button>후기 전체보기</button>
-                    
-				</div>
 			</div>
 		</div>
 		레포츠 등록 일자 : <%=regidate %>

@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
 import com.dao.LeportsDAO;
-import com.dto.LeportsDTO;
 import com.dto.LeportsDetailDTO;
 import com.dto.LeportsReviewDTO;
 import com.dto.LeportsThumbnailDTO;
