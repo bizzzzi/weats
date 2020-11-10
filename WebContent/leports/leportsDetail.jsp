@@ -55,7 +55,7 @@
 						<li>1명 <b><%=price %></b></li>
 					</ul>
 					<div>
-						<button class="js_dwBtn" onclick="pCountFn(<%=i%>,-1, 1);"><img src="#">마이너스 버튼</button>
+						<button class="js_dwBtn" onclick="pCountFn(<%=i%>,-1, 0);"><img src="#">마이너스 버튼</button>
 						<input id="js_pCount<%=i%>" type="text" name="personnelConut" value="1" readonly>
 						<button class="js_upBtn" onclick="pCountFn(<%=i%>,1, <%=max_capacity %>);"><img src="#">플러스 버튼</button>
 					</div>

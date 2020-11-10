@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.dto.LeportsDetailDTO;
+import com.dto.LeportsReviewDTO;
 import com.service.LeportsService;
 
 /**
@@ -25,6 +26,8 @@ public class LeportsDetailServlet extends HttpServlet {
 		LeportsService service = new LeportsService();
 		List<LeportsDetailDTO> list = service.leportsDetail(leports_id);
 		request.setAttribute("leportsDetail", list);
+		
+		List<LeportsReviewDTO> reviewList = service.reviewAll("leports_id");
 		
 		RequestDispatcher dis = request.getRequestDispatcher("/MainLeportsDetail.jsp");
 		dis.forward(request, response);

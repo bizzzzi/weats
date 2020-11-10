@@ -71,5 +71,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		on l.leports_id = litem.leports_id
 		where l.leports_id = #{leports_id}
 	</select>
+	
+	<select id="reviewAll" parameterType="String" resultType="String">
+		select user_id from reservation_review where leports_id = #{leports_id}
+	</select>
 
 </mapper>
