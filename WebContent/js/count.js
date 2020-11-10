@@ -19,7 +19,7 @@ for (let i = 0; i < dwBtn.length; i++) {
 }
 
 let down = (i, x) => {
-	if (pCount[i].value >= 1) {
+	if (Number(pCount[i].value) > 1) {
 		pCount[i].value -= x;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
 		   	<div>${itemName[i].value}</div>
@@ -31,16 +31,18 @@ let down = (i, x) => {
 		selectItemPrice = document.querySelectorAll('.select_item_price');
 		price -= Number(itemPrice[i].value);
 		totalAmount.innerText = price;
-	} else {
+	} else if (Number(pCount[i].value) === 1){
+		pCount[i].value -= x;
+		price -= Number(itemPrice[i].value);
+		totalAmount.innerText = price;
         selectItem[i].innerHTML = "";
-        totalAmount.innerText = "";
 	}
 	
 };
 
 let up = (i, x) => {
 	let pCountValue = Number(pCount[i].value);
-	if (pCount[i].value < Number(maxPerson[i].value)) {
+	if (Number(pCount[i].value) < Number(maxPerson[i].value)) {
 		pCountValue += x;
 		pCount[i].value = pCountValue;
 		selectItem[i].innerHTML = `<div class="select_items_option${[i]}">
@@ -55,4 +57,43 @@ let up = (i, x) => {
 		totalAmount.innerText = price;
 	}
 };
+
+// 리뷰 보기 기능
+
+const reviewList = document.querySelectorAll(".review_list");
+const reviewListBtn = document.querySelector("#review_list_btn");
+
+// 리뷰 3개만 출력
+for(let i = 0; i < reviewList.length; i++) {
+	if(Number(reviewList[i].getAttribute("data-value")) > 2) {
+		reviewList[i].classList.add("hidden");
+	}
+};
+
+// 버튼 클릭시 리뷰 출력 및 닫기
+
+reviewListBtn.addEventListener('click', () => viewReview());
+
+let viewReview = () => {
+	if(Number(reviewListBtn.value) === 0) {
+		for(let i = 0; i < reviewList.length; i++) {
+			if(Number(reviewList[i].getAttribute("data-value")) > 2) {
+				reviewList[i].classList.remove("hidden");
+			}
+		};
+		reviewListBtn.value = 1;
+		reviewListBtn.innerText = "후기 닫기";
+	} else if(Number(reviewListBtn.value) === 1){
+		for(let i = 0; i < reviewList.length; i++) {
+			if(Number(reviewList[i].getAttribute("data-value")) > 2) {
+				reviewList[i].classList.add("hidden");
+			}
+		};
+		reviewListBtn.value = 0;
+		reviewListBtn.innerText = "후기 전체보기";
+	}
+}
+
+
+
 

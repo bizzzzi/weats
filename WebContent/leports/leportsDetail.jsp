@@ -93,7 +93,7 @@
 					   
 				%>	
 				
-                    <div style='border:1px solid black; width:300px'>
+                    <div class="review_list" data-value="<%=i%>" style='border:1px solid black; width:300px'>
                     	<div><%=user_name %></div>
                     	<div><%=review_comments %></div>
                     	<div><%=review_regidate %></div>
@@ -101,7 +101,7 @@
 				<%    
 				   }
 				%>
-                    <button>후기 전체보기</button>
+                    <button id="review_list_btn" value="0">후기 전체보기</button>
 			</div>
 		</div>
 		레포츠 등록 일자 : <%=regidate %>
