@@ -24,7 +24,7 @@ public class PartnerMypageUpdate extends HttpServlet {
 		
 			
 			
-		String partner_id=request.getParameter("partner_id");  //null
+		String partner_id=request.getParameter("partner_id");
 		String user_id=request.getParameter("user_id");
 		String c_name=request.getParameter("c_name");
 		String c_phone=request.getParameter("c_phone");
@@ -37,8 +37,13 @@ public class PartnerMypageUpdate extends HttpServlet {
 		PartnerDTO pdto=new PartnerDTO(partner_id,user_id,c_name,c_postnum,c_address,
 				c_detail_address,c_phone,partner_license_num,partner_license_docs);
 		System.out.println(pdto);
+		
 		PartnerService pservice=new PartnerService();
 		int n=pservice.partnerUpdate(pdto);
+		
+		if(n==1) {
+			session.setAttribute("partnerUpdateMesg", "파트너 정보 수정이 완료되었습니다.");
+		}
 		
 		
 		
