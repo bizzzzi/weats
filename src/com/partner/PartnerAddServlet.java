@@ -47,7 +47,7 @@ public class PartnerAddServlet extends HttpServlet {
 			}
 			
 			
-			RequestDispatcher dis=request.getRequestDispatcher("partnermain.jsp");
+			RequestDispatcher dis=request.getRequestDispatcher("MainPartner.jsp");
 			dis.forward(request, response);
 			
 		}

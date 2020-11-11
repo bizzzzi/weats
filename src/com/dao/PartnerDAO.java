@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.dto.LeportsDTO;
@@ -9,7 +11,10 @@ import com.dto.ReservationDTO;
 
 public class PartnerDAO {
 
-
+	public String partnerIdSelect(SqlSession session,String user_id) {
+		String partner_id=session.selectOne("partnerIdSelect",user_id);
+		return partner_id;
+	}
 	
 	//마이페이지
 	public PartnerDTO partnerMypageSelect(SqlSession session,String user_id) {
@@ -48,6 +53,12 @@ public class PartnerDAO {
 	public int leportsItemInsert(SqlSession session,LeportsItemDTO dto) {
 		int n=session.insert("leportsItemInsert",dto);
 		return n;
+	}
+	
+	//등록상품 리스트
+	public List<LeportsDTO> ProductControl(SqlSession session,String partner_id) {
+		List<LeportsDTO> list=session.selectList("ProductControl",partner_id);
+		return list;
 	}
 	
 	//예약상세

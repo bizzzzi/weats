@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
 <%
 	PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-	//String partner_id=(String)session.getAttribute("partner_id");
+
 
 		String partner_id=pdto.getPartner_id();
 		String c_name=pdto.getC_name();

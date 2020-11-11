@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
@@ -11,6 +13,17 @@ import com.dto.ReservationDTO;
 
 public class PartnerService {
 	
+	public String partnerIdSelect(String user_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		String partner_id="";
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			partner_id=dao.partnerIdSelect(session, user_id);
+		}finally {
+			session.close();
+		}
+		return partner_id;
+	}
 	
 	//마이페이지
 	public PartnerDTO partnerMypageSelect(String user_id) {
@@ -118,6 +131,19 @@ public class PartnerService {
 			session.commit();
 		}
 		return dto;
+	}
+	
+	//등록상품 리스트
+	public List<LeportsDTO> ProductControl(String partner_id){
+		SqlSession session=MySqlSessionFactory.getSession();
+		List<LeportsDTO> list=null;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			list=dao.ProductControl(session, partner_id);
+		}finally {
+			session.close();
+		}
+		return list;
 	}
 
 	

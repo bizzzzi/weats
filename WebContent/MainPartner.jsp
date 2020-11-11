@@ -8,12 +8,13 @@
 </head>
 <body>
 	<div class="partner_main">
+	<a href="partner/partnerForm.jsp">파트너 등록</a>
 		<ul>
 			<li><a href="PartnerMypageSelectServlet">계정관리</a></li>
 			<li><a href="partner/productRegistrationForm.jsp">상품등록</a></li>
 		</ul>
 		<ul>
-			<li><a href="partner/ProductControl.jsp">등록상품관리</a></li>
+			<li><a href="ProductControlServlet">등록상품관리</a></li>
 			<li><a href="partner/reservationControl.jsp">예약 관리</a></li>
 		</ul>
 	</div>

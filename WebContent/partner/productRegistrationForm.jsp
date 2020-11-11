@@ -4,11 +4,11 @@
     pageEncoding="UTF-8"%>
     
     <%
-/* 		MemberDTO dto=(MemberDTO)session.getAttribute("login");
-      PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
+ 		MemberDTO dto=(MemberDTO)session.getAttribute("login");
+    
       
       String user_id=dto.getUser_id();
-      String partner_id=pdto.getPartner_id(); */
+
     %>
 <!DOCTYPE html>
 <html>
@@ -23,8 +23,8 @@
   <div class="partner_registration_form">
     <form action="../ProductAddServlet" method="post">
     
-<%--     <input type="hidden" name="user_id" value="<%=user_id%>">
-    <input type="hidden" name="partner_id" value="<%=partner_id%>"> --%>
+    <input type="hidden" name="user_id" value="<%=user_id%>">
+ 
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
@@ -69,6 +69,9 @@
           </div>
           <div>
             <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*" required multiple>
+          </div>
+            <div>
+            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*" required multiple>
           </div>
         </div>
       </div>
