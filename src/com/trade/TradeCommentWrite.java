@@ -20,18 +20,26 @@ public class TradeCommentWrite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		TradeService service=new TradeService();
 		TradeCommentsDTO dto=null;
+		int trade_depth=Integer.parseInt(request.getParameter("trade_depth"));
 		String trade_id=request.getParameter("trade_id");
 		String user_id=request.getParameter("user_id");
 		String trade_comment=request.getParameter("trade_comment");
+		String trade_comment_id=request.getParameter("trade_comment_id");
 		int num=0;
-		String nextPage=null;
-		System.out.println("comment데이터 파싱:"+trade_id+"\t"+user_id+"\t"+trade_comment);
-		if(trade_id!=null) {
-			dto=new TradeCommentsDTO(null,trade_id,user_id,trade_comment,null);
+		if(trade_depth==0) {
+			dto=new TradeCommentsDTO(null,trade_id,user_id,trade_comment,null,null,trade_depth);
 			num=service.CommentWrite(dto);
-			System.out.println("comment insert: "+num);
+			System.out.println("depth가 0일때 결과:"+num+"\n"+dto);
+			response.sendRedirect("TradeDetailServlet?trade_id="+trade_id);
+		}else if(trade_depth==1) {
+			dto=new TradeCommentsDTO(null,trade_id,user_id,trade_comment,null,trade_comment_id,trade_depth);
+			try {
+				num=service.ReCommentWrite(dto);
+				System.out.println("depth가 1일때 결과:"+num+"\n"+dto);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
-		response.sendRedirect("TradeDetailServlet?trade_id="+trade_id);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

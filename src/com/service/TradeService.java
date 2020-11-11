@@ -8,7 +8,6 @@ import com.config.MySqlSessionFactory;
 import com.dao.TradeDAO;
 import com.dto.TradeCommentsDTO;
 import com.dto.TradeDTO;
-import com.dto.TradeReCommentsDTO;
 
 public class TradeService {
 	TradeDAO dao;
@@ -63,6 +62,23 @@ public class TradeService {
 		int num = 0;
 		try {
 			num = dao.CommentWrite(session, dto);
+			System.out.println("service"+"\t"+dto);
+			if(num != 0) {
+				session.commit();
+			}
+		} catch (Exception e) {
+			session.rollback();
+		} finally {
+			session.close();
+		}
+		return num;
+	}
+	public int ReCommentWrite(TradeCommentsDTO dto) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		System.out.println("service대댓글"+dto);
+		int num = 0;
+		try {
+			num = dao.ReCommentWrite(session, dto);
 			if(num != 0) {
 				session.commit();
 			}
@@ -82,18 +98,5 @@ public class TradeService {
 			session.close();
 		}return list;
 	}
-	public int RecommentWrite(TradeReCommentsDTO dto) {
-		SqlSession session=MySqlSessionFactory.getSession();
-		int num=0;
-		try {
-			num=dao.RecommentWrite(session, dto);
-			if(num!=0) {
-				session.commit();
-			}
-		}catch(Exception e) {
-			session.rollback();
-		}finally {
-			session.close();
-		}return num;
-	}
+	
 }

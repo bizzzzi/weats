@@ -17,7 +17,6 @@ import com.service.TradeService;
 public class TradeWriteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("tradeServlet");
 		String trade_id = request.getParameter("trade_id");
 		String user_id = request.getParameter("user_id");
 		String trade_main_img = request.getParameter("trade_main_img");
@@ -35,10 +34,8 @@ public class TradeWriteServlet extends HttpServlet {
 		String trade_regidate = request.getParameter("trade_regidate");
 		int trade_hit = 1;
 
-		
 		TradeService service = new TradeService();
 		TradeDTO dto = new TradeDTO(trade_id,user_id,trade_main_img,trade_sub_img1,trade_sub_img2,trade_sub_img3,trade_sub_img4,trade_title,trade_contents,trade_type,trade_loc,trade_phone,trade_user_name,trade_price,trade_regidate,trade_hit);
-		System.out.println("servlet"+dto);
 		int num=0;
 		
 		num=service.tradeWrite(dto);
