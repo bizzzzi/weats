@@ -30,14 +30,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 파트너 마이페이지 수정 -->
 	<update id="partnerUpdate" parameterType="PartnerDTO">
-		update partner set 
-		c_name = #{c_name},
+		update partner 
+		set c_name = #{c_name},
 		c_phone = #{c_phone},
 		c_postnum = #{c_postnum},
 		c_address = #{c_address},
 		c_detail_address = #{c_detail_address},
 		partner_license_num = #{partner_license_num},
-		partner_license_docs = #{partner_license_docs}
+		partner_license_docs = #{partner_license_docs} 
 		where partner_id = #{partner_id}
 	</update>
 	

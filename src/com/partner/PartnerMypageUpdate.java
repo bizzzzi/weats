@@ -47,7 +47,7 @@ public class PartnerMypageUpdate extends HttpServlet {
 		
 		
 		
-		RequestDispatcher dis=request.getRequestDispatcher("partnermain.jsp");
+		RequestDispatcher dis=request.getRequestDispatcher("main.jsp");
 		dis.forward(request, response);
 		}
 

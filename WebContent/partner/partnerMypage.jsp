@@ -88,12 +88,12 @@
         </div>
       </div>
       <div class="Btn">
-        <button class="submitBtn" type="submit" formaction="../PartnerMypageUpdate">정보 수정</button>
+        <button class="submitBtn" type="submit" formaction="PartnerMypageUpdate">정보 수정</button>
         <!-- 비밀번호 인증 후 파트너 정보 수정 -->
         <button class="cancleBtn" type="reset">취소</button>
       </div>
       <div>
-        <button class="withdrawBtn" type="submit" formaction="../PartnerDeleteServelt">파트너 탈퇴</button>
+        <button class="withdrawBtn" type="submit" formaction="PartnerDeleteServelt">파트너 탈퇴</button>
         <!-- 비밀번호 인증 후 파트너 탈퇴 -->
       </div>
     </form>
