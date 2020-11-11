@@ -7,6 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<a href="LeportsDetailServlet?leports_id=L22">asd</a>
+	<form action="" method="post">
+		<b>비밀번호 변경 폼</b>
+		<input type="password" name="user_passwd">
+		<input type="password" name="new_passwd">
+		<button type="submit">비밀번호 변경</button>
+	</form>
+	<form action="" method="post">
+		
+	</form>
 </body>
 </html>
