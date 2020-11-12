@@ -17,7 +17,7 @@
 		<span><%=useremail %></span>
 	</div>
 	<div>
-		<a href="#"><button>회원탈퇴</button></a>
-		<a href="#"><button>비밀번호 변경</button></a>
+		<a href="passwdCheckredirect?page=delete">회원탈퇴</a>
+		<a href="passwdCheckredirect?page=pwchange">비밀번호 변경</a>
 	</div>
 </form>

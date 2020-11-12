@@ -1,5 +1,6 @@
 package com.dao;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -23,12 +24,22 @@ public class MemberDAO {
 		return session.selectOne("searchSalt", user_email);
 	}
 
-	public MemberDTO memberLogin(SqlSession session, HashMap<String, String> map) {
+	public MemberDTO memberLogin(SqlSession session, Map<String, String> map) {
 		// TODO Auto-generated method stub
-		System.out.println("MemberDAO"+map);
+		System.out.println("MemberDAO : 넘어온 데이터"+map);
 		MemberDTO dto = session.selectOne("memberLogin", map);
-		System.out.println("MemberDAO"+dto);
+		System.out.println("MemberDAO : db 데이터" + dto);
 		return dto;
+	}
+
+	public int pwUpdate(SqlSession session, Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return session.update("pwUpdate", map);
+	}
+
+	public int memberDelete(SqlSession session, String user_email) {
+		// TODO Auto-generated method stub
+		return session.delete("memberDelete", user_email);
 	}
 
 }
