@@ -10,13 +10,6 @@
     		user_id=dto.getUser_id();
     	}
     %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
 <h1 class="main_title">파트너 등록</h1>
   <hr>
 
@@ -64,10 +57,12 @@
         <div class="title">사업자 등록증*</div>
         <div class="sub_box">
           <div class="guide_img">
-            <img src="profile.png" alt="서류 제출 가이드 사진">
-            <input id="image_upload" class="image_inputType_file" name="partner_license_docs"
-              placeholder="하이픈(-)은 빼고 입력해주세요." type="file" accept="img/*" required multiple>
-            <!-- file형태와 image만 업로드하도록 설정 -->
+          <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs" accept="img/*"
+              placeholder="하이픈(-)은 빼고 입력해주세요." onchange="thumbnail(this);"/>
+			    <div id="image_container">
+			      <!-- 사진을 미리 보여줄 영역 -->
+			      <img src="#" alt="" />
+			    </div>
           </div>
           <div class="comment">
             <small>사업자 등록증 사진을 업로드해주세요.</small><br>
@@ -81,5 +76,3 @@
       </div>
     </form>
   </div>
-</body>
-</html>
