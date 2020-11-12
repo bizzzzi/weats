@@ -21,7 +21,7 @@
   <hr>
 
   <div class="partner_registration_form">
-    <form action="../ProductAddServlet" method="post">
+    <form action="#" method="post">
     
     <input type="hidden" name="user_id" value="<%=user_id%>">
  
@@ -34,14 +34,6 @@
         </div>
       </div>
       <div class="box">
-        <div class="title">한줄 요약</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" name="leports_summary" class="leports_summary" placeholder="ex) 강습시간: 9:30~11:30">
-          </div>
-        </div>
-      </div>
-      <div class="box">
         <div class="title">상품 소개</div>
         <div class="sub_box">
           <div>
@@ -49,7 +41,6 @@
           </div>
         </div>
       </div>
-
       <div class="box">
         <div class="title">대표 사진</div>
         <div class="sub_box">
@@ -106,25 +97,9 @@
           </div>
         </div>
       </div>
-      <div class="box">
-        <div class="title">가격(원)</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="title">최대 수용 인원</div>
-        <div class="sub_box">
-          <div>
-            <input type="number" name="leports_max_capacity" class="leports_max_capacity" placeholder="숫자만 입력해주세요.">
-          </div>
-        </div>
-      </div>
-      <div>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</div>
+   
       <div class="Btn">
-        <button class="submitBtn" type="submit">확인 및 제출</button>
+        <button class="submitBtn" type="submit">다음</button>
       </div>
     </form>
   </div>
