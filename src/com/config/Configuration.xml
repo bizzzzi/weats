@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <typeAlias type="com.dto.LeportsItemDTO" alias="LeportsItemDTO"/>
     <typeAlias type="com.dto.LeportsDetailDTO" alias="LeportsDetailDTO"/>
     <typeAlias type="com.dto.LeportsThumbnailDTO" alias="LeportsThumbnailDTO"/>
+    <typeAlias type="com.dto.LeportsReviewDTO" alias="LeportsReviewDTO"/>
     <typeAlias type="com.dto.TradeDTO" alias="TradeDTO"/>
     <typeAlias type="com.dto.TradeCommentsDTO" alias="TradeCommentsDTO"/>
     <typeAlias type="com.dto.TradeCommentsDTO" alias="TradeReCommentsDTO"/>

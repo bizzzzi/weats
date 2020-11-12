@@ -21,7 +21,7 @@
 					<input type="password" name="user_pw" class="userPasswd"
 						placeholder="비밀번호(영문, 숫자, 특수문자 기호)" />
 				</div>
-				<div class="signRow">
+				<div class="signRow"> 
 					<input type="password" name="user_pw2" class="userPasswd2"
 						placeholder="비밀번호를 한번 더 입력해주세요." />
 				</div>
