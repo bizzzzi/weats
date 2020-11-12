@@ -21,6 +21,7 @@ import com.service.TradeService;
 @WebServlet("/TradeDetailServlet")
 public class TradeDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("detail로딩");
 		String trade_id=(String)request.getParameter("trade_id");
 		TradeService service=new TradeService();
 		

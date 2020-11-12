@@ -118,15 +118,18 @@
         <%
 		List<TradeCommentsDTO> list=(List<TradeCommentsDTO>)request.getAttribute("list");
         for(TradeCommentsDTO x:list){
-        	System.out.print("tradeDetail"+"\t"+x);
+        	if(x.getTrade_depth() == 0) {
         %>
 	        <div class="comment_cont"  style="border-bottom:3px solid #eee">
+	    <% } else { %> 
+	   		<div class="comment_cont re"  style="margin-left:20px;">
+	   	<% } %>	
 	        	<strong style="color:red"><%=x.getUser_id() %></strong><br>
 	        	<span><%=x.getTrade_comment() %></span>
 	        	<p><%=x.getComment_regidate() %></p>
 	        	<button class="re_comment_btn">댓글달기</button>
 	        	<form class="recomment_cont" method="post" style="maring-left:20px;">
-	        		<input type="hidden" name="re_trade_id" value=<%=x.getTrade_id() %>>
+	        		<input type="hidden" name="re_trade_id" value=<%=x.getTrade_id()%>>
 	        		<input type="hidden" name="re_trade_depth" value=1>
 	        		<input type="hidden" name="re_trade_comment_id" value="<%=x.getTrade_comment_id() %>"/> 
 	        		<input type="hidden" name="re_user_id" value="<%=x.getUser_id() %>"/>
