@@ -1,6 +1,8 @@
 package com.member;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,10 +20,11 @@ import com.service.MemberService;
 @WebServlet("/passwdCheckServlet")
 public class passwdCheckServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		MemberService service = new MemberService();
+		
 		HttpSession session = request.getSession();
 
-		String page = request.getParameter("page");
+		String page = (String)session.getAttribute("page");
+		System.out.println("세션에서 꺼내온 page : " +page);
 		MemberDTO sdto = (MemberDTO) session.getAttribute("login");
 		String user_email = sdto.getUser_email(); // session에 저장된 user_email parsing
 		String curr_pw = request.getParameter("user_pw");
@@ -30,19 +33,27 @@ public class passwdCheckServlet extends HttpServlet {
 
 		MemberDTO dto = xxx.verify(user_email, curr_pw);
 		
-		String nextPage = "";
-		if (dto != null) {
-			System.out.println("비번 인증 성공");
-			System.out.println(page);
-			if(page.equals("delete")) {
-				System.out.println("회원가입 폼 이동");
-			} else if(page.equals("pwchange")) {
-				response.sendRedirect("test.jsp");
-			}
+		if (dto != null) { //비버 인증 되면 
 			
-		} else {
+			System.out.println("비번 인증 성공");
+			System.out.println("passwdCheckServlet -> page : "+page);
+			
+			if(page.equals("delete")) { //회원탈퇴 버튼 클릭 시
+				MemberService service = new MemberService();
+				service.memberDelete(user_email);
+				System.out.println("회원탈퇴 완료");
+				session.removeAttribute("login");
+				response.sendRedirect("main.jsp");
+				
+			} else if(page.equals("pwchange")) { //비번 변경 버튼 클릭 시
+				response.sendRedirect("passwdChange.jsp");
+			}
+			 
+		} else { //비번 인증 안되면
 			System.out.println("비번 인증 실패");
-			session.setAttribute("mesg", "비밀번호  다름");
+			session.setAttribute("mesg", "비밀번호를 잘못 입력하셨습니다.");
+			RequestDispatcher dis = request.getRequestDispatcher("passwdCheckredirect");
+			dis.forward(request, response);
 		}
 	}
 

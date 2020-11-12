@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,13 +35,14 @@ public class MemberPasswdChange extends HttpServlet {
 		String new_pw = SHA256.getEncrypt(change_pw, salt); //pw+salt 합쳐서 암호화
 		System.out.println("loginServlet : "+new_pw);
 		
-			Map<String, String> map = new HashMap<String, String>();
-			map.put("user_email", user_email);
-			map.put("user_pw", new_pw);
-			service.pwUpdate(map);
-			System.out.println("변경 성공");
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("user_email", user_email);
+		map.put("user_pw", new_pw);
+		service.pwUpdate(map);
 		
-		
+		request.setAttribute("mesg", "변경 완료");
+		RequestDispatcher dis = request.getRequestDispatcher("MainAccountManagement.jsp");
+		dis.forward(request, response);		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

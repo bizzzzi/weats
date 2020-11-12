@@ -12,8 +12,5 @@
 		바꿀 비번: <input type="password" name="new_pw"><br>
 		<button type="submit">비밀번호 변경</button><br>
 	</form>
-	<form action="" method="post">
-		
-	</form>
 </body>
 </html>

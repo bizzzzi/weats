@@ -61,7 +61,6 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
 		String salt;
-		
 		try {
 			salt = dao.getSaltMember(session, user_email);
 		} finally {
@@ -93,9 +92,28 @@ public class MemberService {
 			n = dao.pwUpdate(session, map);
 			if(n > 0) {
 				session.commit();
+			} else {
+				session.rollback();
 			}
 		} finally {
 			// TODO: handle finally clause
+			session.close();
+		}
+		
+	}
+	
+	public void memberDelete(String user_email) {
+		// TODO Auto-generated method stub
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n;
+		try {
+			n = dao.memberDelete(session, user_email);
+			if(n>0) {
+				session.commit();
+			} else {
+				session.rollback();
+			}
+		} finally {
 			session.close();
 		}
 		
