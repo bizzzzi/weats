@@ -116,41 +116,44 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="leportsItemDelete" parameterType="String">
 		delete from leports_item where leports_id=#{leports_id}
 	</delete>
-	
-	
-
-	
+		
 	<!-- 등록상품 리스트 -->
 	<select id="ProductControl" resultType="LeportsDTO" parameterType="String">
-		select leports_main_img,leports_title 
+		select leports_id,leports_main_img,leports_title 
 		from leports
 		where partner_id=#{partner_id}
 	</select>
 	
 	<!-- 예약관리 상세  leports,reservation-->
-<!-- 	<resultMap type="LeportsDTO" id="LeportsDTO">
+<!--  	<resultMap type="LeportsDTO" id="LeportsDTO">
 		<result column="leports_main_img" property="leports_main_img"/>
 		<result column="leports_title" property="leports_title"/>
 		<collection property="reservationDTO" resultMap="ReservationDTO"></collection>
-	</resultMap> -->
+	</resultMap>  -->
 	
-<!-- 	<resultMap type="ReservationDTO" id="ReservationDTO">
+<!--  	<resultMap type="ReservationDTO" id="ReservationDTO">
 		<result column="rs_date" property="rs_date"/>
 		<result column="rs_persons" property="rs_persons"/>
 		<result column="rs_name" property="rs_name"/>
 		<result column="rs_phone" property="rs_phone"/>
 		<result column="rs_price" property="rs_price"/>
-	</resultMap> -->
+	</resultMap>  -->
 	
-<!-- 	<select id="reservationControl" parameterType="String" resultMap="LeportsDTO">
+<!--  	<select id="reservationControl" parameterType="String" resultMap="LeportsDTO">
 		select l.leports_main_img,l.leports_title,
 		r.rs_date,r.rs_persons,r.rs_name,r.rs_phone,r.rs_price
 		from leports l join reservation r 
 		on l.leports_id =r.leports_id
 		where l.leports_id=#{leports_id}
-	</select> -->
+	</select>  -->
 	
-	<!-- 상품 상세 페이지 select -->
+	<!-- 상품 상세 페이지 select leports -->
+<!-- 	<select id="productDetailControlSelect" parameterType="String" resultType="leportsDTO">
+		select leports_id,partner_id,leports_title,leports_type,leports_loc,
+		leports_regidate,leports_main_img,leports_sub_img1,leports_sub_img2,
+		leports_sub_img3,leports_sub_img4,leports_content
+		from leports
+	</select> -->
 
 	
 	
