@@ -7,7 +7,8 @@
 	String username = dto.getUser_name();
 %>
 <b><%= username %> 님의 마이페이지</b><br>
-<button>계정관리</button>
-<a href="MainAccountManagement.jsp">나의예약내역</a>
-<button>나의중고거래</button>
-<button>나의문의내역</button>
+<a href="MainAccountManagement.jsp">계정관리</a>
+<a href="MyPageServlet?page='reserve'">나의 예약내역</a>
+<a href="MyPageServlet?page='trade'">나의중고거래</a>
+<a href="MyPageServlet?page='qna'">나의문의내역</a>
+		

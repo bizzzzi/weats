@@ -7,11 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" method="post">
-		<b>비밀번호 변경 폼</b>
-		<input type="password" name="user_passwd">
-		<input type="password" name="new_passwd">
-		<button type="submit">비밀번호 변경</button>
+	<form action="MemberPasswdChange" method="post">
+		<b>비밀번호 변경 폼</b><br>
+		바꿀 비번: <input type="password" name="new_pw"><br>
+		<button type="submit">비밀번호 변경</button><br>
 	</form>
 	<form action="" method="post">
 		

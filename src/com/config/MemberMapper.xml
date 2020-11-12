@@ -23,4 +23,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		update member set user_verify = 1 
 		where user_email = #{user_email}
 	</update>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="pwUpdate" parameterType="hashmap">
+		update member set user_pw = #{user_pw} 
+		where user_email = #{user_email}
+	</update>
 </mapper>
