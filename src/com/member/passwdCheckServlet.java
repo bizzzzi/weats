@@ -46,7 +46,8 @@ public class passwdCheckServlet extends HttpServlet {
 				response.sendRedirect("main.jsp");
 				
 			} else if(page.equals("pwchange")) { //비번 변경 버튼 클릭 시
-				response.sendRedirect("passwdChange.jsp");
+				RequestDispatcher dis = request.getRequestDispatcher("passwdCheck/passwdChange.jsp");
+				dis.forward(request, response);
 			}
 			 
 		} else { //비번 인증 안되면
