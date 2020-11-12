@@ -1,7 +1,7 @@
 
-var cBtn = document.querySelector(".re_comment_btn");
-var rdBox = document.querySelector(".recomment_cont");
-var rcBtn = document.querySelector(".re_comment_submit");
+var cBtn = document.querySelectorAll(".re_comment_btn");
+var rdBox = document.querySelectorAll(".recomment_cont");
+var rcBtn = document.querySelectorAll(".re_comment_submit");
 cBtn.addEventListener('click', () => {
 		rdBox.style.display='block';
 })

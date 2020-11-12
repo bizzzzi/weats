@@ -125,7 +125,7 @@
 	        	<span><%=x.getTrade_comment() %></span>
 	        	<p><%=x.getComment_regidate() %></p>
 	        	<button class="re_comment_btn">댓글달기</button>
-	        	<form class="recomment_cont" method="post">
+	        	<form class="recomment_cont" method="post" style="maring-left:20px;">
 	        		<input type="hidden" name="re_trade_id" value=<%=x.getTrade_id() %>>
 	        		<input type="hidden" name="re_trade_depth" value=1>
 	        		<input type="hidden" name="re_trade_comment_id" value="<%=x.getTrade_comment_id() %>"/> 
