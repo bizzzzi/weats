@@ -3,8 +3,8 @@
 <%@page import="com.dto.MemberDTO"%>
 <%@page import="com.dto.TradeDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <!-- 
+	pageEncoding="UTF-8"%>
+<!-- 
 <style type="text/css">
     *{
         padding: 0;margin: 0;
@@ -76,68 +76,75 @@
 		user_id=memberDTO.getUser_id();
 	}
 %>
-    <section style="margin:0 auto;">
-        <!-- 상품상세정보 -->
-        <div class="products_info">
-            <div class="imgframe">
-                <ul class="trade_img">
-                    <li><img class="trade_main_img" src="fff.png"><%=dto.getTrade_main_img() %></li>
-                    <li><img class="trade_sub_img1" src="fff.png"><%=dto.getTrade_sub_img1() %></li>
-                    <li><img class="trade_sub_img2" src="fff.png"><%=dto.getTrade_sub_img2() %></li>
-                    <li><img class="trade_sub_img3" src="fff.png"><%=dto.getTrade_sub_img3() %></li>
-                    <li><img class="trade_sub_img4" src="fff.png"><%=dto.getTrade_sub_img4() %></li>
-                </ul>
-            </div>
-            <div class="text_info">
-                <ul>
-                    <li><%=dto.getTrade_regidate() %></li>
-                    <li><%=dto.getTrade_title() %></li>
-                    <li><%=dto.getTrade_price() %></li>
-                    <li><%=dto.getTrade_phone() %></li>
-                    <li><%=dto.getTrade_user_name() %></li>
-                </ul>
-            </div>
-        </div>
-        <div class="contentsdiv">
-            <h2>상품설명</h2><br>
-            <p class="trade_contents">
-            <%=dto.getTrade_contents() %>
-            </p>
-        </div>  
+<section style="margin: 0 auto;">
+	<!-- 상품상세정보 -->
+	<div class="products_info">
+		<div class="imgframe">
+			<ul class="trade_img">
+				<li><img class="trade_main_img" src="fff.png"><%=dto.getTrade_main_img() %></li>
+				<li><img class="trade_sub_img1" src="fff.png"><%=dto.getTrade_sub_img1() %></li>
+				<li><img class="trade_sub_img2" src="fff.png"><%=dto.getTrade_sub_img2() %></li>
+				<li><img class="trade_sub_img3" src="fff.png"><%=dto.getTrade_sub_img3() %></li>
+				<li><img class="trade_sub_img4" src="fff.png"><%=dto.getTrade_sub_img4() %></li>
+			</ul>
+		</div>
+		<div class="text_info">
+			<ul>
+				<li><%=dto.getTrade_regidate() %></li>
+				<li><%=dto.getTrade_title() %></li>
+				<li><%=dto.getTrade_price() %></li>
+				<li><%=dto.getTrade_phone() %></li>
+				<li><%=dto.getTrade_user_name() %></li>
+			</ul>
+		</div>
+	</div>
+	<div class="contentsdiv">
+		<h2>상품설명</h2>
+		<br>
+		<p class="trade_contents">
+			<%=dto.getTrade_contents() %>
+		</p>
+	</div>
 
-        <!-- 댓글 -->
-        <form action="TradeCommentWrite" method="POST">
-        	<strong>Comments</strong><br>
-        	<input type="hidden" name="trade_depth" value=0>
-        	<input type="hidden" name="trade_id" value="<%=dto.getTrade_id() %>"/>
-        	<input type="hidden" name="user_id"	value="<%=user_id%>"/>
-            <textarea name="trade_comment" rows="5" cols="100"></textarea>
-            <input type="submit" value="댓글 달기"/>
-        </form>
-         <div class="trade_comment_list">
-        <%
+	<!-- 댓글 -->
+	<form action="TradeCommentWrite" method="POST">
+		<strong>Comments</strong><br> <input type="hidden"
+			name="trade_depth" value=0> <input type="hidden"
+			name="trade_id" value="<%=dto.getTrade_id() %>" /> <input
+			type="hidden" name="user_id" value="<%=user_id%>" />
+		<textarea name="trade_comment" rows="5" cols="100"></textarea>
+		<input type="submit" value="댓글 달기" />
+	</form>
+	<div class="trade_comment_list">
+		<input type="hidden" name="re_user_id" value="<%=user_id %>">
+		<%
 		List<TradeCommentsDTO> list=(List<TradeCommentsDTO>)request.getAttribute("list");
         for(TradeCommentsDTO x:list){
         	if(x.getTrade_depth() == 0) {
         %>
-	        <div class="comment_cont"  style="border-bottom:3px solid #eee">
-	    <% } else { %> 
-	   		<div class="comment_cont re"  style="margin-left:20px;">
-	   	<% } %>	
-	        	<strong style="color:red"><%=x.getUser_id() %></strong><br>
-	        	<span><%=x.getTrade_comment() %></span>
-	        	<p><%=x.getComment_regidate() %></p>
-	        	<button class="re_comment_btn">댓글달기</button>
-	        	<form class="recomment_cont" method="post" style="maring-left:20px;">
-	        		<input type="hidden" name="re_trade_id" value=<%=x.getTrade_id()%>>
+		<div class="comment_cont" style="border-bottom: 3px solid #eee">
+			<strong style="color: red"><%=x.getUser_id() %></strong>
+			<br>
+			<span><%=x.getTrade_comment() %></span>
+			<p><%=x.getComment_regidate() %></p>
+			<button class="re_comment_btn" value="<%=x.getTrade_comment_id()%>">댓글달기</button>
+			<% } else { %>
+			<div class="comment_cont re" style="margin-left: 20px;">
+				<strong style="color: red"><%=x.getUser_id() %></strong>
+				<br>
+				<span><%=x.getTrade_comment() %></span>
+				<p><%=x.getComment_regidate() %></p>
+				<% } %>
+				<%-- <form class="recomment_cont" method="post" style="maring-left:20px;">
+	        		<input type="hidden" name="re_trade_id" value="<%=x.getTrade_id()%>">
 	        		<input type="hidden" name="re_trade_depth" value=1>
 	        		<input type="hidden" name="re_trade_comment_id" value="<%=x.getTrade_comment_id() %>"/> 
 	        		<input type="hidden" name="re_user_id" value="<%=x.getUser_id() %>"/>
 	        		<textarea name="trade_recomment" rows="5" cols="100"></textarea>
 	        		<button class="re_comment_submit">답글2</button>
-	        	</form>
-        	</div>
-        <%}
+	        	</form> --%>
+			</div>
+			<%}
         %>
-         </div> 
-    </section>
+		</div>
+</section>

@@ -34,6 +34,7 @@ public class TradeCommentWrite extends HttpServlet {
 		}else if(trade_depth==1) {
 			dto=new TradeCommentsDTO(null,trade_id,user_id,trade_comment,null,trade_comment_id,trade_depth);
 			try {
+				System.out.println("depth:"+trade_depth+"\t"+dto);
 				num=service.ReCommentWrite(dto);
 				System.out.println("depth가 1일때 결과:"+num+"\n"+dto);
 			}catch(Exception e) {
