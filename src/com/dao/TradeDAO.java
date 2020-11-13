@@ -33,11 +33,12 @@ public class TradeDAO {
 	}
 	public int ReCommentWrite(SqlSession session,TradeCommentsDTO dto) {
 		System.out.println("dao대댓글"+dto);
-		int num=session.insert("ReCommentWrite",dto);
-		return num;
+		
+		return session.insert("ReCommentWrite",dto);
 	}
 	public List<TradeCommentsDTO> CommentList(SqlSession session,String trade_id) {
 		List<TradeCommentsDTO> list=session.selectList("CommentList",trade_id);
 		return list;
 	}
+	
 }

@@ -1,6 +1,10 @@
 package com.trade;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,12 +16,15 @@ import javax.servlet.http.HttpServletResponse;
 import com.dto.TradeCommentsDTO;
 import com.service.TradeService;
 
+import jdk.nashorn.internal.parser.JSONParser;
+
 /**
  * Servlet implementation class TradeCommentWrite
  */
 @WebServlet("/TradeCommentWrite")
 public class TradeCommentWrite extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		PrintWriter out = response.getWriter();
 		TradeService service=new TradeService();
 		TradeCommentsDTO dto=null;
 		int trade_depth=Integer.parseInt(request.getParameter("trade_depth"));
@@ -35,12 +42,25 @@ public class TradeCommentWrite extends HttpServlet {
 			dto=new TradeCommentsDTO(null,trade_id,user_id,trade_comment,null,trade_comment_id,trade_depth);
 			try {
 				System.out.println("depth:"+trade_depth+"\t"+dto);
-				num=service.ReCommentWrite(dto);
+				System.out.println("최송락:"+dto);
+				num = service.ReCommentWrite(dto);
+				trade_comment_id = dto.getTrade_comment_id();
+				System.out.println("테스트ㅡㅡ트트틑트트틑"+"\t"+trade_comment_id);
 				System.out.println("depth가 1일때 결과:"+num+"\n"+dto);
+				PrintWriter out = response.getWriter();
+				out.print(dto);
+				
+//				Map<String,String> map=new HashMap<String, String>();
+//				map.put("trade_comment_id", trade_comment_id);
+//				map.put("num", "test");
+//				out.print(map);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
+		
+//		dto = service.
+//		out.print(dto);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

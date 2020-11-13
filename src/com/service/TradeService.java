@@ -76,9 +76,11 @@ public class TradeService {
 	public int ReCommentWrite(TradeCommentsDTO dto) {
 		SqlSession session = MySqlSessionFactory.getSession();
 		System.out.println("service대댓글"+dto);
+		String trade_comment_id=null;
 		int num = 0;
 		try {
 			num = dao.ReCommentWrite(session, dto);
+			trade_comment_id=dto.getTrade_comment_id();
 			if(num != 0) {
 				session.commit();
 			}

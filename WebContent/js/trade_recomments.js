@@ -9,19 +9,30 @@ var comment_id;
 const trade_depth=$("input[name='re_trade_depth']").val();
 const trade_id=$("input[name='trade_id']").val();
 
-function reply(){
+function reply(e){
+	const dom = e.target;
+	
 	$.ajax({
 			url:"TradeCommentWrite",
 			type:"post",
-			dataType:"text",
 			data:{
-				user_id:user_id,
-				trade_comment:$("textarea[name='trade_recomment']").val(),
-				trade_comment_id:comment_id,
-				trade_depth:$("input[name='re_trade_depth']").val(),
-				trade_id:trade_id
+				"user_id": user_id,
+				"trade_comment":$("textarea[name='trade_recomment']").val(),
+				"trade_comment_id":comment_id,
+				"trade_depth":$("input[name='re_trade_depth']").val(),
+				"trade_id":trade_id,
 			},
-			success:function(data){
+			dataType:"json",
+			success:function(data,status,xhr){
+				console.log(data);
+				$(dom).parent().parent().after(`
+					<div class="comment_cont re" style="margin-left: 20px;">
+					<input type="hidden" name="trade_comment_id" value="${data}"/>
+					<strong style="color: red">${user_id}</strong>
+					<br>
+					<span>${$("textarea[name='trade_recomment']").val()}</span>
+					</div>
+				`);
 			},
 			error:function(xhr,status,error){
 				alert(error);
@@ -48,7 +59,7 @@ function getHtml(trade_id,comment_id,user_id){
 	        		"<input type='hidden' name='re_trade_comment_id' value='"+comment_id+"'>"+
 	        		"<input type='hidden' name='re_user_id' value='"+user_id+"'>"+
 	        		"<textarea name='trade_recomment' rows='5' cols='100'></textarea>"+
-	        		"<button class='re_comment_submit' onclick='reply()'>답글2</button>"+
+	        		"<button type='button' class='re_comment_submit' onclick='reply(event)'>답글2</button>"+
 	        	"</form>";
  return result;
 }
