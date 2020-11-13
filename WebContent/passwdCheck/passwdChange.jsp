@@ -46,6 +46,8 @@
 		btn.addEventListener("click", (e) => {
 			if(pwCheck.innerText === "비밀번호가 일치하지 않습니다.") {
 				alert("비밀번호를 확인해주세요.");
+				pw2.value = null;
+				pw2.focus();
 				e.preventDefault();
 			};
 		});
