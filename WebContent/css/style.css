@@ -428,6 +428,10 @@ li {
 	padding-top: 16px;
 }
 
+#passwdChangeContainer #passwdChangeForm .pwCheck {
+	height: 16px;
+}
+
 
 #passwdChangeContainer #passwdChangeForm button {
 	all: unset;
