@@ -1,6 +1,7 @@
 package com.partner;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.LeportsDTO;
+import com.dto.MemberDTO;
 import com.service.PartnerService;
 
 /**
@@ -23,12 +25,17 @@ public class ProductControlServlet extends HttpServlet {
 			HttpSession session=request.getSession();
 		
 			PartnerService pservice=new PartnerService();
-			LeportsDTO ldto=pservice.reservationControl("L9");
-			System.out.println(ldto);
 			
-			session.setAttribute("reserve", ldto);
+			MemberDTO dto=(MemberDTO)session.getAttribute("login");
+			String user_id=dto.getUser_id();
+			String partner_id=pservice.partnerIdSelect(user_id);
 			
-			RequestDispatcher dis=request.getRequestDispatcher("");
+			List<LeportsDTO> list=pservice.ProductControl(partner_id);
+			System.out.println(list);
+			
+			session.setAttribute("leports_list", list);
+			
+			RequestDispatcher dis=request.getRequestDispatcher("partner/ProductControl.jsp");
 			dis.forward(request, response);
 		}
 

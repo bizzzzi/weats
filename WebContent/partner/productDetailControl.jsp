@@ -1,5 +1,12 @@
+<%@page import="com.dto.LeportsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+ 	LeportsDTO dto=(LeportsDTO)session.getAttribute("leports");
+	String leports_title=dto.getLeports_title(); 
+	String leports_type=dto.getLeports_type();
+	String leports_content=dto.getLeports_content();
+%>    
 <!DOCTYPE html>
 <html>
 <head>

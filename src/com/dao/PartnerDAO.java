@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.dto.LeportsDTO;
@@ -8,15 +10,15 @@ import com.dto.PartnerDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerDAO {
-	//user_id select
-	public String selectUserid(SqlSession session,String user_email) {
-		String userid=session.selectOne("selectUserid",user_email);
-		return userid;
+
+	public String partnerIdSelect(SqlSession session,String user_id) {
+		String partner_id=session.selectOne("partnerIdSelect",user_id);
+		return partner_id;
 	}
 	
 	//마이페이지
-	public PartnerDTO partnerMypageSelect(SqlSession session,String partner_id) {
-		PartnerDTO dto=session.selectOne("partnerMypageSelect",partner_id);
+	public PartnerDTO partnerMypageSelect(SqlSession session,String user_id) {
+		PartnerDTO dto=session.selectOne("partnerMypageSelect",user_id);
 		return dto;
 	}
 	//마이페이지 수정
@@ -36,6 +38,11 @@ public class PartnerDAO {
 		return n;
 	}
 	
+	//파트너 확인
+	public int partner_verifyUpdate(SqlSession session, String user_id) {
+		return session.update("partner_verifyUpdate", user_id);
+	}
+	
 	//래포츠 등록
 	public int leportsInsert(SqlSession session,LeportsDTO dto) {
 		int n=session.insert("leportsInsert",dto);
@@ -46,6 +53,12 @@ public class PartnerDAO {
 	public int leportsItemInsert(SqlSession session,LeportsItemDTO dto) {
 		int n=session.insert("leportsItemInsert",dto);
 		return n;
+	}
+	
+	//등록상품 리스트
+	public List<LeportsDTO> ProductControl(SqlSession session,String partner_id) {
+		List<LeportsDTO> list=session.selectList("ProductControl",partner_id);
+		return list;
 	}
 	
 	//예약상세
