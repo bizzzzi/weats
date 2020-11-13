@@ -1,5 +1,6 @@
 package com.service;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -60,7 +61,6 @@ public class MemberService {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
 		String salt;
-		
 		try {
 			salt = dao.getSaltMember(session, user_email);
 		} finally {
@@ -71,7 +71,7 @@ public class MemberService {
 	}
 	
 	//로그인 
-	public MemberDTO memberLogin(HashMap<String, String> map) {
+	public MemberDTO memberLogin(Map<String, String> map) {
 		// TODO Auto-generated method stub
 		SqlSession session = MySqlSessionFactory.getSession();
 		MemberDTO dto; 
@@ -82,6 +82,41 @@ public class MemberService {
 			session.close();
 		}
 		return dto;
+	}
+
+	public void pwUpdate(Map<String, String> map) {
+		// TODO Auto-generated method stub
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n;
+		try {
+			n = dao.pwUpdate(session, map);
+			if(n > 0) {
+				session.commit();
+			} else {
+				session.rollback();
+			}
+		} finally {
+			// TODO: handle finally clause
+			session.close();
+		}
+		
+	}
+	
+	public void memberDelete(String user_email) {
+		// TODO Auto-generated method stub
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n;
+		try {
+			n = dao.memberDelete(session, user_email);
+			if(n>0) {
+				session.commit();
+			} else {
+				session.rollback();
+			}
+		} finally {
+			session.close();
+		}
+		
 	}
 
 }

@@ -35,7 +35,7 @@
 		안녕하세요.<%= username %>님.
 		<div class="nav">
 			<ul>
-				<li class="mypageOpenBtn"><a href="#">마이페이지</a></li>
+				<li class="mypageOpenBtn"><a href="MainMemberMyPage.jsp">마이페이지</a></li>
 				<li><a href="#">파트너등록</a></li>
 				<li class="logoutOpenBtn"><a href="MemberLogoutServlet">로그아웃</a></li>
 			</ul>
