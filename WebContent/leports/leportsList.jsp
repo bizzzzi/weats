@@ -4,7 +4,10 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%
-	String category = (String) request.getParameter("category");
+	request.setCharacterEncoding("utf-8");
+	String category = (String) session.getAttribute("category");
+	String uri = (String) request.getAttribute("uri");
+	System.out.println("uri ====>" +uri);
 if (category != null) {
 	if (category.equals("byType")) {
 %>
@@ -39,26 +42,29 @@ if (category != null) {
 }
 %>
 <div class="leports_list_sort_wrap">
-	<select class="leports_list_sort">
-		<option>기본순</option>
-		<option>가격 높은 순</option>
-		<option>가격 낮은 순</option>
-		<option>리뷰 순</option>
-	</select>
+	<form class="form" action="<%=uri%>">
+		<select class="leports_list_sort" name="selectAlign">
+			<option value="defalut">기본순</option>
+			<option value="minPrice">가격 높은 순</option>
+			<option value="maxPrice">가격 낮은 순</option>
+			<option value="review">리뷰 순</option>
+		</select>
+	</form>
+	
 </div>
 <div class="leports_items">
 	<!-- list for문 돌려서 반복 출력 -->
 	<%
 		List<LeportsThumbnailDTO> list = (List) request.getAttribute("leportsList");
-	System.out.println(list.size());
-	for (int i = 0; i < list.size(); i++) {
-		LeportsThumbnailDTO dto = list.get(i);
-		String leports_id = dto.getLeports_id();
-		String leports_title = dto.getLeports_title();
-		String leports_main_img = dto.getLeports_main_img();
-		String leports_loc = dto.getLeports_loc();
-		String leports_summary = dto.getLeports_summary();
-		int leports_price = dto.getLeports_price();
+		System.out.println(list.size());
+		for (int i = 0; i < list.size(); i++) {
+			LeportsThumbnailDTO dto = list.get(i);
+			String leports_id = dto.getLeports_id();
+			String leports_title = dto.getLeports_title();
+			String leports_main_img = dto.getLeports_main_img();
+			String leports_loc = dto.getLeports_loc();
+			String leports_summary = dto.getLeports_summary();
+			int leports_price = dto.getLeports_price();
 	%>
 	<div class="leports_item">
 	<a href="LeportsDetailServlet?leports_id=<%=leports_id%>">
@@ -80,3 +86,11 @@ if (category != null) {
 		}
 	%>
 </div>
+<script>
+		const align = document.querySelector(".leports_list_sort");
+		const form = document.querySelector(".form");
+		align.addEventListener('change', () => {
+			console.log(form.getAttribute('action'));
+			form.submit();
+		})
+</script>

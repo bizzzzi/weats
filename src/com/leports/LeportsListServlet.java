@@ -3,6 +3,7 @@ package com.leports;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dto.LeportsDTO;
 import com.dto.LeportsThumbnailDTO;
@@ -25,16 +27,33 @@ import com.service.LeportsService;
 @WebServlet("/LeportsListServlet")
 public class LeportsListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession();
+	
+		String uri = (String)request.getRequestURI();
+		System.out.println(uri);
+		
 		String category = request.getParameter("category");
 		String type = request.getParameter("type");
 		String loc = request.getParameter("loc");
+		String align = request.getParameter("selectAlign");
+		
+		System.out.println("category"+category);
+		System.out.println("type"+type);
+		System.out.println("loc"+loc);
+		System.out.println("align"+align);
+		
 		if(type == null && loc == null) type = "all";
-		request.setAttribute("category", category);
+		
+		if(type != null && loc == null) {
+			request.setAttribute("uri", uri+"?category="+category+"&type="+type);
+		} else if(type == null && loc != null) {
+			request.setAttribute("uri", uri+"?category="+category+"&loc="+loc);
+		}
+		session.setAttribute("category", category);
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("type", type);
 		map.put("loc", loc);
-		
 		
 		LeportsService lService = new LeportsService();
 		List<LeportsThumbnailDTO> list = lService.leportsList(map); //레포츠 전체 출력(레포츠 아이디 중복 포함)
@@ -52,7 +71,17 @@ public class LeportsListServlet extends HttpServlet {
 				}
 			}
 		}
-		System.out.println("걸러진 리스트(LeportsListServlet) :"+list1); 
+		
+		if(align == null) {
+			
+		} else if(align.equals("maxPrice")) {
+			Collections.sort(list1, (a, b) -> a.getLeports_price() - b.getLeports_price());
+			System.out.println(list1);
+		} else if(align.equals("minPrice")) {
+			Collections.sort(list1, (a, b) -> b.getLeports_price() - a.getLeports_price());
+			System.out.println(list1);
+		}
+		System.out.println("걸러지고 난 리스트(LeportsListServlet) :"+list1); 
 		
 		
 		request.setAttribute("leportsList", list1); //중복 제거한 리스트를 request.setAttribute();
