@@ -2,6 +2,8 @@
 <%@page import="com.dto.PartnerDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+
 <%
 	PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
 
@@ -39,7 +41,7 @@
         <div class="title">상호 이름</div>
         <div class="sub_box">
           <div>
-            <input type="text" class="c_name" value="<%=c_name%>">
+            <input type="text" class="c_name" name="c_name" value="<%=c_name%>">
           </div>
         </div>
       </div>
@@ -47,7 +49,7 @@
         <div class="title">연락처</div>
         <div class="sub_box">
           <div>
-            <input type="text" class="c_phone" value="<%=c_phone%>">
+            <input type="text" class="c_phone" name="c_phone" value="<%=c_phone%>">
           </div>
           <div class="comment">
             상시 가능한 연락처를 입력해주세요.

@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+	<%
+	String mesg=(String)session.getAttribute("partnerUpdateMesg");
+	if(mesg!=null){
+%>    
+<script>
+alert('<%=mesg%>');
+</script>
+<%
+	}
+	session.removeAttribute("partnerUpdateMesg");
+%>
 <!DOCTYPE html>
 <html>
 <head>
