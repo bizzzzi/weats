@@ -10,15 +10,11 @@ import com.dto.PartnerDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerDAO {
-
-	public String partnerIdSelect(SqlSession session,String user_id) {
-		String partner_id=session.selectOne("partnerIdSelect",user_id);
-		return partner_id;
-	}
 	
+
 	//마이페이지
-	public PartnerDTO partnerMypageSelect(SqlSession session,String user_id) {
-		PartnerDTO dto=session.selectOne("partnerMypageSelect",user_id);
+	public PartnerDTO partnerSelect(SqlSession session,String user_id) {
+		PartnerDTO dto=session.selectOne("partnerSelect",user_id);
 		return dto;
 	}
 	//마이페이지 수정
@@ -53,6 +49,12 @@ public class PartnerDAO {
 	public int leportsItemInsert(SqlSession session,LeportsItemDTO dto) {
 		int n=session.insert("leportsItemInsert",dto);
 		return n;
+	}
+	
+	//레포츠 아이디찾기
+	public LeportsDTO leportsIdSelect(SqlSession session,String leports_title) {
+		LeportsDTO dto=session.selectOne("leportsIdSelect",leports_title);
+		return dto;
 	}
 	
 	//등록상품 리스트
