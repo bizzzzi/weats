@@ -35,5 +35,6 @@
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
 <script type="text/javascript" src="js/count.js"></script>
+<script type="text/javascript" src="js/calendar.js"></script>
 </body>
 </html>
