@@ -3,11 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="PartnerMapper">
-	
 
-	<select id="partnerIdSelect" resultType="String" parameterType="String">
-		select partner_id from partner where user_id = #{user_id}
-	</select>
 
 	<!-- 파트너 등록 -->
 	<insert id="partnerInsert" parameterType="PartnerDTO">
@@ -24,7 +20,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 파트너 마이페이지 -->
-	<select id="partnerMypageSelect" resultType="PartnerDTO" parameterType="String"> 
+	<select id="partnerSelect" resultType="PartnerDTO" parameterType="String"> 
 		select partner_id,user_id,c_name,c_postnum,c_address,c_detail_address,
 		c_phone,partner_license_num,partner_license_docs
 		from partner
@@ -106,6 +102,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		values(#{leports_id},#{leports_item_title},#{leports_summary},
 		#{leports_price},#{leports_max_capacity})
 	</insert>
+	
+	<select id="leportsIdSelect" parameterType="String" resultType="LeportsDTO">
+		select leports_id,leports_title from leports where leports_title=#{leports_title}
+	</select>
+
 	
 	<!-- 레포츠 상품 삭제 -->
 	<delete id="leportsDelete" parameterType="String">

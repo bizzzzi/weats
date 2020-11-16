@@ -12,26 +12,15 @@ import com.dto.PartnerDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerService {
-	
-	public String partnerIdSelect(String user_id) {
-		SqlSession session=MySqlSessionFactory.getSession();
-		String partner_id="";
-		try {
-			PartnerDAO dao=new PartnerDAO();
-			partner_id=dao.partnerIdSelect(session, user_id);
-		}finally {
-			session.close();
-		}
-		return partner_id;
-	}
+
 	
 	//마이페이지
-	public PartnerDTO partnerMypageSelect(String user_id) {
+	public PartnerDTO partnerSelect(String user_id) {
 		SqlSession session=MySqlSessionFactory.getSession();
 		PartnerDTO dto=null;
 		try {
 			PartnerDAO dao=new PartnerDAO();
-			dto=dao.partnerMypageSelect(session,user_id);
+			dto=dao.partnerSelect(session,user_id);
 		}finally {
 			session.close();
 		}
@@ -120,6 +109,20 @@ public class PartnerService {
 		}
 		return n;
 	}
+	
+	//레포츠 아이디 찾기
+	public LeportsDTO leportsIdSelect(String leports_title) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		LeportsDTO dto=null;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			dto=dao.leportsIdSelect(session, leports_title);
+		}finally {
+			session.close();
+		}
+		return dto;
+	}
+	
 	//예약 상세
 	public LeportsDTO reservationControl(String leports_id) {
 		SqlSession session=MySqlSessionFactory.getSession();

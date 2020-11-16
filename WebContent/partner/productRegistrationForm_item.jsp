@@ -1,12 +1,13 @@
+<%@page import="com.dto.LeportsDTO"%>
 <%@page import="com.dto.PartnerDTO"%>
 <%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
 <%
-	MemberDTO dto = (MemberDTO) session.getAttribute("login");
+LeportsDTO dto = (LeportsDTO) session.getAttribute("leports");
+String leports_id=dto.getLeports_id();
 
-String user_id = dto.getUser_id();
 %>
 <!DOCTYPE html>
 <html>
@@ -21,9 +22,9 @@ String user_id = dto.getUser_id();
   <hr>
 
   <div class="partner_registration_form">
-    <form action="../ProductAddServlet" method="post">
+    <form action="ProductAddItemServlet" method="post">
 
-      <input type="hidden" name="user_id" value="<%=user_id%>">
+      <input type="text" name="leports_id" value="<%=leports_id%>">
 
       <div class="box">
         <div class="title">레포츠 아이템 이름</div>

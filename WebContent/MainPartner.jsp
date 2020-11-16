@@ -11,7 +11,7 @@
 	<a href="partner/partnerForm.jsp">파트너 등록</a>
 		<ul>
 			<li><a href="PartnerMypageSelectServlet">계정관리</a></li>
-			<li><a href="partner/productRegistrationForm.jsp">상품등록</a></li>
+			<li><a href="partner/productRegistrationForm_leports.jsp">상품등록</a></li>
 		</ul>
 		<ul>
 			<li><a href="ProductControlServlet">등록상품관리</a></li>

@@ -3,13 +3,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-    <%
- 		MemberDTO dto=(MemberDTO)session.getAttribute("login");
-    
-      
-      String user_id=dto.getUser_id();
-
-    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,9 +14,9 @@
   <hr>
 
   <div class="partner_registration_form">
-    <form action="#" method="post">
+    <form action="../ProductAddLeportsServlet" method="post">
     
-    <input type="hidden" name="user_id" value="<%=user_id%>">
+
  
       <div class="box">
         <div class="title">상품 이름</div>

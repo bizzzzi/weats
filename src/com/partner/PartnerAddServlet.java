@@ -41,7 +41,7 @@ public class PartnerAddServlet extends HttpServlet {
 			PartnerService pservice=new PartnerService();
 			int n=pservice.partnerInsert(pdto);
 			
-			if(n!=0) {
+			if(n==1) {
 				session.setAttribute("partner", pdto);
 				pservice.partner_verifyUpdate(user_id);
 			}

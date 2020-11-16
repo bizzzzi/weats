@@ -12,20 +12,19 @@ import javax.servlet.http.HttpSession;
 
 import com.dto.LeportsDTO;
 import com.dto.LeportsItemDTO;
+import com.dto.PartnerDTO;
 import com.service.PartnerService;
 
 /**
  * Servlet implementation class ProductAddServlet
  */
-@WebServlet("/ProductAddServlet")
-public class ProductAddServlet extends HttpServlet {
+@WebServlet("/ProductAddLeportsServlet")
+public class ProductAddLeportsServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session=request.getSession();
 		
-		//sub_img4,item_title
 			String leports_title=request.getParameter("leports_title");
-			String leports_summary=request.getParameter("leports_summary");
 			String leports_content=request.getParameter("leports_content");
 			String leports_main_img=request.getParameter("leports_main_img");
 			String leports_sub_img1=request.getParameter("leports_sub_img1");
@@ -34,33 +33,25 @@ public class ProductAddServlet extends HttpServlet {
 			String leports_sub_img4=request.getParameter("leports_sub_img4");
 			String leports_loc=request.getParameter("leports_loc");
 			String leports_type=request.getParameter("leports_type");
-			String leports_price=request.getParameter("leports_price");
-			String leports_max_capacity=request.getParameter("leports_max_capacity");		
 			String leports_regidate=request.getParameter("leports_regidate");
-			String user_id=request.getParameter("user_id");
-			
-			
+					
 			PartnerService pservice=new PartnerService();
-			String partner_id=pservice.partnerIdSelect(user_id);
+			PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
+			String partner_id=pdto.getPartner_id();
 			 
 			LeportsDTO ldto=new LeportsDTO(null,partner_id,leports_title,leports_type,
 					leports_loc,leports_regidate,leports_main_img,leports_sub_img1,
 					leports_sub_img2,leports_sub_img3,leports_sub_img4,leports_content);
-			
-			LeportsItemDTO idto=new LeportsItemDTO("L27","itemtitle",leports_summary,
-					leports_price,leports_max_capacity);
-			
-			
+	
 			System.out.println(ldto); //leports
-			System.out.println(idto); //leprots_item
+		
+			int n=pservice.leportsInsert(ldto);		
+			if(n==1) {
+				//session.setAttribute("leports", ldto);
+			}
 			
-			pservice.leportsInsert(ldto);
-			pservice.leportsItemInsert(idto);
 			
-			session.setAttribute("leports", ldto);
-			session.setAttribute("leports_item", idto);
-			
-			RequestDispatcher dis=request.getRequestDispatcher("main.jsp");
+			RequestDispatcher dis=request.getRequestDispatcher("ProductLeportsIdServlet");
 			dis.forward(request, response);
 		}
 
