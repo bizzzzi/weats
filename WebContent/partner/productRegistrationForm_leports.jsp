@@ -1,5 +1,8 @@
+<%@page import="com.dto.PartnerDTO"%>
+<%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,20 +14,15 @@
   <hr>
 
   <div class="partner_registration_form">
-    <form action="/partners" method="post">
+    <form action="../ProductAddLeportsServlet" method="post">
+    
+
+ 
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
           <div>
             <input type="text" name="leports_title" class="leports_title" placeholder="ex) 서핑강습 2시간">
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="title">한줄 요약</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" name="leports_summary" class="leports_summary" placeholder="ex) 강습시간: 9:30~11:30">
           </div>
         </div>
       </div>
@@ -36,7 +34,6 @@
           </div>
         </div>
       </div>
-
       <div class="box">
         <div class="title">대표 사진</div>
         <div class="sub_box">
@@ -56,6 +53,9 @@
           </div>
           <div>
             <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*" required multiple>
+          </div>
+            <div>
+            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*" required multiple>
           </div>
         </div>
       </div>
@@ -90,25 +90,9 @@
           </div>
         </div>
       </div>
-      <div class="box">
-        <div class="title">가격(원)</div>
-        <div class="sub_box">
-          <div>
-            <input type="text" name="leports_price" class="leports_price" placeholder="숫자만 입력해주세요.">
-          </div>
-        </div>
-      </div>
-      <div class="box">
-        <div class="title">최대 수용 인원</div>
-        <div class="sub_box">
-          <div>
-            <input type="number" name="leports_max_capacity" class="leports_max_capacity" placeholder="숫자만 입력해주세요.">
-          </div>
-        </div>
-      </div>
-      <div>아래 버튼을 선택하면 개인정보 동의 및 파트너 약관에 동의하는 것입니다.</div>
+   
       <div class="Btn">
-        <button class="submitBtn" type="submit">확인 및 제출</button>
+        <button class="submitBtn" type="submit">다음</button>
       </div>
     </form>
   </div>

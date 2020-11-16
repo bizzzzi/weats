@@ -1,5 +1,7 @@
 package com.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.dto.LeportsDTO;
@@ -8,15 +10,11 @@ import com.dto.PartnerDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerDAO {
-	//user_id select
-	public String selectUserid(SqlSession session,String user_email) {
-		String userid=session.selectOne("selectUserid",user_email);
-		return userid;
-	}
 	
+
 	//마이페이지
-	public PartnerDTO partnerMypageSelect(SqlSession session,String partner_id) {
-		PartnerDTO dto=session.selectOne("partnerMypageSelect",partner_id);
+	public PartnerDTO partnerSelect(SqlSession session,String user_id) {
+		PartnerDTO dto=session.selectOne("partnerSelect",user_id);
 		return dto;
 	}
 	//마이페이지 수정
@@ -36,6 +34,11 @@ public class PartnerDAO {
 		return n;
 	}
 	
+	//파트너 확인
+	public int partner_verifyUpdate(SqlSession session, String user_id) {
+		return session.update("partner_verifyUpdate", user_id);
+	}
+	
 	//래포츠 등록
 	public int leportsInsert(SqlSession session,LeportsDTO dto) {
 		int n=session.insert("leportsInsert",dto);
@@ -48,9 +51,26 @@ public class PartnerDAO {
 		return n;
 	}
 	
-	//예약상세
-	public LeportsDTO reservationControl(SqlSession session,String leports_id) {
-		LeportsDTO dto=session.selectOne("reservationControl",leports_id);
+	//레포츠 아이디찾기
+	public LeportsDTO leportsIdSelect(SqlSession session,String leports_title) {
+		LeportsDTO dto=session.selectOne("leportsIdSelect",leports_title);
+		return dto;
+	}
+	
+	//등록상품 리스트
+	public List<LeportsDTO> ProductControl(SqlSession session,String partner_id) {
+		List<LeportsDTO> list=session.selectList("ProductControl",partner_id);
+		return list;
+	}
+	
+	//상품 상세 페이지 레포츠
+	public LeportsDTO ProductDetailLeports(SqlSession session,String leports_id) {
+		LeportsDTO dto=session.selectOne("ProductDetailLeports",leports_id);
+		return dto;
+	}
+	//상품 상세 페이지 아이템
+	public LeportsItemDTO ProductDetailItem(SqlSession session,String leports_id) {
+		LeportsItemDTO dto=session.selectOne("ProductDetailItem",leports_id);
 		return dto;
 	}
 	

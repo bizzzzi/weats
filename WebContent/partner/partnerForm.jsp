@@ -1,17 +1,21 @@
+<%@page import="com.dto.MemberDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+    
+    <%
+    	MemberDTO dto=(MemberDTO)session.getAttribute("login");
+    	System.out.print("파트너 등록: "+dto.getUser_id());
+    	String user_id="";
+    	if(dto!=null){
+    		user_id=dto.getUser_id();
+    	}
+    %>
 <h1 class="main_title">파트너 등록</h1>
   <hr>
 
   <div class="partner_form" id="partner">
-    <form action="/partners" method="post">
+    <form action="../PartnerAddServlet" method="post">
+    <input type="hidden" name="user_id" value="<%=user_id%>">
       <div class="box">
         <div class="title">상호 이름*</div>
         <div class="sub_box">
@@ -43,24 +47,26 @@
         </div>
       </div>
       <div class="box">
-        <div class="title">사업자 등록번호*</div>
+        <div class="title">사업자 번호*</div>
         <div class="sub_box">
           <input type="text" name="partner_license_num" class="partner_license_num" size="23" maxlength="10"
             placeholder="하이픈(-)은 빼고 입력해주세요.">
         </div>
       </div>
       <div class="box">
-        <div class="title">서류 제출*</div>
+        <div class="title">사업자 등록증*</div>
         <div class="sub_box">
           <div class="guide_img">
-            <img src="profile.png" alt="서류 제출 가이드 사진">
-            <input id="image_upload" class="image_inputType_file" name="partner_license_docs"
-              placeholder="하이픈(-)은 빼고 입력해주세요." type="file" accept="img/*" required multiple>
-            <!-- file형태와 image만 업로드하도록 설정 -->
+          <input type="file" id="image_upload" class="image_inputType_file" name="partner_license_docs" accept="img/*"
+              placeholder="하이픈(-)은 빼고 입력해주세요." onchange="thumbnail(this);"/>
+			    <div id="image_container">
+			      <!-- 사진을 미리 보여줄 영역 -->
+			      <img src="#" alt="" />
+			    </div>
           </div>
           <div class="comment">
-            사업자 등록증 사진을 업로드해주세요.<br>
-            이미지 규격은 '*'을 권장합니다.
+            <small>사업자 등록증 사진을 업로드해주세요.</small><br>
+            <small>이미지 규격은 '*'을 권장합니다.</small>
           </div>
         </div>
       </div>
@@ -70,5 +76,3 @@
       </div>
     </form>
   </div>
-</body>
-</html>

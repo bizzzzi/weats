@@ -17,31 +17,32 @@ import com.service.PartnerService;
 /**
  * Servlet implementation class PartnerMypageSelectServelt
  */
-@WebServlet("/PartnerMypageSelectServelt")
-public class PartnerMypageSelectServelt extends HttpServlet {
+@WebServlet("/PartnerMypageSelectServlet")
+public class PartnerMypageSelectServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession();
-		
-		MemberDTO dto=(MemberDTO)session.getAttribute("login");
-		 String nextPage = null;
-		 
-		if(dto!=null) {			
-			String user_id=dto.getUser_id();
+			HttpSession session=request.getSession();
 			
-			PartnerService pservice=new PartnerService();
+			MemberDTO dto=(MemberDTO)session.getAttribute("login");
+			 String nextPage = null;
+			 
+			if(dto!=null) {			
+				String user_id=dto.getUser_id();
+				
+				PartnerService pservice=new PartnerService();
+				
+				PartnerDTO pdto=pservice.partnerSelect(user_id);
+				System.out.println(pdto);
+				session.setAttribute("partner", pdto);
+						
+				nextPage="partner/partnerMypage.jsp";
+			}else {
+				System.out.println("dto==null");
+				nextPage="main.jsp";
+			}
+			RequestDispatcher dis = request.getRequestDispatcher(nextPage);
+		      dis.forward(request, response);
 			
-			PartnerDTO pdto=pservice.partnerSelect(user_id);
-			System.out.println(pdto);
-			session.setAttribute("partner", pdto);
-					
-			nextPage="partner/partnerMypage.jsp";
-		}else {
-			System.out.println("dto==null");
-			nextPage="main.jsp";
-		}
-		RequestDispatcher dis = request.getRequestDispatcher(nextPage);
-	      dis.forward(request, response);
 		}
 
 	/**

@@ -15,38 +15,31 @@ import com.dto.PartnerDTO;
 import com.service.PartnerService;
 
 /**
- * Servlet implementation class PartnerMypageSelectServelt
+ * Servlet implementation class PartnerKeyCheckServlet
  */
-@WebServlet("/PartnerMypageSelectServelt")
-public class PartnerMypageSelectServelt extends HttpServlet {
-	
+@WebServlet("/PartnerKeyCheckServlet")
+public class PartnerKeyCheckServlet extends HttpServlet {
+	//로그인시 파트너 키 확인
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session=request.getSession();
-		
-		MemberDTO dto=(MemberDTO)session.getAttribute("login");
-		 String nextPage = null;
-		 
-		if(dto!=null) {			
+			HttpSession session=request.getSession();
+			
+			MemberDTO dto=(MemberDTO) session.getAttribute("login");
+			int partner_key=dto.getPartner_verify();
 			String user_id=dto.getUser_id();
 			
 			PartnerService pservice=new PartnerService();
-			
 			PartnerDTO pdto=pservice.partnerSelect(user_id);
-			System.out.println(pdto);
-			session.setAttribute("partner", pdto);
-					
-			nextPage="partner/partnerMypage.jsp";
-		}else {
-			System.out.println("dto==null");
-			nextPage="main.jsp";
-		}
-		RequestDispatcher dis = request.getRequestDispatcher(nextPage);
-	      dis.forward(request, response);
+			
+			if(partner_key==1) {
+				session.setAttribute("partner", pdto);
+				System.out.println(pdto);
+			}
+			
+			RequestDispatcher dis=request.getRequestDispatcher("main.jsp");
+			dis.forward(request, response);
 		}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

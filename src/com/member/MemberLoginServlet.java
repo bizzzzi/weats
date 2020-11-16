@@ -37,7 +37,7 @@ public class MemberLoginServlet extends HttpServlet {
 		} else {
 			session.setAttribute("mesg", "로그인 실패");
 		}
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("PartnerKeyCheckServlet");
 		
 	}
 
