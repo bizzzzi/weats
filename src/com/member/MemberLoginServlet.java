@@ -13,9 +13,11 @@ import javax.servlet.http.HttpSession;
 import javax.websocket.SendResult;
 
 import com.dto.MemberDTO;
+import com.dto.PartnerDTO;
 import com.encrypt.SHA256;
 import com.encrypt.UserVerify;
 import com.service.MemberService;
+import com.service.PartnerService;
 
 /**
  * Servlet implementation class MemberLoginServlet
@@ -34,10 +36,10 @@ public class MemberLoginServlet extends HttpServlet {
 		if(dto!=null) {
 			session.setAttribute("mesg", "로그인 성공");
 			session.setAttribute("login", dto);
-		} else {
+		}else {
 			session.setAttribute("mesg", "로그인 실패");
 		}
-		response.sendRedirect("main.jsp");
+		response.sendRedirect("PartnerKeyCheckServlet");
 		
 	}
 

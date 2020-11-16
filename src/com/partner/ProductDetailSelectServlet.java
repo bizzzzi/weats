@@ -1,7 +1,6 @@
 package com.partner;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,36 +11,32 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.LeportsDTO;
-import com.dto.MemberDTO;
-import com.dto.PartnerDTO;
+import com.dto.LeportsItemDTO;
 import com.service.PartnerService;
 
 /**
- * Servlet implementation class ProductControlServlet
+ * Servlet implementation class ProductDetailSelectServlet
  */
-@WebServlet("/ProductControlServlet")
-public class ProductControlServlet extends HttpServlet {
-	
+@WebServlet("/ProductDetailSelectServlet")
+public class ProductDetailSelectServlet extends HttpServlet {
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			HttpSession session=request.getSession();
-		
+			String leports_id=(String)request.getParameter("leports_id");
+			
 			PartnerService pservice=new PartnerService();
+			LeportsDTO ldto= pservice.ProductDetailLeports(leports_id);
+			LeportsItemDTO idto=pservice.ProductDetailItem(leports_id);
 			
-			PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-			String partner_id=pdto.getPartner_id();
+			session.setAttribute("leports", ldto);
+			session.setAttribute("item", idto);
 			
-			List<LeportsDTO> list=pservice.ProductControl(partner_id);
-			System.out.println(list);
-			
-			session.setAttribute("leports_list", list);
-			
-			RequestDispatcher dis=request.getRequestDispatcher("partner/ProductControl.jsp");
+			RequestDispatcher dis=request.getRequestDispatcher("partner/productDetailControl.jsp");
 			dis.forward(request, response);
+		
 		}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

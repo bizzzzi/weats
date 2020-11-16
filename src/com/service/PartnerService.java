@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.config.MySqlSessionFactory;
@@ -10,27 +12,15 @@ import com.dto.PartnerDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerService {
-	
-	//user_id select
-	public String selectUserid(String user_email) {
-		SqlSession session=MySqlSessionFactory.getSession();
-		String user_id="";
-		try {
-			PartnerDAO dao=new PartnerDAO();
-			user_id=dao.selectUserid(session, user_email);
-		}finally {
-			session.close();
-		}
-		return user_id;
-	}
+
 	
 	//마이페이지
-	public PartnerDTO partnerMypageSelect(String partner_id) {
+	public PartnerDTO partnerSelect(String user_id) {
 		SqlSession session=MySqlSessionFactory.getSession();
 		PartnerDTO dto=null;
 		try {
 			PartnerDAO dao=new PartnerDAO();
-			dto=dao.partnerMypageSelect(session,partner_id);
+			dto=dao.partnerSelect(session,user_id);
 		}finally {
 			session.close();
 		}
@@ -76,6 +66,22 @@ public class PartnerService {
 		}
 		return n;
 	}
+	//파트너 등록 확인
+	public void partner_verifyUpdate(String user_id) {
+		SqlSession session = MySqlSessionFactory.getSession();
+		int n = 0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n = dao.partner_verifyUpdate(session, user_id);
+			if(n != 0) {
+				session.commit();				
+			} else {
+				session.rollback();
+			}	
+		} finally {
+			session.close();
+		}
+	}
 	
 	//레포츠 등록
 	public int leportsInsert(LeportsDTO dto) {
@@ -103,18 +109,57 @@ public class PartnerService {
 		}
 		return n;
 	}
-	//예약 상세
-	public LeportsDTO reservationControl(String leports_id) {
+	
+	//레포츠 아이디 찾기
+	public LeportsDTO leportsIdSelect(String leports_title) {
 		SqlSession session=MySqlSessionFactory.getSession();
 		LeportsDTO dto=null;
 		try {
 			PartnerDAO dao=new PartnerDAO();
-			dto=dao.reservationControl(session, leports_id);
+			dto=dao.leportsIdSelect(session, leports_title);
 		}finally {
-			session.commit();
+			session.close();
 		}
 		return dto;
 	}
 
+	
+	//등록상품 리스트
+	public List<LeportsDTO> ProductControl(String partner_id){
+		SqlSession session=MySqlSessionFactory.getSession();
+		List<LeportsDTO> list=null;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			list=dao.ProductControl(session, partner_id);
+		}finally {
+			session.close();
+		}
+		return list;
+	}
+	
+	//상품 상세 페이지 레포츠
+	public LeportsDTO ProductDetailLeports(String leports_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		LeportsDTO dto=null;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			dto=dao.ProductDetailLeports(session, leports_id);
+		}finally {
+			session.close();
+		}
+		return dto;
+	}
+	//상품 상세 페이지 아이템
+	public LeportsItemDTO ProductDetailItem(String leports_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		LeportsItemDTO dto=null;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			dto=dao.ProductDetailItem(session, leports_id);
+		}finally {
+			session.close();
+		}
+		return dto;
+	}
 	
 }
