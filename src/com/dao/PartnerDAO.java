@@ -63,9 +63,14 @@ public class PartnerDAO {
 		return list;
 	}
 	
-	//예약상세
-	public LeportsDTO reservationControl(SqlSession session,String leports_id) {
-		LeportsDTO dto=session.selectOne("reservationControl",leports_id);
+	//상품 상세 페이지 레포츠
+	public LeportsDTO ProductDetailLeports(SqlSession session,String leports_id) {
+		LeportsDTO dto=session.selectOne("ProductDetailLeports",leports_id);
+		return dto;
+	}
+	//상품 상세 페이지 아이템
+	public LeportsItemDTO ProductDetailItem(SqlSession session,String leports_id) {
+		LeportsItemDTO dto=session.selectOne("ProductDetailItem",leports_id);
 		return dto;
 	}
 	

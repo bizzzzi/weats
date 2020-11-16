@@ -148,14 +148,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where l.leports_id=#{leports_id}
 	</select>  -->
 	
-	<!-- 상품 상세 페이지 select leports -->
-<!-- 	<select id="productDetailControlSelect" parameterType="String" resultType="leportsDTO">
-		select leports_id,partner_id,leports_title,leports_type,leports_loc,
-		leports_regidate,leports_main_img,leports_sub_img1,leports_sub_img2,
-		leports_sub_img3,leports_sub_img4,leports_content
+	<!-- 상품 상세 페이지 레포츠 -->
+ 	<select id="ProductDetailLeports" parameterType="String" resultType="leportsDTO">
+		select leports_id,partner_id,leports_title,leports_type,leports_loc,leports_content
 		from leports
-	</select> -->
-
+		where leports_id=#{leports_id}
+	</select> 
 	
+	<!-- 상품 상세 페이지 레포츠 아이템 -->
+	<select id="ProductDetailItem" parameterType="String" resultType="leportsItemDTO">
+		select leports_id,leports_item_title,leports_summary,leports_price,leports_max_capacity
+		from leports_item
+		where leports_id=#{leports_id}
+	</select>
 	
 </mapper>

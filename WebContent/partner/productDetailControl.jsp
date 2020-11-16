@@ -1,11 +1,18 @@
+<%@page import="com.dto.LeportsItemDTO"%>
 <%@page import="com.dto.LeportsDTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
- 	LeportsDTO dto=(LeportsDTO)session.getAttribute("leports");
+  	LeportsDTO dto=(LeportsDTO)session.getAttribute("leports");
 	String leports_title=dto.getLeports_title(); 
 	String leports_type=dto.getLeports_type();
-	String leports_content=dto.getLeports_content();
+	String leports_content=dto.getLeports_content(); 
+	String leports_loc=dto.getLeports_loc();
+	
+	LeportsItemDTO idto=(LeportsItemDTO)session.getAttribute("item");
+	String item_summary=idto.getLeports_summary();
+	String leports_price=idto.getLeports_price();
+	String leports_max_capacity=idto.getLeports_max_capacity();
 %>    
 <!DOCTYPE html>
 <html>
@@ -17,13 +24,13 @@
  <h1 class="main_title">상품 상세페이지(파트너용)</h1>
   <hr>
   <div class="product_control_page">
-    <form action="#" method="post">
+    <form method="post">
 
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_title" class="leports_title" >
+            <input type="text" name="leports_title" class="leports_title" value="<%=leports_title%>">
           </div>
         </div>
       </div>
@@ -31,7 +38,7 @@
         <div class="title">한줄 요약</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_summary" class="leports_summary">
+            <input type="text" name="leports_summary" class="leports_summary" value="<%=item_summary%>">
           </div>
         </div>
       </div>
@@ -39,7 +46,7 @@
         <div class="title">상품 소개</div>
         <div class="sub_box">
           <div>
-            <textarea name="leports_content" class="leports_content" cols="30" rows="10"></textarea>
+            <textarea name="leports_content" class="leports_content" cols="30" rows="10"><%=leports_content %></textarea>
           </div>
         </div>
       </div>
@@ -100,7 +107,7 @@
         <div class="title">가격(원)</div>
         <div class="sub_box">
           <div>
-            <input type="text" name="leports_price" class="leports_price" >
+            <input type="text" name="leports_price" class="leports_price" value="<%=leports_price%>">
           </div>
         </div>
       </div>
@@ -108,14 +115,14 @@
         <div class="title">최대 수용 인원</div>
         <div class="sub_box">
           <div>
-            <input type="number" name="leports_max_capacity" class="leports_max_capacity" >
+            <input type="number" name="leports_max_capacity" class="leports_max_capacity" value="<%=leports_max_capacity%>">
           </div>
         </div>
       </div>
       <div class="Btn">
-        <button class="submitBtn" type="submit">수정</button>
+        <button class="submitBtn" type="submit" formaction="">수정</button>
         <button class="cancleBtn" type="reset">취소</button>
-        <button class="deletetBtn" type="submit">삭제</button>
+        <button class="deletetBtn" type="submit" formaction="">삭제</button>
       </div>
     </form>
   </div>
