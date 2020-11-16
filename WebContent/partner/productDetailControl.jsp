@@ -8,11 +8,13 @@
 	String leports_type=dto.getLeports_type();
 	String leports_content=dto.getLeports_content(); 
 	String leports_loc=dto.getLeports_loc();
+	String leports_id=dto.getLeports_id();
 	
 	LeportsItemDTO idto=(LeportsItemDTO)session.getAttribute("item");
 	String item_summary=idto.getLeports_summary();
 	String leports_price=idto.getLeports_price();
 	String leports_max_capacity=idto.getLeports_max_capacity();
+	String leports_item_title=idto.getLeports_item_title();
 %>    
 <!DOCTYPE html>
 <html>
@@ -25,7 +27,7 @@
   <hr>
   <div class="product_control_page">
     <form method="post">
-
+<input type="text" name="leports_id" value="<%=leports_id%>">
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">
@@ -70,6 +72,9 @@
           <div>
             <input class="leports_sub_img3" name="leports_sub_img3" type="file" accept="img/*" required multiple>
           </div>
+           <div>
+            <input class="leports_sub_img4" name="leports_sub_img4" type="file" accept="img/*" required multiple>
+          </div>
         </div>
       </div>
       <div class="box">
@@ -104,6 +109,14 @@
         </div>
       </div>
       <div class="box">
+        <div class="title">레포츠 아이템 이름</div>
+        <div class="sub_box">
+          <div>
+            <input type="text" name="leports_item_title" class="leports_item_title" value="<%=leports_item_title%>">
+          </div>
+        </div>
+      </div>
+      <div class="box">
         <div class="title">가격(원)</div>
         <div class="sub_box">
           <div>
@@ -120,7 +133,7 @@
         </div>
       </div>
       <div class="Btn">
-        <button class="submitBtn" type="submit" formaction="">수정</button>
+        <button class="submitBtn" type="submit" formaction="ProductUpdateServlet">수정</button>
         <button class="cancleBtn" type="reset">취소</button>
         <button class="deletetBtn" type="submit" formaction="">삭제</button>
       </div>

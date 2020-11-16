@@ -74,5 +74,15 @@ public class PartnerDAO {
 		return dto;
 	}
 	
+	//레포츠 수정
+	public int ProductUpdateLeports(SqlSession session,LeportsDTO dto) {
+		int n=session.update("ProductUpdateLeports",dto);
+		return n;
+	}
+	//레포츠 아이템 수정
+	public int ProductUpdateItem(SqlSession session,LeportsItemDTO dto) {
+		int n=session.update("ProductUpdateItem",dto);
+		return n;
+	}
 	
 }

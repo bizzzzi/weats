@@ -162,4 +162,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where leports_id=#{leports_id}
 	</select>
 	
+	<!-- 레포츠 수정 -->
+	<update id="ProductUpdateLeports" parameterType="leportsDTO">
+		update leports set leports_type=#{leports_type},leports_title=#{leports_title},
+		leports_loc=#{leports_loc},leports_content=#{leports_content},leports_main_img=#{leports_main_img},
+		leports_sub_img1=#{leports_sub_img1},leports_sub_img2=#{leports_sub_img2},
+		leports_sub_img3=#{leports_sub_img3},leports_sub_img4=#{leports_sub_img4}
+		where leports_id=#{leports_id}
+	</update>
+	<!-- 레포츠 아이템 수정 -->
+	<update id="ProductUpdateItem" parameterType="leportsItemDTO">
+		update leports_item set leports_item_title=#{leports_item_title},
+		leports_summary=#{leports_summary},leports_price=#{leports_price},
+		leports_max_capacity=#{leports_max_capacity}
+		where leports_id=#{leports_id}
+	</update>
 </mapper>

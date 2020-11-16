@@ -161,5 +161,32 @@ public class PartnerService {
 		}
 		return dto;
 	}
+	//레포츠 수정
+	public int ProductUpdateLeports(LeportsDTO dto) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.ProductUpdateLeports(session, dto);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	//레포츠 아이템 수정
+	public int ProductUpdateItem(LeportsItemDTO dto) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.ProductUpdateItem(session, dto);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	
 	
 }
