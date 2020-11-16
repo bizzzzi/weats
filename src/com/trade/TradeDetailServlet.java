@@ -1,6 +1,7 @@
 package com.trade;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -29,6 +30,13 @@ public class TradeDetailServlet extends HttpServlet {
 		List<TradeCommentsDTO> list=service.CommentList(trade_id);
 		request.setAttribute("dto", dto);
 		request.setAttribute("list", list);
+		List<TradeCommentsDTO> listxxx = new ArrayList<>();
+		for(TradeCommentsDTO xxx: list) {
+			if(xxx.getTrade_depth() == 1) {
+				listxxx.add(xxx);
+			}
+		}
+		request.setAttribute("list1",listxxx);
 		RequestDispatcher dis=request.getRequestDispatcher("MainTradeDetail.jsp");
 		dis.forward(request, response);
 	}

@@ -32,6 +32,7 @@ public class TradeCommentWrite extends HttpServlet {
 		String user_id=request.getParameter("user_id");
 		String trade_comment=request.getParameter("trade_comment");
 		String trade_comment_id=request.getParameter("trade_comment_id");
+		String comment_regidate=null;
 		int num=0;
 		if(trade_depth==0) {
 			dto=new TradeCommentsDTO(null,trade_id,user_id,trade_comment,null,null,trade_depth);
@@ -45,15 +46,12 @@ public class TradeCommentWrite extends HttpServlet {
 				System.out.println("최송락:"+dto);
 				num = service.ReCommentWrite(dto);
 				trade_comment_id = dto.getTrade_comment_id();
+				comment_regidate=dto.getComment_regidate();
 				System.out.println("테스트ㅡㅡ트트틑트트틑"+"\t"+trade_comment_id);
 				System.out.println("depth가 1일때 결과:"+num+"\n"+dto);
+				comment_regidate=service.CommentRegidate(trade_comment_id);
 				PrintWriter out = response.getWriter();
-				out.print(dto);
-				
-//				Map<String,String> map=new HashMap<String, String>();
-//				map.put("trade_comment_id", trade_comment_id);
-//				map.put("num", "test");
-//				out.print(map);
+				out.print("{\"trade_comment_id\": \"" + trade_comment_id + "\",\"comment_regidate\":\""+comment_regidate+"\",\"trade_comment\":\""+trade_comment+"\"}");
 			}catch(Exception e) {
 				e.printStackTrace();
 			}

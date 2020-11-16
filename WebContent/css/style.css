@@ -558,6 +558,8 @@ video {
 
 
 /* trade_recomments 대댓글 기능 - 혜빈 */
-.recomment_cont {
-	border:1px solid red;
+.comment_cont.re{
+	background:#f7f9fa;
+	margin-left:20px;
+	border-bottom:2px solid #dae1e6;
 }

@@ -16,31 +16,55 @@ function reply(e){
 			url:"TradeCommentWrite",
 			type:"post",
 			data:{
-				"user_id": user_id,
-				"trade_comment":$("textarea[name='trade_recomment']").val(),
-				"trade_comment_id":comment_id,
-				"trade_depth":$("input[name='re_trade_depth']").val(),
-				"trade_id":trade_id,
+				user_id: user_id,
+				trade_comment:$("textarea[name='trade_recomment']").val(),
+				trade_comment_id:comment_id,
+				trade_depth:$("input[name='re_trade_depth']").val(),
+				trade_id:trade_id,
 			},
 			dataType:"json",
-			success:function(data,status,xhr){
+			success:function(data){
 				console.log(data);
 				$(dom).parent().parent().after(`
 					<div class="comment_cont re" style="margin-left: 20px;">
-					<input type="hidden" name="trade_comment_id" value="${data}"/>
+					<input type="hidden" name="trade_comment_id" value="${data.trade_comment_id}"/>
 					<strong style="color: red">${user_id}</strong>
 					<br>
-					<span>${$("textarea[name='trade_recomment']").val()}</span>
+					<span>${data.trade_comment}</span>
+					<p>${data.comment_regidate}</p>
 					</div>
 				`);
+				$(dom).parents().filter(".recomment_cont").remove();
 			},
 			error:function(xhr,status,error){
 				alert(error);
+				
 			}
 		});
 }
 
-
+function del(){
+	$(".delBtn").on("click",function(){
+	alert("hello");
+	console.log("deleteBtn클릭");
+	var comment_id=$(this).attr("data-commentid");
+	console.log(comment_id);
+	var user_id=$(this).attr("data-user");
+	var xxx=$(this);
+	$.ajax({
+		url:'TradeCommentDelete',
+		type:'get',
+		data:{
+			comment_id:comment_id,
+			user_id:user_id
+		},
+		success:function(data){
+			console.log("deleteSuccess");
+			xxx.parents().filter(".comment_cont").remove();
+		}
+	});
+});
+}
 for(const x in cBtn){
 	cBtn[x].addEventListener('click',function(){
 		comment_id=cBtn[x].value;
@@ -64,4 +88,7 @@ function getHtml(trade_id,comment_id,user_id){
  return result;
 }
 
+
+
+	
 

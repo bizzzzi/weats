@@ -101,4 +101,29 @@ public class TradeService {
 		}return list;
 	}
 	
+	public String CommentRegidate(String trade_comment_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		String regidate=null;
+		try {
+			regidate=dao.CommentRegidate(session, trade_comment_id);
+		}finally {
+			session.close();
+		}return regidate;
+	}
+	
+	public int CommentDel(String trade_comment_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int result=0;
+		try {
+			result=dao.CommentDel(session, trade_comment_id);
+			if(result!=0) {
+				session.commit();
+			}
+		}catch (Exception e) {
+			session.rollback();
+		}finally {
+			session.close();
+		}return result;
+	}
+	
 }

@@ -13,7 +13,6 @@
     body{
         width: 100%;
         min-height: 100vh;
-
     }
     section{
         width: fit-content;
@@ -46,7 +45,6 @@
     }
     .text_info ul{
         width: fit-content;
-
     }
     .text_info li{
         list-style: none;
@@ -56,7 +54,6 @@
        width: 100%;
        text-align: center;
        margin-top: 10%;
-
     }
     .contentsdiv{
         width: 50%;
@@ -64,9 +61,7 @@
         top: 40px;
         left: 15%;
         
-
     }
-
 </style> -->
 <%
 	TradeDTO dto=(TradeDTO)request.getAttribute("dto");
@@ -75,6 +70,7 @@
 	if(memberDTO!=null){
 		user_id=memberDTO.getUser_id();
 	}
+	System.out.print("user_id"+user_id);
 %>
 <section style="margin: 0 auto;">
 	<!-- 상품상세정보 -->
@@ -119,32 +115,45 @@
 		<input type="hidden" name="re_user_id" value="<%=user_id %>">
 		<%
 		List<TradeCommentsDTO> list=(List<TradeCommentsDTO>)request.getAttribute("list");
-        for(TradeCommentsDTO x:list){
-        	if(x.getTrade_depth() == 0) {
-        %>
-		<div class="comment_cont" style="border-bottom: 3px solid #eee">
-			<strong style="color: red"><%=x.getUser_id() %></strong>
-			<br>
-			<span><%=x.getTrade_comment() %></span>
-			<p><%=x.getComment_regidate() %></p>
-			<button class="re_comment_btn" value="<%=x.getTrade_comment_id()%>">댓글달기</button>
-			<% } else { %>
-			<div class="comment_cont re" style="margin-left: 20px;">
-				<strong style="color: red"><%=x.getUser_id() %></strong>
+		List<TradeCommentsDTO> list1=(List<TradeCommentsDTO>)request.getAttribute("list1");
+		
+		for(TradeCommentsDTO aaa: list) {//원댓글
+			if(aaa.getTrade_depth() == 0) {
+		%>	
+			<div class="comment_cont">
+				<strong style="color:red"><%=aaa.getUser_id() %></strong>
 				<br>
-				<span><%=x.getTrade_comment() %></span>
-				<p><%=x.getComment_regidate() %></p>
-				<% } %>
-				<%-- <form class="recomment_cont" method="post" style="maring-left:20px;">
-	        		<input type="hidden" name="re_trade_id" value="<%=x.getTrade_id()%>">
-	        		<input type="hidden" name="re_trade_depth" value=1>
-	        		<input type="hidden" name="re_trade_comment_id" value="<%=x.getTrade_comment_id() %>"/> 
-	        		<input type="hidden" name="re_user_id" value="<%=x.getUser_id() %>"/>
-	        		<textarea name="trade_recomment" rows="5" cols="100"></textarea>
-	        		<button class="re_comment_submit">답글2</button>
-	        	</form> --%>
-			</div>
-			<%}
-        %>
-		</div>
-</section>
+				<span><%=aaa.getTrade_comment() %></span>
+				<p><%=aaa.getComment_regidate() %></p>
+				<p>depth: <%=aaa.getTrade_depth() %></p>
+				<%if(aaa.getUser_id().equals(user_id)){
+				%>
+				<button class="delBtn" data-commentid="<%=aaa.getTrade_comment_id()%>" data-user="<%=user_id %>" onclick="del()">삭제</button>
+				<button class="updateBtn" data-commentid="<%=aaa.getTrade_comment_id()%>" data-user="<%=user_id %>">수정</button>
+				<button class="re_comment_btn" value="<%=aaa.getTrade_comment_id()%>">댓글달기</button>
+			<% } %>
+		<% 
+			for(TradeCommentsDTO xxx: list1) {//대댓글 추출
+				if(aaa.getTrade_comment_id().equals(xxx.getTrade_comment_level())) {
+		%>			
+					<div class="comment_cont re">
+						<strong style="color:red"><%=xxx.getUser_id() %></strong>
+						<br>
+						<span><%=xxx.getTrade_comment() %></span>
+						<p><%=xxx.getComment_regidate() %></p>
+						<p>depth: <%=xxx.getTrade_depth() %></p>
+						<%if(xxx.getUser_id().equals(user_id)){
+						%>
+							<button class="delBtn" data-commentid="<%=xxx.getTrade_comment_id()%>" data-user="<%=user_id %>" onclick="del()">삭제</button>
+							<button class="updateBtn" data-commentid="<%=xxx.getTrade_comment_id()%>" data-user="<%=user_id %>">수정</button>
+						<% } %>
+					</div>
+				<% }%>	
+			<% 	} %>
+				</div>
+			<% 	} %>
+			<% } %>	
+		
+		
+        </div>
+			</section>
