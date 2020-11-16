@@ -23,9 +23,12 @@ public class PartnerDeleteServelt extends HttpServlet {
 			String partner_id=request.getParameter("partner_id");
 		
 			PartnerService pservice=new PartnerService();
-			pservice.partnerDelete(partner_id);
+			int n=pservice.partnerDelete(partner_id);
 			
-			session.setAttribute("partnerDeleteMesg", "파트너 탈퇴가 완료되었습니다");
+			if(n==1) {
+				session.setAttribute("partnerDeleteMesg", "파트너 탈퇴가 완료되었습니다");
+			}
+			
 			RequestDispatcher dis=request.getRequestDispatcher("main.jsp");
 			dis.forward(request, response);
 		}

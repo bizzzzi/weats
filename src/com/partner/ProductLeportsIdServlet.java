@@ -1,7 +1,6 @@
 package com.partner;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,36 +11,32 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.dto.LeportsDTO;
-import com.dto.MemberDTO;
-import com.dto.PartnerDTO;
 import com.service.PartnerService;
 
 /**
- * Servlet implementation class ProductControlServlet
+ * Servlet implementation class ProductLeportsIdServlet
  */
-@WebServlet("/ProductControlServlet")
-public class ProductControlServlet extends HttpServlet {
+@WebServlet("/ProductLeportsIdServlet")
+public class ProductLeportsIdServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			HttpSession session=request.getSession();
-		
+			
+			String leports_title=request.getParameter("leports_title");
+			
 			PartnerService pservice=new PartnerService();
 			
-			PartnerDTO pdto=(PartnerDTO)session.getAttribute("partner");
-			String partner_id=pdto.getPartner_id();
-			
-			List<LeportsDTO> list=pservice.ProductControl(partner_id);
-			System.out.println(list);
-			
-			session.setAttribute("leports_list", list);
-			
-			RequestDispatcher dis=request.getRequestDispatcher("partner/ProductControl.jsp");
-			dis.forward(request, response);
-		}
+			LeportsDTO ldto=pservice.leportsIdSelect(leports_title);
+	
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+			
+			session.setAttribute("leports", ldto);
+			
+			RequestDispatcher dis=request.getRequestDispatcher("partner/productRegistrationForm_item.jsp");
+			dis.forward(request, response);
+	}
+
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
