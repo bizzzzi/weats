@@ -43,12 +43,8 @@ function reply(e){
 		});
 }
 
-function del(){
 	$(".delBtn").on("click",function(){
-	alert("hello");
-	console.log("deleteBtn클릭");
 	var comment_id=$(this).attr("data-commentid");
-	console.log(comment_id);
 	var user_id=$(this).attr("data-user");
 	var xxx=$(this);
 	$.ajax({
@@ -59,12 +55,41 @@ function del(){
 			user_id:user_id
 		},
 		success:function(data){
-			console.log("deleteSuccess");
-			xxx.parents().filter(".comment_cont").remove();
-		}
+			xxx.text("삭제삭제");
+			console.log(xxx);
+			/*alert("success")*/
+			xxx.parent().remove();
+		},
+		error:function(xhr,status,error){
+				alert(error);
+				
+			}
 	});
-});
-}
+	})
+	
+	$(".delBtn2").on("click",function(){
+	var comment_level=$(this).attr("data-commentlevel");
+	var user_id=$(this).attr("data-user");
+	var xxx=$(this);
+	$.ajax({
+		url:'TradeCommentDelete',
+		type:'get',
+		data:{
+			comment_level:comment_level,
+			user_id:user_id
+		},
+		success:function(data){
+			/*alert("success")*/
+			xxx.parent().remove();
+		},
+		error:function(xhr,status,error){
+				alert(error);
+				
+			}
+	});
+	})
+	
+
 for(const x in cBtn){
 	cBtn[x].addEventListener('click',function(){
 		comment_id=cBtn[x].value;

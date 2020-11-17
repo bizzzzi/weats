@@ -128,8 +128,8 @@
 				<p>depth: <%=aaa.getTrade_depth() %></p>
 				<%if(aaa.getUser_id().equals(user_id)){
 				%>
-				<button class="delBtn" data-commentid="<%=aaa.getTrade_comment_id()%>" data-user="<%=user_id %>" onclick="del()">삭제</button>
-				<button class="updateBtn" data-commentid="<%=aaa.getTrade_comment_id()%>" data-user="<%=user_id %>">수정</button>
+				<button class="delBtn2" data-commentlevel="<%=aaa.getTrade_comment_level()%>" data-user="<%=user_id %>">삭제</button>
+				<button class="updateBtn2" data-commentlevel="<%=aaa.getTrade_comment_level()%>" data-user="<%=user_id %>">수정</button>
 				<button class="re_comment_btn" value="<%=aaa.getTrade_comment_id()%>">댓글달기</button>
 			<% } %>
 		<% 
@@ -144,7 +144,7 @@
 						<p>depth: <%=xxx.getTrade_depth() %></p>
 						<%if(xxx.getUser_id().equals(user_id)){
 						%>
-							<button class="delBtn" data-commentid="<%=xxx.getTrade_comment_id()%>" data-user="<%=user_id %>" onclick="del()">삭제</button>
+							<button class="delBtn" data-commentid="<%=xxx.getTrade_comment_id()%>" data-user="<%=user_id %>">삭제</button>
 							<button class="updateBtn" data-commentid="<%=xxx.getTrade_comment_id()%>" data-user="<%=user_id %>">수정</button>
 						<% } %>
 					</div>

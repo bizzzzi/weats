@@ -49,4 +49,9 @@ public class TradeDAO {
 		return result;
 	}
 	
+	public int CommentDel2(SqlSession session,String trade_comment_level) {
+		int result=session.delete("CommentDel2",trade_comment_level);
+		return result;
+	}
+	
 }

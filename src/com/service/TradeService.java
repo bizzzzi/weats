@@ -126,4 +126,19 @@ public class TradeService {
 		}return result;
 	}
 	
+	public int CommentDel2(String trade_comment_level) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int result=0;
+		try {
+			result=dao.CommentDel2(session, trade_comment_level);
+			if(result!=0) {
+				session.commit();
+			}
+		}catch (Exception e) {
+			session.rollback();
+		}finally {
+			session.close();
+		}return result;
+	}
+	
 }
