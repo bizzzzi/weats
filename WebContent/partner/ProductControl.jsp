@@ -28,7 +28,7 @@
 	String leports_main_img=dto.getLeports_main_img();
 	String leports_id=dto.getLeports_id();
 %>
-<input type="text" name="leports_id" value="<%=leports_id%>">
+<input type="hidden" name="leports_id" value="<%=leports_id%>">
     <ul class="content">
       <li class="product_img"><img src="#" alt="상품 대표 이미지"><a href="ProductDetailSelectServlet?leports_id=<%=leports_id %>"><%=leports_main_img %></a></li>
       <li class="product_name"><a href="#"><%=leports_title %></a></li>

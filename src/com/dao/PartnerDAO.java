@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.dto.LeportsDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.PartnerDTO;
+import com.dto.ReservationControlDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerDAO {
@@ -83,6 +84,11 @@ public class PartnerDAO {
 	public int ProductUpdateItem(SqlSession session,LeportsItemDTO dto) {
 		int n=session.update("ProductUpdateItem",dto);
 		return n;
+	}
+	//예약관리
+	public List<ReservationControlDTO>  ReservationControl(SqlSession session,String user_id){
+		List<ReservationControlDTO> list=session.selectList("ReservationControl",user_id);
+		return list;
 	}
 	
 }

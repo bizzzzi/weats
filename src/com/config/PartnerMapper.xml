@@ -45,45 +45,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from partner where partner_id=#{partner_id}
 	</delete>
 	
-	
-<!-- 	 	<resultMap type="LeportsDTO" id="LeportsDTO">
-	 	<id property="id" column="id"/>
-		<result column="leports_id" property="leportsId"/>
-		<result column="partner_id" property="partnerId"/>
-		<result column="leports_title" property="leportsTitle"/>
-		<result column="leports_type" property="leportsType"/>
-		<result column="leports_loc" property="leportsLoc"/>
-		<result column="leports_regidate" property="leportsRegidate"/>
-		<result column="leports_main_img" property="leportsMainImg"/>
-		<result column="leports_sub_img1" property="leportsSubImg1"/>
-		<result column="leports_sub_img2" property="leportsSubImg2"/>
-		<result column="leports_sub_img3" property="leportsSubImg3"/>
-		<result column="leports_sub_img4" property="leportsSubImg4"/>
-		<result column="leports_content" property="leportsContent"/>
-		<collection property="leportsItemDTO" resultMap="LeportsItemDTO"></collection>
-	</resultMap>
-	
-		<resultMap type="LeportsDTO" id="leports">
-		<result column="leports_id" property="leports_id"></result>
-		<result column="leports_title" property="leports_title"></result>
-		<result column="leports_loc" property="leports_loc"></result>
-		<result column="leports_regidate" property="leports_regidate"></result>
-		<result column="leports_main_img" property="leports_main_img"></result>
-		<result column="leports_sub_img1" property="leports_sub_img1"></result>
-		<result column="leports_sub_img2" property="leports_sub_img2"></result>
-		<result column="leports_sub_img3" property="leports_sub_img3"></result>
-		<result column="leports_sub_img4" property="leports_sub_img4"></result>
-		<result column="leports_content" property="leports_content"></result>
-	</resultMap>
-	
-	<resultMap type="LeportsItemDTO" id="LeportsItemDTO">
-		<result column="leports_id" property="leports_id"/>
-		<result column="leports_item_title" property="leports_item_title"/>
-		<result column="leports_summary" property="leports_summary"/>
-		<result column="leports_price" property="leports_price"/>
-		<result column="leports_max_capacity" property="leports_max_capacity"/>
-	</resultMap>  -->
-	
 	<!-- 레포츠 상품 등록 -->
  	<insert id="leportsInsert" parameterType="LeportsDTO">
 		insert into leports (leports_id,partner_id,leports_title,leports_type,leports_loc,
@@ -103,6 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{leports_price},#{leports_max_capacity})
 	</insert>
 	
+	<!-- 레포츠 이름으로 레포츠아이디 찾기 -->
 	<select id="leportsIdSelect" parameterType="String" resultType="LeportsDTO">
 		select leports_id,leports_title from leports where leports_title=#{leports_title}
 	</select>
@@ -124,29 +86,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from leports
 		where partner_id=#{partner_id}
 	</select>
-	
-	<!-- 예약관리 상세  leports,reservation-->
-<!--  	<resultMap type="LeportsDTO" id="LeportsDTO">
-		<result column="leports_main_img" property="leports_main_img"/>
-		<result column="leports_title" property="leports_title"/>
-		<collection property="reservationDTO" resultMap="ReservationDTO"></collection>
-	</resultMap>  -->
-	
-<!--  	<resultMap type="ReservationDTO" id="ReservationDTO">
-		<result column="rs_date" property="rs_date"/>
-		<result column="rs_persons" property="rs_persons"/>
-		<result column="rs_name" property="rs_name"/>
-		<result column="rs_phone" property="rs_phone"/>
-		<result column="rs_price" property="rs_price"/>
-	</resultMap>  -->
-	
-<!--  	<select id="reservationControl" parameterType="String" resultMap="LeportsDTO">
-		select l.leports_main_img,l.leports_title,
-		r.rs_date,r.rs_persons,r.rs_name,r.rs_phone,r.rs_price
-		from leports l join reservation r 
-		on l.leports_id =r.leports_id
-		where l.leports_id=#{leports_id}
-	</select>  -->
 	
 	<!-- 상품 상세 페이지 레포츠 -->
  	<select id="ProductDetailLeports" parameterType="String" resultType="leportsDTO">
@@ -177,4 +116,42 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		leports_max_capacity=#{leports_max_capacity}
 		where leports_id=#{leports_id}
 	</update>
+	
+	<!-- 예약관리 -->
+<!-- 	<select id="Reservationleports" parameterType="leportsDTO" resultType="String">
+		select leports_main_img,leports_title 
+		from leports 
+		where partner_id=#{partner_id}
+	</select> -->
+	
+
+	
+	<resultMap type="LeportsDTO" id="leports">
+		<result column="leports_id" property="leports_id"></result>
+		<result column="leports_title" property="leports_title"></result>
+		<result column="leports_main_img" property="leports_main_img"></result>
+	</resultMap>	
+	
+	<resultMap type="ReservationDTO" id="reservation">
+		<result column="rs_date" property="rs_date"/>
+		<result column="rs_persons" property="rs_persons"/>
+		<result column="rs_name" property="rs_name"/>
+		<result column="rs_phone" property="rs_phone"/>
+		<result column="rs_price" property="rs_price"/>
+	</resultMap>
+	
+	<resultMap type="ReservationControlDTO" id="ReservationControl">
+		<collection property="leports" resultMap="leports"></collection>
+		<collection property="reservation" resultMap="reservation"></collection>
+	</resultMap>
+	
+		<!-- 예약관리 -->
+	<select id="ReservationControl" parameterType="String" resultType="ReservationControlDTO">
+		select l.leports_title, l.leports_main_img,l.leports_id,
+		r.rs_date,r.rs_persons,r.rs_name,r.rs_phone,r.rs_price
+		from leports l 
+		join reservation r
+		on l.leports_id = r.leports_id
+		where user_id=#{user_id}
+	</select>
 </mapper>

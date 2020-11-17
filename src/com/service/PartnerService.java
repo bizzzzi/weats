@@ -9,6 +9,7 @@ import com.dao.PartnerDAO;
 import com.dto.LeportsDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.PartnerDTO;
+import com.dto.ReservationControlDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerService {
@@ -186,6 +187,18 @@ public class PartnerService {
 			session.close();
 		}
 		return n;
+	}
+	//예약관리
+	public List<ReservationControlDTO> ReservationControl(String user_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		List<ReservationControlDTO> list=null;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			list=dao.ReservationControl(session, user_id);
+		}finally {
+			session.close();
+		}
+		return list;
 	}
 	
 	

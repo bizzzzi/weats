@@ -27,7 +27,7 @@
   <hr>
   <div class="product_control_page">
     <form method="post">
-<input type="text" name="leports_id" value="<%=leports_id%>">
+<input type="hidden" name="leports_id" value="<%=leports_id%>">
       <div class="box">
         <div class="title">상품 이름</div>
         <div class="sub_box">

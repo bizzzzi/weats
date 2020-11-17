@@ -35,7 +35,7 @@
 
   <div class="partner_mypage_form">
     <form method="post">
-	    <input type="text" name="partner_id" value="<%=partner_id%>">
+	    <input type="hidden" name="partner_id" value="<%=partner_id%>">
 	    <input type="hidden" name="user_id" value="<%=user_id%>">
       <div class="box">
         <div class="title">상호 이름</div>

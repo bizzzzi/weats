@@ -27,7 +27,7 @@ alert('<%=mesg%>');
 		</ul>
 		<ul>
 			<li><a href="ProductControlServlet">등록상품관리</a></li>
-			<li><a href="partner/reservationControl.jsp">예약 관리</a></li>
+			<li><a href="ReservationControl">예약 관리</a></li>
 		</ul>
 	</div>
 </body>
