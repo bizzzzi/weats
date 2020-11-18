@@ -19,6 +19,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where user_id = #{user_id}
 	</update>
 	
+	<!-- 파트너 탈퇴 키 변경 -->
+	<update id="partner_verifyReset" parameterType="String">
+		update member set partner_verify = 0
+		where user_id = #{user_id}
+	</update>
+	
 	<!-- 파트너 마이페이지 -->
 	<select id="partnerSelect" resultType="PartnerDTO" parameterType="String"> 
 		select partner_id,user_id,c_name,c_postnum,c_address,c_detail_address,

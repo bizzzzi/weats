@@ -54,6 +54,20 @@ public class PartnerService {
 		return n;
 	}
 	
+	//파트너 탈퇴 키 변경
+	public int partner_verifyReset(String user_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.partner_verifyReset(session, user_id);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	
 	//파트너 등록
 	public int partnerInsert(PartnerDTO dto) {
 		SqlSession session=MySqlSessionFactory.getSession();
