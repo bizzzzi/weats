@@ -16,15 +16,20 @@
 	String sub_img4 = lDTO.getLeports_sub_img4();
 	String content = lDTO.getLeports_content();
 	String regidate = lDTO.getLeports_regidate();
-	
+	String c_address = lDTO.getC_address();
+	String c_detail_address = lDTO.getC_detail_address();
 %>
 <div>
 	<div>
 		<form action="LeportsReserve">
+				<input type="text" name="main_img" style="display:none" value="<%=main_img%>">
+				<input type="text" name="leports_title" style="display:none" value="<%=leports_title%>">
+				<input type="text" name="c_address" style="display:none" value="<%=c_address%>">
+				
+				
 			<b><%=leports_title%></b>
 			<div>
 				<img src="<%=main_img%>">메인 사진
-				<input type="text" name="main_img" style="display:none" value="<%=main_img%>">
 			</div>
 			<div>
 				<img src="<%=sub_img1%>">서브 1 <img src="<%=sub_img2%>">서브2 

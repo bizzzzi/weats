@@ -15,8 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LeportsReserve")
 public class LeportsReserve extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String totalPrice = request.getParameter("totalPrice"); 
 		String main_img = request.getParameter("main_img");
+		String leports_title = request.getParameter("leports_title");
+		String totalPrice = request.getParameter("totalPrice"); 
 		request.setAttribute("totalPrice",totalPrice);
 		request.setAttribute("main_img",main_img);
 		
