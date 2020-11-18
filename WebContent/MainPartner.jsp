@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 	
 	<%
-	String mesg=(String)session.getAttribute("partnerUpdateMesg");
+	String mesg=(String)session.getAttribute("partnerUpdateMesg");	
 	if(mesg!=null){
 %>    
 <script>
@@ -11,6 +11,17 @@ alert('<%=mesg%>');
 <%
 	}
 	session.removeAttribute("partnerUpdateMesg");
+%>
+<%
+	String mesg2=(String)session.getAttribute("productAddMesg");
+	if(mesg2!=null){
+%>
+<script>
+alert('<%=mesg2%>');
+</script>
+<%
+	}
+	session.removeAttribute("productAddMesg");
 %>
 <!DOCTYPE html>
 <html>
