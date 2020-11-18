@@ -125,6 +125,20 @@ public class PartnerService {
 		return n;
 	}
 	
+	//레포츠 삭제
+	public int leportsDelete(String leports_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.leportsDelete(session, leports_id);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	
 	//레포츠 아이디 찾기
 	public LeportsDTO leportsIdSelect(String leports_title) {
 		SqlSession session=MySqlSessionFactory.getSession();

@@ -58,6 +58,12 @@ public class PartnerDAO {
 		return n;
 	}
 	
+	//레포츠 삭제
+	public int leportsDelete(SqlSession session,String leports_id) {
+		int n=session.delete("leportsDelete",leports_id);
+		return n;
+	}
+	
 	//레포츠 아이디찾기
 	public LeportsDTO leportsIdSelect(SqlSession session,String leports_title) {
 		LeportsDTO dto=session.selectOne("leportsIdSelect",leports_title);
