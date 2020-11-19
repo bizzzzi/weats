@@ -35,12 +35,13 @@ public class ProductAddItemServlet extends HttpServlet {
 					leports_price,leports_max_capacity);
 			
 
-			pservice.leportsItemInsert(idto);
+			int n=pservice.leportsItemInsert(idto);
 			System.out.println(idto);
 			
+			if(n!=0) {
 			session.setAttribute("leports_item", idto);
 			session.setAttribute("productAddMesg", "상품 등록이 완료 되었습니다.");
-			
+			}
 			RequestDispatcher dis=request.getRequestDispatcher("MainPartner.jsp");
 			dis.forward(request, response);
 		}

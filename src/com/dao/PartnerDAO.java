@@ -29,6 +29,12 @@ public class PartnerDAO {
 		return n;
 	}
 	
+	//파트너 탈퇴 키 변경
+	public int partner_verifyReset(SqlSession session,String user_id) {
+		int n=session.update("partner_verifyReset",user_id);
+		return n;
+	}
+	
 	//파트너 등록
 	public int partnerInsert(SqlSession session,PartnerDTO dto) {
 		int n=session.insert("partnerInsert",dto);
@@ -49,6 +55,12 @@ public class PartnerDAO {
 	//레포츠 아이템
 	public int leportsItemInsert(SqlSession session,LeportsItemDTO dto) {
 		int n=session.insert("leportsItemInsert",dto);
+		return n;
+	}
+	
+	//레포츠 삭제
+	public int leportsDelete(SqlSession session,String leports_id) {
+		int n=session.delete("leportsDelete",leports_id);
 		return n;
 	}
 	
@@ -90,5 +102,6 @@ public class PartnerDAO {
 		List<ReservationControlDTO> list=session.selectList("ReservationControl",user_id);
 		return list;
 	}
+	
 	
 }
