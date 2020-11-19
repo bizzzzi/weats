@@ -5,6 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="LeportsMapper">
 	<resultMap type="PartnerDTO" id="partner">
 		<result column="c_address" property="c_address"></result>
+		<result column="c_detail_address" property="c_detail_address"></result>
 		<result column="c_phone" property="c_phone"></result>
 	</resultMap>
 
@@ -66,7 +67,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select l.leports_title, l.leports_main_img, l.leports_sub_img1, l.leports_sub_img2, l.leports_sub_img3, l.leports_sub_img4,
 			to_char(l.leports_regidate, 'yyyy-mm-dd') leports_regidate,
 			litem.leports_item_title, litem.leports_summary, litem.leports_price, litem.leports_max_capacity,
-			p.c_address, p.c_phone, l.leports_content
+			p.c_address, p.c_detail_address, p.c_phone, l.leports_content
 		from partner p
 		join leports l
 		on l.partner_id = p.partner_id
