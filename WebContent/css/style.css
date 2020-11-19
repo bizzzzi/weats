@@ -699,6 +699,8 @@ video {
 	padding: 10px;
 }
 
+
+/* 중고거래 - 혜빈 */
 .trade_nav .option_btn {
 	display: flex;
 	justify-content: center;
@@ -718,4 +720,12 @@ video {
 .trade_list {
 	width: 25%;
 	padding: 30px;
+}
+
+
+/* trade_recomments 대댓글 기능 - 혜빈 */
+.comment_cont.re{
+	background:#f7f9fa;
+	margin-left:20px;
+	border-bottom:2px solid #dae1e6;
 }
