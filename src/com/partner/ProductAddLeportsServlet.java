@@ -38,6 +38,7 @@ public class ProductAddLeportsServlet extends HttpServlet {
 			PartnerService pservice=new PartnerService();
 			PartnerDTO pdto=(PartnerDTO) session.getAttribute("partner");
 			String partner_id=pdto.getPartner_id();
+			System.out.println("파트너 아이디  : "+partner_id);
 			 
 			LeportsDTO ldto=new LeportsDTO(null,partner_id,leports_title,leports_type,
 					leports_loc,leports_regidate,leports_main_img,leports_sub_img1,

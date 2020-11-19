@@ -13,6 +13,7 @@ public class LeportsDetailDTO {
 	private String leports_price;
 	private String leports_max_capacity;
 	private String c_address;
+	private String c_detail_address;
 	private String c_phone;
 	private String leports_content;
 	
@@ -23,7 +24,7 @@ public class LeportsDetailDTO {
 	public LeportsDetailDTO(String leports_title, String leports_main_img, String leports_sub_img1,
 			String leports_sub_img2, String leports_sub_img3, String leports_sub_img4, String leports_regidate,
 			String leports_item_title, String leports_summary, String leports_price, String leports_max_capacity,
-			String c_address, String c_phone, String leports_content) {
+			String c_address, String c_detail_address, String c_phone, String leports_content) {
 		super();
 		this.leports_title = leports_title;
 		this.leports_main_img = leports_main_img;
@@ -37,6 +38,7 @@ public class LeportsDetailDTO {
 		this.leports_price = leports_price;
 		this.leports_max_capacity = leports_max_capacity;
 		this.c_address = c_address;
+		this.c_detail_address = c_detail_address;
 		this.c_phone = c_phone;
 		this.leports_content = leports_content;
 	}
@@ -137,6 +139,14 @@ public class LeportsDetailDTO {
 		this.c_address = c_address;
 	}
 
+	public String getC_detail_address() {
+		return c_detail_address;
+	}
+
+	public void setC_detail_address(String c_detail_address) {
+		this.c_detail_address = c_detail_address;
+	}
+
 	public String getC_phone() {
 		return c_phone;
 	}
@@ -160,12 +170,8 @@ public class LeportsDetailDTO {
 				+ ", leports_sub_img3=" + leports_sub_img3 + ", leports_sub_img4=" + leports_sub_img4
 				+ ", leports_regidate=" + leports_regidate + ", leports_item_title=" + leports_item_title
 				+ ", leports_summary=" + leports_summary + ", leports_price=" + leports_price
-				+ ", leports_max_capacity=" + leports_max_capacity + ", c_address=" + c_address + ", c_phone=" + c_phone
-				+ ", leports_content=" + leports_content + "]";
+				+ ", leports_max_capacity=" + leports_max_capacity + ", c_address=" + c_address + ", c_detail_address="
+				+ c_detail_address + ", c_phone=" + c_phone + ", leports_content=" + leports_content + "]";
 	}
-
-	
-	
-
 	
 }	
