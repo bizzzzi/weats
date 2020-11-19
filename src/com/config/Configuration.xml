@@ -34,7 +34,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="com/config/MemberMapper.xml" />
 		<mapper resource="com/config/LeportsMapper.xml" />
 		<mapper resource="com/config/TradeMapper.xml" />
-		<mapper resource="com/config/TradeMapper.xml" />
+		<mapper resource="com/config/PartnerMapper.xml" />
 	</mappers>
 </configuration>
 
