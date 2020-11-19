@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,11 +12,13 @@
 
 <% String mesg = (String) session.getAttribute("mesg");
 	if(mesg != null) {
+		
 %>
 <script> alert("<%=mesg%>")</script>
 <% } 
 	session.removeAttribute("mesg");
 %>
+
 </head>
 <body>
 

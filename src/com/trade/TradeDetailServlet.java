@@ -1,6 +1,7 @@
 package com.trade;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -11,32 +12,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.TradeCommentsDTO;
 import com.dto.TradeDTO;
 import com.service.TradeService;
 
 /**
  * Servlet implementation class TradeListServlet
  */
-@WebServlet("/TradeListServlet")
-public class TradeListServlet extends HttpServlet {
+@WebServlet("/TradeDetailServlet")
+public class TradeDetailServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String category=(String)request.getParameter("category");
+		System.out.println("detail로딩");
+		String trade_id=(String)request.getParameter("trade_id");
 		TradeService service=new TradeService();
-		List<TradeDTO> list=null;
-		if(category==null) {
-			list=service.selectTrade("판매");
-		}else {
-			list=service.selectTrade(category);
-		}
 		
-		String user_id=(String)request.getParameter("user_id");
-		if(user_id!=null) {
-			list=service.selectSelf(user_id);
-		}
-
+		TradeDTO dto=service.selectItem(trade_id);
+		List<TradeCommentsDTO> list=service.CommentList(trade_id);
+		request.setAttribute("dto", dto);
 		request.setAttribute("list", list);
-
-		RequestDispatcher dis=request.getRequestDispatcher("MainTrade.jsp");
+		List<TradeCommentsDTO> listxxx = new ArrayList<>();
+		for(TradeCommentsDTO xxx: list) {
+			if(xxx.getTrade_depth() == 1) {
+				listxxx.add(xxx);
+			}
+		}
+		request.setAttribute("list1",listxxx);
+		RequestDispatcher dis=request.getRequestDispatcher("MainTradeDetail.jsp");
 		dis.forward(request, response);
 	}
 

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Weats Resale</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <script src="https://kit.fontawesome.com/400289e08c.js" crossorigin="anonymous"></script>
@@ -25,16 +25,11 @@
 		<jsp:include page="common/header_mobile.jsp" flush="true"></jsp:include>
 		<jsp:include page="common/navbar_mobile.jsp" flush="true"></jsp:include>
 	</div>
-	<div id="leports_Detail_Nav">
-		<jsp:include page="leports/leportsDetailNav.jsp" flush="true"></jsp:include>
-	</div>
-	<div id="leports_Detail">
-		<jsp:include page="leports/leportsDetail.jsp" flush="true"></jsp:include>
+	<div id="Resale_list">
+		<jsp:include page="trade/tradeWrite.jsp" flush="true"></jsp:include>
 	</div>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
 <script type="text/javascript" src="js/signUpForm.js"></script>
-<script type="text/javascript" src="js/count.js"></script>
-<script type="text/javascript" src="js/calendar.js"></script>
 </body>
 </html>

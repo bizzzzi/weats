@@ -13,6 +13,11 @@
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Noto Sans KR', sans-serif;
+	-ms-user-select: none;
+	-moz-user-select: -moz-none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
 }
 
 body {
@@ -335,8 +340,8 @@ li {
 	background-color: #f6f9fc;
 }
 
-#passwdCheckContainer #passwdCheckForm .logo,
-#passwdCheckContainer #passwdCheckForm .title {
+#passwdCheckContainer #passwdCheckForm .logo, #passwdCheckContainer #passwdCheckForm .title
+	{
 	font-size: 24px;
 	padding-top: 16px;
 }
@@ -355,7 +360,7 @@ li {
 	padding-top: 16px;
 }
 
-#passwdCheckContainer #passwdCheckForm .signRow > input {
+#passwdCheckContainer #passwdCheckForm .signRow>input {
 	width: 80%;
 	height: 50px;
 }
@@ -363,7 +368,6 @@ li {
 #passwdCheckContainer #passwdCheckForm .buttonWrap {
 	padding-top: 16px;
 }
-
 
 #passwdCheckContainer #passwdCheckForm button {
 	all: unset;
@@ -404,8 +408,8 @@ li {
 	background-color: #f6f9fc;
 }
 
-#passwdChangeContainer #passwdChangeForm .logo,
-#passwdChangeContainer #passwdChangeForm .title {
+#passwdChangeContainer #passwdChangeForm .logo, #passwdChangeContainer #passwdChangeForm .title
+	{
 	font-size: 24px;
 	padding-top: 16px;
 }
@@ -419,7 +423,7 @@ li {
 	padding-top: 16px;
 }
 
-#passwdChangeContainer #passwdChangeForm .signRow > input {
+#passwdChangeContainer #passwdChangeForm .signRow>input {
 	width: 80%;
 	height: 50px;
 }
@@ -431,7 +435,6 @@ li {
 #passwdChangeContainer #passwdChangeForm .pwCheck {
 	height: 16px;
 }
-
 
 #passwdChangeContainer #passwdChangeForm button {
 	all: unset;
@@ -617,21 +620,21 @@ video {
 #Resale_list .trade_nav>ul {
 	display: flex;
 	justify-content: center;
-}/* 레포츠 리스트 */
-
+} /* 레포츠 리스트 */
 #leports_list .leports_category_selector_wrap {
 	margin: 0 10%;
 	background-color: grey;
-	
 }
 
-#leports_list .leports_category_selector_wrap .leports_category_selector {
+#leports_list .leports_category_selector_wrap .leports_category_selector
+	{
 	display: flex;
-	width:100%;
+	width: 100%;
 	/* justify-content: space-between; */
 }
 
-#leports_list .leports_category_selector_wrap .leports_category_selector > li {
+#leports_list .leports_category_selector_wrap .leports_category_selector>li
+	{
 	width: 100%;
 	padding: 0 10px;
 	text-align: center;
@@ -650,7 +653,6 @@ video {
 	right: 45px;
 }
 
-
 #leports_list .leports_items {
 	width: 100%;
 	display: flex;
@@ -665,10 +667,40 @@ video {
 	margin: 10px;
 }
 
+/* 달력 */
+.scriptCalendar a {
+	color: #000000;
+	text-decoration: none;
+}
+
+.scriptCalendar {
+	text-align: center;
+}
+
+.scriptCalendar>thead>tr>td {
+	width: 50px;
+	height: 50px;
+}
+
+.scriptCalendar>thead>tr:first-child>td {
+	font-weight: bold;
+}
+
+.scriptCalendar>thead>tr:last-child>td {
+	background-color: #f0f3f5;
+}
+
+.scriptCalendar>tbody>tr>td {
+	width: 50px;
+	height: 50px;
+}
+
 #Resale_list .trade_nav>ul>li {
 	padding: 10px;
 }
 
+
+/* 중고거래 - 혜빈 */
 .trade_nav .option_btn {
 	display: flex;
 	justify-content: center;
@@ -688,4 +720,12 @@ video {
 .trade_list {
 	width: 25%;
 	padding: 30px;
+}
+
+
+/* trade_recomments 대댓글 기능 - 혜빈 */
+.comment_cont.re{
+	background:#f7f9fa;
+	margin-left:20px;
+	border-bottom:2px solid #dae1e6;
 }
