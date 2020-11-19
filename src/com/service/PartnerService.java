@@ -9,6 +9,7 @@ import com.dao.PartnerDAO;
 import com.dto.LeportsDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.PartnerDTO;
+import com.dto.ReservationControlDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerService {
@@ -46,6 +47,20 @@ public class PartnerService {
 		try {
 			PartnerDAO dao=new PartnerDAO();
 			n=dao.partnerDelete(session, partner_id);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	
+	//파트너 탈퇴 키 변경
+	public int partner_verifyReset(String user_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.partner_verifyReset(session, user_id);
 			session.commit();
 		}finally {
 			session.close();
@@ -110,6 +125,20 @@ public class PartnerService {
 		return n;
 	}
 	
+	//레포츠 삭제
+	public int leportsDelete(String leports_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.leportsDelete(session, leports_id);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	
 	//레포츠 아이디 찾기
 	public LeportsDTO leportsIdSelect(String leports_title) {
 		SqlSession session=MySqlSessionFactory.getSession();
@@ -161,5 +190,44 @@ public class PartnerService {
 		}
 		return dto;
 	}
+	//레포츠 수정
+	public int ProductUpdateLeports(LeportsDTO dto) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.ProductUpdateLeports(session, dto);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	//레포츠 아이템 수정
+	public int ProductUpdateItem(LeportsItemDTO dto) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		int n=0;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			n=dao.ProductUpdateItem(session, dto);
+			session.commit();
+		}finally {
+			session.close();
+		}
+		return n;
+	}
+	//예약관리
+	public List<ReservationControlDTO> ReservationControl(String user_id) {
+		SqlSession session=MySqlSessionFactory.getSession();
+		List<ReservationControlDTO> list=null;
+		try {
+			PartnerDAO dao=new PartnerDAO();
+			list=dao.ReservationControl(session, user_id);
+		}finally {
+			session.close();
+		}
+		return list;
+	}
+	
 	
 }

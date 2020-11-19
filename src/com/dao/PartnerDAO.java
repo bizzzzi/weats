@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.dto.LeportsDTO;
 import com.dto.LeportsItemDTO;
 import com.dto.PartnerDTO;
+import com.dto.ReservationControlDTO;
 import com.dto.ReservationDTO;
 
 public class PartnerDAO {
@@ -25,6 +26,12 @@ public class PartnerDAO {
 	//파트너 탈퇴
 	public int partnerDelete(SqlSession session,String partner_id) {
 		int n=session.delete("partnerDelete",partner_id);
+		return n;
+	}
+	
+	//파트너 탈퇴 키 변경
+	public int partner_verifyReset(SqlSession session,String user_id) {
+		int n=session.update("partner_verifyReset",user_id);
 		return n;
 	}
 	
@@ -51,6 +58,12 @@ public class PartnerDAO {
 		return n;
 	}
 	
+	//레포츠 삭제
+	public int leportsDelete(SqlSession session,String leports_id) {
+		int n=session.delete("leportsDelete",leports_id);
+		return n;
+	}
+	
 	//레포츠 아이디찾기
 	public LeportsDTO leportsIdSelect(SqlSession session,String leports_title) {
 		LeportsDTO dto=session.selectOne("leportsIdSelect",leports_title);
@@ -72,6 +85,22 @@ public class PartnerDAO {
 	public LeportsItemDTO ProductDetailItem(SqlSession session,String leports_id) {
 		LeportsItemDTO dto=session.selectOne("ProductDetailItem",leports_id);
 		return dto;
+	}
+	
+	//레포츠 수정
+	public int ProductUpdateLeports(SqlSession session,LeportsDTO dto) {
+		int n=session.update("ProductUpdateLeports",dto);
+		return n;
+	}
+	//레포츠 아이템 수정
+	public int ProductUpdateItem(SqlSession session,LeportsItemDTO dto) {
+		int n=session.update("ProductUpdateItem",dto);
+		return n;
+	}
+	//예약관리
+	public List<ReservationControlDTO>  ReservationControl(SqlSession session,String user_id){
+		List<ReservationControlDTO> list=session.selectList("ReservationControl",user_id);
+		return list;
 	}
 	
 	

@@ -25,7 +25,6 @@ public class PartnerMypageUpdate extends HttpServlet {
 			
 			
 		String partner_id=request.getParameter("partner_id");
-		String user_id=request.getParameter("user_id");
 		String c_name=request.getParameter("c_name");
 		String c_phone=request.getParameter("c_phone");
 		String c_postnum=request.getParameter("c_postnum");
@@ -34,7 +33,7 @@ public class PartnerMypageUpdate extends HttpServlet {
 		String partner_license_num=request.getParameter("partner_license_num");
 		String partner_license_docs=request.getParameter("partner_license_docs");
 		
-		PartnerDTO pdto=new PartnerDTO(partner_id,user_id,c_name,c_postnum,c_address,
+		PartnerDTO pdto=new PartnerDTO(partner_id,"",c_name,c_postnum,c_address,
 				c_detail_address,c_phone,partner_license_num,partner_license_docs);
 		System.out.println(pdto);
 		
@@ -47,7 +46,7 @@ public class PartnerMypageUpdate extends HttpServlet {
 		
 		
 		
-		RequestDispatcher dis=request.getRequestDispatcher("main.jsp");
+		RequestDispatcher dis=request.getRequestDispatcher("MainPartner.jsp");
 		dis.forward(request, response);
 		}
 

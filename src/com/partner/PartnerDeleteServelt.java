@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dto.MemberDTO;
+import com.dto.PartnerDTO;
 import com.service.PartnerService;
 
 /**
@@ -25,8 +27,12 @@ public class PartnerDeleteServelt extends HttpServlet {
 			PartnerService pservice=new PartnerService();
 			int n=pservice.partnerDelete(partner_id);
 			
+			MemberDTO dto= (MemberDTO)session.getAttribute("login");
+			String user_id=dto.getUser_id();
+			
 			if(n==1) {
 				session.setAttribute("partnerDeleteMesg", "파트너 탈퇴가 완료되었습니다");
+				pservice.partner_verifyReset(user_id);
 			}
 			
 			RequestDispatcher dis=request.getRequestDispatcher("main.jsp");
