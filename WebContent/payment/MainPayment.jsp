@@ -8,6 +8,10 @@
     <title>결제 페이지</title>
   </head>
   <body>
+  <%
+  	String totalPrice = (String)request.getAttribute("totalPrice"); 
+	String main_img = (String)request.getAttribute("main_img");
+  %>
     <h1>결제하기</h1>
     <div class="payment_form_wrap">
       <form>
@@ -15,7 +19,7 @@
           <h3>상품 정보</h3>
           <ul>
             <!-- class명은 임시입니다~~ -->
-            <li class="leports_main_img"><img src="" />레포츠 메인 이미지</li>
+            <li class="leports_main_img"><img src="" /><%=main_img %>레포츠 메인 이미지</li>
             <li class="leports_title">레포츠 타이틀</li>
             <li class="c_name">업체명</li>
             <li class="c_detail_address">업체 상세 주소</li>
@@ -61,7 +65,7 @@
 
         <div class="PAYMENT_BUTTON">
           아래 버튼을 선택하면 게스트 권리 포기서, 환불 정책 및 게스트 환불 정책에 동의하는 것입니다.<br />
-          <button>확인 및 결제</button>
+          <button><%=totalPrice %>원 확인 및 결제</button>
         </div>
       </form>
     </div>

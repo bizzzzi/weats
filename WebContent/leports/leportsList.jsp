@@ -6,8 +6,12 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	String category = (String) session.getAttribute("category");
-	String uri = (String) request.getAttribute("uri");
-	System.out.println("uri ====>" +uri);
+	String loc = (String)request.getAttribute("loc");
+	String type = (String)request.getAttribute("type");
+	String align = (String) request.getAttribute("align");
+	System.out.println("align ==== 	"+align);
+	System.out.println(loc+"\t"+type);
+	
 if (category != null) {
 	if (category.equals("byType")) {
 %>
@@ -40,14 +44,21 @@ if (category != null) {
 <%
 	}
 }
+
 %>
 <div class="leports_list_sort_wrap">
-	<form class="form" action="<%=uri%>">
-		<select class="leports_list_sort" name="selectAlign">
-			<option value="defalut">기본순</option>
-			<option value="minPrice">가격 높은 순</option>
-			<option value="maxPrice">가격 낮은 순</option>
-			<option value="review">리뷰 순</option>
+	<form class="form" action="LeportsListServlet">
+	<input type="hidden" value="<%=category %>" name="category">
+	<% if(type!= null ) { %>
+		<input type="hidden" value="<%=type %>" name="type">
+	<% } else if(loc!=null) { %>
+	<input type="hidden" value="<%=loc %>" name="loc">
+	<% } %>	
+ 		<select class="leports_list_sort" name="selectAlign">
+			<option value="defalut"<%if("defalut".equals(align)){ %>selected<%} %>>기본순</option>
+			<option value="minPrice"<%if("minPrice".equals(align)){ %>selected<%} %>>가격 낮은 순</option>
+			<option value="maxPrice"<%if("maxPrice".equals(align)){ %>selected<%} %>>가격 높은 순</option>
+			<option value="review"<%if("review".equals(align)){ %>selected<%} %>>리뷰 순</option>
 		</select>
 	</form>
 	
